@@ -1,0 +1,81 @@
+site_name: 飞飞
+nav:
+  - Home: 
+    - index.md
+    - 操作系统:
+      - NJU: 
+        - Category/SystemOperation/NJU/4.Python建模操作系统.md
+        - Category/SystemOperation/NJU/5. 多处理器编程：从入门到放弃.md
+    - 音视频:
+      - Category/AudioAndVideo/index.md
+  - About: about.md
+
+theme:
+  name: material
+  icon:
+    logo: material/ski
+  palette:
+    scheme: default # slate
+  font:
+    text: Roboto
+    code: Roboto Mono
+  language: zh
+  features:
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - announce.dismiss
+    - content.action.edit
+    - content.action.view
+    - content.tooltips
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    # - navigation.sections
+    # - navigation.expand
+    - navigation.path
+    - navigation.indexes
+
+markdown_extensions:
+  - markdown.extensions.admonition
+  - markdown.extensions.attr_list
+  - markdown.extensions.md_in_html
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - abbr
+  - markdown.extensions.toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      linenums_style: pymdownx-inline
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: squidfunk
+      repo: mkdocs-material
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true 
+
+extra_css:
+  - stylesheets/extra.css
