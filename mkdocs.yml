@@ -6,6 +6,7 @@ nav:
       - NJU: 
         - Category/SystemOperation/NJU/4.Python建模操作系统.md
         - Category/SystemOperation/NJU/5. 多处理器编程：从入门到放弃.md
+        - Category/SystemOperation/NJU/6.并发控制基础.md
     - 音视频:
       - Category/AudioAndVideo/index.md
     - Reference: reference.md
