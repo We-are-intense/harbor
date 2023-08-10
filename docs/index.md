@@ -4,6 +4,9 @@
 
 [NJU 操作系统：设计与实现 (2023 春季学期)](https://jyywiki.cn/OS/2023/)
 
+- [ ] Peterson 算法 model checker
+
+
 ## Metal 
 
 [Metal-Tutorial](https://github.com/We-are-intense/Metal-Tutorial)
@@ -21,6 +24,8 @@ MTKView 是MetalKit的一个类，layer 是 CAMetalLayer，负责渲染内容到
 
 - 子类MTKView，在drawRect:方法里实现
 - 设置MTKView的代理，在代理drawInMTKView:方法实现
+
+[LearnMetal](https://github.com/loyinglin/LearnMetal)
 
 ## 算法
 
