@@ -35,4 +35,7 @@ MTKView 是MetalKit的一个类，layer 是 CAMetalLayer，负责渲染内容到
 [定点数优化：性能成倍提升](https://zhuanlan.zhihu.com/p/149517485)
 ## 其它
 
-[浙江大学课程攻略共享计划](https://github.com/QSCTech/zju-icicles)
+- [浙江大学课程攻略共享计划](https://github.com/QSCTech/zju-icicles)
+- [C++学习](https://github.com/chengxumiaodaren/cpp-learning)
+- [GCC 进行动态链接的完整过程是怎样的？ - 程序喵大人的回答 - 知乎](https://www.zhihu.com/question/28469080/answer/2120908692)
+- [xHook](https://github.com/iqiyi/xHook/tree/master)
