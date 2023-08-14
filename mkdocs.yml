@@ -9,8 +9,8 @@ nav:
         - Category/SystemOperation/NJU/6.并发控制基础.md
         - Category/SystemOperation/NJU/7. 并发控制：互斥.md
       - OS:ThreeEasyPieces:
-        - Category/SystemOperation/OS:ThreeEasyPieces/25.Dialogue on Concurrency.md
-        - Category/SystemOperation/OS:ThreeEasyPieces/26.Concurrency An Introduction.md
+        - Category/SystemOperation/OS-ThreeEasyPieces/25.Dialogue on Concurrency.md
+        - Category/SystemOperation/OS-ThreeEasyPieces/26.Concurrency An Introduction.md
     - 音视频:
       - Category/AudioAndVideo/index.md
     - 图形:
