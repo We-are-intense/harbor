@@ -1,0 +1,3 @@
+- [CS 自学指南](https://github.com/PKUFlyingPig/cs-self-learning)
+- [中科大郑烇、杨坚全套《计算机网络（自顶向下方法 第7版，James F.Kurose，Keith W.Ross）》课程](https://www.bilibili.com/video/BV1JV411t7ow/?vd_source=fa5dc8f5e6ad21c0ac06fd4bd377e40f)
+- [精益副业：程序员如何优雅地做副业](https://github.com/easychen/lean-side-bussiness)

@@ -20,6 +20,7 @@ nav:
       - OpenGL:
         - Category/Graphics/OpenGL/index.md
     - Reference: reference.md
+    - Resources: Category/resource/index.md
   - About: about.md
 
 theme:
