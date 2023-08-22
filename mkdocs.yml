@@ -18,6 +18,8 @@ nav:
       - Category/Graphics/index.md
       - Metal: 
         - Category/Graphics/Metal/index.md
+        - MetalByTutorials:
+          - Category/Graphics/Metal/MetalByTutorials/Chapter3:The Rendering Pipeline.md
       - OpenGL:
         - Category/Graphics/OpenGL/index.md
     - Reference: reference.md
