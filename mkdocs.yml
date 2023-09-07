@@ -11,6 +11,7 @@ nav:
         - Category/SystemOperation/NJU/9. 并发控制：同步 (1).md
         - Category/SystemOperation/NJU/10. 并发控制：同步 (2).md
         - Category/SystemOperation/NJU/12. 真实世界的并发 Bug.md
+        - Category/SystemOperation/NJU/13. 并发 Bug 的应对.md
       - OS:ThreeEasyPieces:
         - Category/SystemOperation/OS-ThreeEasyPieces/25.Dialogue on Concurrency.md
         - Category/SystemOperation/OS-ThreeEasyPieces/26.Concurrency An Introduction.md
