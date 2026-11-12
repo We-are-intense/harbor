@@ -7,3 +7,13 @@
   <meta name="apple-mobile-web-app-title" content="飞飞">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
 {% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <!-- 注册离线缓存（hooks/offline.py 生成 sw.js）：弱网、断网时也能打开看过和没看过的文章 -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register(new URL("{{ base_url }}/sw.js", location.href));
+    }
+  </script>
+{% endblock %}

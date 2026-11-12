@@ -1,6 +1,15 @@
 // MathJax 配置：只排版 arithmatex 标出的公式（pymdownx.arithmatex generic 模式）。
 // 宏与「信号与系统」LaTeX 笔记导言区里的定义保持一致。
+
+// MathJax 与公式字体都从本站 vendor/ 加载，不走 CDN：地铁等弱网下 CDN 常加载失败、公式出不来，
+// 同源文件还能被 Service Worker（docs/sw.js）缓存，离线也能显示公式。
+const VENDOR = new URL("../vendor/", document.currentScript.src).href;
+
 window.MathJax = {
+  loader: {
+    // MathJax 4 按需从 [fonts]/mathjax-newcm-font/ 加载字体文件，默认指向 jsdelivr
+    paths: { fonts: VENDOR.replace(/\/$/, "") },
+  },
   tex: {
     inlineMath: [["\\(", "\\)"]],
     displayMath: [["\\[", "\\]"]],
