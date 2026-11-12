@@ -1,0 +1,3173 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../05-%E8%BF%9E%E7%BB%ADLTI%E7%B3%BB%E7%BB%9F%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/">
+      
+      
+        <link rel="next" href="../07-%E8%BF%9E%E7%BB%AD%E4%BF%A1%E5%8F%B7%E5%8D%B7%E7%A7%AF%E8%AE%A1%E7%AE%97/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>冲激函数 δ(t) 的性质 - 飞飞</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <!-- 手机「添加到主屏幕」后以全屏应用方式打开，不显示浏览器地址栏和工具栏 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="飞飞">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#t" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="飞飞" class="md-header__button md-logo" aria-label="飞飞" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.92 13.32c-.25-.04-1.21-.32-1.46-.43l-2.07 6.48-3.09-1.13 2.2-5.77L10.45 9 13 7.54c.45 1.13 1.17 2.08 2.12 2.86s2.04 1.27 3.26 1.46l1.12-3.43-1.44-.47-.52 1.6c-.66-.28-1.24-.7-1.74-1.24-.5-.55-.86-1.19-1.08-1.91l-.33-1.08c-.12-.4-.35-.72-.68-.96-.33-.23-.71-.37-1.08-.4-.39-.03-.77.03-1.13.24L8 6.23c-.37.21-.64.51-.81.89-.19.38-.23.76-.19 1.17s.26.77.54 1.08l3.57 3.71-1.69 4.46-6.95-2.49L2 16.46l14.04 5.12q1.17.42 2.49.42c.62 0 1.23-.08 1.83-.23.59-.16 1.14-.38 1.64-.66L20.87 20c-.75.33-1.53.5-2.34.5q-.99 0-1.98-.33l-.75-.28zM19 3c0 1.11-.89 2-2 2s-2-.89-2-2 .9-2 2-2 2 .9 2 2"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            飞飞
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              冲激函数 δ(t) 的性质
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../SystemOperation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  操作系统
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../AudioAndVideo/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  音视频
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  信号与系统
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Graphics/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机图形
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../reference/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="飞飞" class="md-nav__button md-logo" aria-label="飞飞" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.92 13.32c-.25-.04-1.21-.32-1.46-.43l-2.07 6.48-3.09-1.13 2.2-5.77L10.45 9 13 7.54c.45 1.13 1.17 2.08 2.12 2.86s2.04 1.27 3.26 1.46l1.12-3.43-1.44-.47-.52 1.6c-.66-.28-1.24-.7-1.74-1.24-.5-.55-.86-1.19-1.08-1.91l-.33-1.08c-.12-.4-.35-.72-.68-.96-.33-.23-.71-.37-1.08-.4-.39-.03-.77.03-1.13.24L8 6.23c-.37.21-.64.51-.81.89-.19.38-.23.76-.19 1.17s.26.77.54 1.08l3.57 3.71-1.69 4.46-6.95-2.49L2 16.46l14.04 5.12q1.17.42 2.49.42c.62 0 1.23-.08 1.83-.23.59-.16 1.14-.38 1.64-.66L20.87 20c-.75.33-1.53.5-2.34.5q-.99 0-1.98-.33l-.75-.28zM19 3c0 1.11-.89 2-2 2s-2-.89-2-2 .9-2 2-2 2 .9 2 2"/></svg>
+
+    </a>
+    飞飞
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Home
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../SystemOperation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    操作系统
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    操作系统
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NJU
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    NJU
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/4.Python%E5%BB%BA%E6%A8%A1%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.Python建模操作系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/5.%20%E5%A4%9A%E5%A4%84%E7%90%86%E5%99%A8%E7%BC%96%E7%A8%8B%EF%BC%9A%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 多处理器编程：从入门到放弃
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/6.%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.并发控制基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/7.%20%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%EF%BC%9A%E4%BA%92%E6%96%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 并发控制：互斥
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/9.%20%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%EF%BC%9A%E5%90%8C%E6%AD%A5%20%281%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 并发控制：同步 (1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/10.%20%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%EF%BC%9A%E5%90%8C%E6%AD%A5%20%282%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 并发控制：同步 (2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/12.%20%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%9A%84%E5%B9%B6%E5%8F%91%20Bug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 真实世界的并发 Bug
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/13.%20%E5%B9%B6%E5%8F%91%20Bug%20%E7%9A%84%E5%BA%94%E5%AF%B9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 并发 Bug 的应对
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OS:ThreeEasyPieces
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OS:ThreeEasyPieces
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/OS-ThreeEasyPieces/25.Dialogue%20on%20Concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25.Dialogue on Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/OS-ThreeEasyPieces/26.Concurrency%20An%20Introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26.Concurrency An Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../AudioAndVideo/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音视频
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    音视频
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    H264
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    H264
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AudioAndVideo/H264/H264%E7%BB%93%E6%9E%84%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 码流的组织结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信号与系统
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    信号与系统
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    浙大 2022（胡浩基）
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    浙大 2022（胡浩基）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-%E5%85%B8%E5%9E%8B%E7%9A%84%E4%BF%A1%E5%8F%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    典型的信号
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-%E4%BF%A1%E5%8F%B7%E7%9A%84%E8%87%AA%E5%8F%98%E9%87%8F%E5%8F%98%E6%8D%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信号的自变量变换
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-%E5%85%B8%E5%9E%8B%E7%9A%84%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    典型的系统：线性、时不变、因果、无记忆、可逆、稳定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%28LTI%29%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%9A%E4%B9%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性时不变（LTI）系统的定义
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-%E7%A6%BB%E6%95%A3LTI%E7%B3%BB%E7%BB%9F%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    离散 LTI 系统的卷积公式推导
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-%E8%BF%9E%E7%BB%ADLTI%E7%B3%BB%E7%BB%9F%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    连续 LTI 系统的卷积公式推导
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    冲激函数 δ(t) 的性质
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    冲激函数 δ(t) 的性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 复习：冲激函数的定义
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 性质一：积分为 1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 性质二：筛选性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 两个函数相等的定义
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 两个函数相等的定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 定义一：逐点相等
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 定义二：只在有限个点上不等
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 定义三：勒贝格的定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 勒贝格积分：横着数钱
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 可数集与不可数集
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 可数集与不可数集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 两个无限集「一样多」
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 可数集与不可数集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 一小段实数与整条实数轴一样多
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 性质三：与冲激相乘
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 性质四：尺度变换
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8 函数相等与卷积
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9 性质五：冲激的复合
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 冲激函数的多样性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10 冲激函数的多样性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-deltat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 判定一个函数是不是 \(\delta(t)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 对称的窄方波
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 三角形脉冲
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.4 抽样函数的极限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.5 另一个例子
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-%E8%BF%9E%E7%BB%AD%E4%BF%A1%E5%8F%B7%E5%8D%B7%E7%A7%AF%E8%AE%A1%E7%AE%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    连续信号卷积的计算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Graphics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机图形
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机图形
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Graphics/Metal/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metal
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Metal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MetalByTutorials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MetalByTutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Graphics/Metal/MetalByTutorials/Chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Graphics/OpenGL/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenGL
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OpenGL
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 复习：冲激函数的定义
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 性质一：积分为 1
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 性质二：筛选性
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 两个函数相等的定义
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 两个函数相等的定义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 定义一：逐点相等
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 定义二：只在有限个点上不等
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 定义三：勒贝格的定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 勒贝格积分：横着数钱
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 可数集与不可数集
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 可数集与不可数集">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 两个无限集「一样多」
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 可数集与不可数集
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 一小段实数与整条实数轴一样多
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 性质三：与冲激相乘
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 性质四：尺度变换
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8 函数相等与卷积
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9 性质五：冲激的复合
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10 冲激函数的多样性
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10 冲激函数的多样性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#101-deltat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.1 判定一个函数是不是 \(\delta(t)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#102" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.2 对称的窄方波
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#103" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.3 三角形脉冲
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#104" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.4 抽样函数的极限
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#105" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10.5 另一个例子
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    信号与系统
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    浙大 2022（胡浩基）
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="t">冲激函数 δ(t) 的性质<a class="headerlink" href="#t" title="Permanent link">&para;</a></h1>
+<p class="notes-subtitle">浙江大学 2022《信号与系统》（胡浩基）听课笔记（教材第 12、24 页）</p>
+
+<p><a class="md-button" href="../pdf/06-%E5%86%B2%E6%BF%80%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8.pdf"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> 下载 PDF 版</a></p>
+<!-- 本页由 tools/signal_notes/sync.py 从 LaTeX 笔记自动生成，请勿手改；改动请改源 .tex 后重新同步。 -->
+
+<h2 id="1">1 复习：冲激函数的定义<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><span class="arithmatex">\(\delta_\Delta(t)\)</span> 是从 <span class="arithmatex">\(0\)</span> 到 <span class="arithmatex">\(\Delta\)</span> 的方波，宽度 <span class="arithmatex">\(\Delta\)</span>，高度 <span class="arithmatex">\(\dfrac1\Delta\)</span>，面积为 <span class="arithmatex">\(1\)</span>；</p>
+<div class="arithmatex">\[
+\delta(t)=\lim_{\Delta\to0}\delta_\Delta(t).
+\]</div>
+</div>
+<p>下面的性质一、二直接从这个定义出发证明；性质三起要用到「两个函数相等」的新定义（第 4 节）。</p>
+<h2 id="2-1">2 性质一：积分为 1<a class="headerlink" href="#2-1" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<div class="arithmatex">\[
+\int_{-\infty}^{+\infty}\delta(t)\,\mathrm{d}t=1\qquad(\text{教材第 12 页式 1-38}).
+\]</div>
+<p>推广到任意上下限：</p>
+<div class="arithmatex">\[
+\int_a^b\delta(t)\,\mathrm{d}t=
+\begin{cases}
+1, &amp; a\lt{}0\lt{}b,\\
+-1, &amp; a\gt{}0\gt{}b,\\
+0, &amp; \text{其他（上下限同号）}.
+\end{cases}
+\]</div>
+</div>
+<p><span class="pt-head">▸ <strong>证明。</strong></span> 对任意 <span class="arithmatex">\(\Delta\)</span>，<span class="arithmatex">\(\delta_\Delta(t)\)</span> 的面积是 <span class="arithmatex">\(\Delta\cdot\frac1\Delta=1\)</span>，即 <span class="arithmatex">\(\int_{-\infty}^{+\infty}\delta_\Delta(t)\,\mathrm{d}t=1\)</span>。所以</p>
+<div class="arithmatex">\[
+\begin{align*}
+\int_{-\infty}^{+\infty}\delta(t)\,\mathrm{d}t
+&amp;=\int_{-\infty}^{+\infty}\Big[\lim_{\Delta\to0}\delta_\Delta(t)\Big]\mathrm{d}t\\
+&amp;=\lim_{\Delta\to0}\int_{-\infty}^{+\infty}\delta_\Delta(t)\,\mathrm{d}t
+&amp;&amp;\text{（$\delta(t)$ 的积分就\textbf{定义}为这个极限）}\\
+&amp;=\lim_{\Delta\to0}1=1.
+\end{align*}
+\]</div>
+<p><span class="pt-head">▸ <strong>推广的含义。</strong></span> 冲激只在 <span class="arithmatex">\(t=0\)</span> 一个点上「冲上去」。积分区间跨过 <span class="arithmatex">\(0\)</span>（<span class="arithmatex">\(a\lt{}0\lt{}b\)</span>）才积到它，结果为 <span class="arithmatex">\(1\)</span>；反过来积（从大到小，<span class="arithmatex">\(a\gt{}0\gt{}b\)</span>）按积分的定义变号，为 <span class="arithmatex">\(-1\)</span>；区间不含 <span class="arithmatex">\(0\)</span>（上下限都小于 <span class="arithmatex">\(0\)</span> 或都大于 <span class="arithmatex">\(0\)</span>），积分为 <span class="arithmatex">\(0\)</span>。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/06-01.svg" /></p>
+<p class="fig-caption"><strong>图 1</strong> 左：每个 <span class="arithmatex">\(\delta_\Delta(t)\)</span> 的面积都是 <span class="arithmatex">\(1\)</span>。右：积分区间跨过 <span class="arithmatex">\(0\)</span> 时积到冲激，结果为 <span class="arithmatex">\(1\)</span>；区间不含 <span class="arithmatex">\(0\)</span> 时结果为 <span class="arithmatex">\(0\)</span>。</p>
+<h2 id="3">3 性质二：筛选性<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p>若 <span class="arithmatex">\(x(t)\)</span> 在 <span class="arithmatex">\(t=0\)</span> 处连续，则</p>
+<div class="arithmatex">\[
+\int_{-\infty}^{+\infty}x(t)\,\delta(t)\,\mathrm{d}t=x(0)\qquad(\text{教材第 12 页式 1-40}).
+\]</div>
+<p>变形（冲激移到 <span class="arithmatex">\(t_0\)</span>）：</p>
+<div class="arithmatex">\[
+\int_{-\infty}^{+\infty}x(t)\,\delta(t-t_0)\,\mathrm{d}t=x(t_0).
+\]</div>
+<p><span class="arithmatex">\(x(t)\)</span> 与冲激相乘再积分，只「筛」出冲激所在那一点的值。性质一是性质二在 <span class="arithmatex">\(x(t)\equiv1\)</span> 时的特例。</p>
+</div>
+<p><span class="pt-head">▸ <strong>证明。</strong></span></p>
+<div class="arithmatex">\[
+\begin{align*}
+\int_{-\infty}^{+\infty}x(t)\,\delta(t)\,\mathrm{d}t
+&amp;=\lim_{\Delta\to0}\int_{-\infty}^{+\infty}x(t)\,\delta_\Delta(t)\,\mathrm{d}t\\
+&amp;=\lim_{\Delta\to0}\int_0^\Delta x(t)\cdot\frac1\Delta\,\mathrm{d}t
+&amp;&amp;\text{（$\delta_\Delta$ 只在 $[0,\Delta]$ 上非零，值为 $\tfrac1\Delta$）}\\
+&amp;=\lim_{\Delta\to0}\frac1\Delta\int_0^\Delta x(t)\,\mathrm{d}t\\
+&amp;=\lim_{\Delta\to0}\frac1\Delta\cdot x(\xi)\,\Delta,\quad 0\le\xi\le\Delta
+&amp;&amp;\text{（积分中值定理）}\\
+&amp;=\lim_{\Delta\to0}x(\xi)=x(0)
+&amp;&amp;\text{（$\xi$ 被夹在 $0$ 与 $\Delta$ 之间）}.
+\end{align*}
+\]</div>
+<p><strong>积分中值定理</strong>：函数在一段区间上的积分，等于区间内某一点 <span class="arithmatex">\(\xi\)</span> 处的函数值乘区间长度。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/06-02.svg" /></p>
+<p class="fig-caption"><strong>图 2</strong> <span class="arithmatex">\(x(t)\,\delta_\Delta(t)\)</span> 只在 <span class="arithmatex">\([0,\Delta]\)</span> 上非零。浅蓝色是 <span class="arithmatex">\(\int_0^\Delta x(t)\,\mathrm{d}t=x(\xi)\Delta\)</span>，乘 <span class="arithmatex">\(\frac1\Delta\)</span> 后剩 <span class="arithmatex">\(x(\xi)\)</span>；<span class="arithmatex">\(\Delta\to0\)</span> 时 <span class="arithmatex">\(\xi\to0\)</span>，结果是 <span class="arithmatex">\(x(0)\)</span>。</p>
+<h2 id="4">4 两个函数相等的定义<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>性质三 <span class="arithmatex">\(x(t)\delta(t)=x(0)\delta(t)\)</span> 的「<span class="arithmatex">\(=\)</span>」两边都含冲激，不能逐点比较。要证明它，先要回答一个看似简单的问题：<strong>两个函数 <span class="arithmatex">\(f_1(t)\)</span> 与 <span class="arithmatex">\(f_2(t)\)</span> 什么时候相等？</strong></p>
+<h3 id="41">4.1 定义一：逐点相等<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>定义一</strong>：若对任意 <span class="arithmatex">\(t_0\in\mathbb{R}\)</span>，有 <span class="arithmatex">\(f_1(t_0)=f_2(t_0)\)</span>，则 <span class="arithmatex">\(f_1(t)=f_2(t)\)</span>。</p>
+</div>
+<p>两条曲线必须<strong>每一点都严丝合缝</strong>地重合。这个定义<strong>太严格</strong>。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/06-03.svg" /></p>
+<p class="fig-caption"><strong>图 3</strong> 两个函数只在 <span class="arithmatex">\(t_0\)</span> 一点不同。按定义一它们不相等；按下面的定义二、定义三它们相等。</p>
+<h3 id="42">4.2 定义二：只在有限个点上不等<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<p>如果只在一个点上不同也算相等，那么由等号的<strong>传递性</strong>，两个点、三个点……任意有限个点上不同也都必须算相等（中间插一个「只差一个点」的函数即可传递过去）。于是：</p>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>定义二</strong>：若 <span class="arithmatex">\(f_1(t)\)</span> 与 <span class="arithmatex">\(f_2(t)\)</span> 只在<strong>有限个点</strong>上不相等，在其他点上相等，则 <span class="arithmatex">\(f_1(t)=f_2(t)\)</span>。</p>
+</div>
+<p>这个定义可以用，但写法笨拙。</p>
+<h3 id="43">4.3 定义三：勒贝格的定义<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>定义三</strong>（勒贝格(Lebesgue)定义）：<span class="arithmatex">\(f_1(t)=f_2(t)\)</span> 是指对<strong>任意</strong>函数 <span class="arithmatex">\(y(t)\)</span>，有</p>
+<div class="arithmatex">\[
+\int_{-\infty}^{+\infty}y(t)\,f_1(t)\,\mathrm{d}t=\int_{-\infty}^{+\infty}y(t)\,f_2(t)\,\mathrm{d}t .
+\]</div>
+</div>
+<p>意思是：拿任意一个函数 <span class="arithmatex">\(y(t)\)</span> 去和它们分别相乘、再积分，结果总是一样，就认为这两个函数相等。</p>
+<p><span class="pt-head">▸ <strong>定义三包含定义二。</strong></span> 若 <span class="arithmatex">\(f_1\)</span>、<span class="arithmatex">\(f_2\)</span> 只在有限个点上不同，则 <span class="arithmatex">\(y(t)f_1(t)\)</span> 与 <span class="arithmatex">\(y(t)f_2(t)\)</span> 也只在这有限个点上不同；按黎曼积分的定义，改动有限个点上的值<strong>不改变积分值</strong>，所以两个积分相等。</p>
+<div class="admonition note">
+<p class="admonition-title">说明</p>
+<ul>
+<li>
+<p>「任意 <span class="arithmatex">\(y(t)\)</span>」不包括 <span class="arithmatex">\(\delta(t)\)</span> 这类奇异函数：<span class="arithmatex">\(y(t)\)</span> 不能取冲激。</p>
+</li>
+<li>
+<p>「在有限个点上不等」指这些点上都是确定的有限值。若一个函数在某点有冲激、另一个没有，它们不相等。</p>
+</li>
+<li>
+<p>若某个 <span class="arithmatex">\(y(t)\)</span> 让积分不收敛（例如趋于 <span class="arithmatex">\(+\infty\)</span>），则要求两边同时不收敛、且趋向相同。</p>
+</li>
+</ul>
+</div>
+<p class="ex-head"><span class="ex-badge">例 1</span> <strong>区间上不同的两个函数</strong> <span class="ex-tag">不相等</span></p>
+<p><strong>题目</strong>：<span class="arithmatex">\(f_1(t)\)</span> 与 <span class="arithmatex">\(f_2(t)\)</span> 在 <span class="arithmatex">\([t_1,t_2]\)</span> 以外处处相等，在 <span class="arithmatex">\([t_1,t_2]\)</span> 上 <span class="arithmatex">\(f_2(t)\gt{}f_1(t)\)</span>。按定义三，它们相等吗？</p>
+<p><strong>解</strong>：<strong>不相等</strong>。只需找一个反例 <span class="arithmatex">\(y(t)\)</span>：取 <span class="arithmatex">\(y(t)\)</span> 在 <span class="arithmatex">\([t_1,t_2]\)</span> 上为 <span class="arithmatex">\(1\)</span>、其他地方为 <span class="arithmatex">\(0\)</span>。则</p>
+<div class="arithmatex">\[
+\int_{-\infty}^{+\infty}y(t)f_1(t)\,\mathrm{d}t=\int_{t_1}^{t_2}f_1(t)\,\mathrm{d}t,\qquad
+\int_{-\infty}^{+\infty}y(t)f_2(t)\,\mathrm{d}t=\int_{t_1}^{t_2}f_2(t)\,\mathrm{d}t .
+\]</div>
+<p>由于 <span class="arithmatex">\(t_1\le t\le t_2\)</span> 时 <span class="arithmatex">\(f_2(t)\gt{}f_1(t)\)</span>，所以后者严格大于前者，两个积分不等。哪怕这一段区间很短，两个函数也不相等。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/06-04.svg" /></p>
+<p class="fig-caption"><strong>图 4</strong> 左：<span class="arithmatex">\(f_2\)</span> 只在 <span class="arithmatex">\([t_1,t_2]\)</span> 上高于 <span class="arithmatex">\(f_1\)</span>。右：取 <span class="arithmatex">\(y(t)\)</span> 为 <span class="arithmatex">\([t_1,t_2]\)</span> 上的方波，两个积分不等，所以 <span class="arithmatex">\(f_1\ne f_2\)</span>。</p>
+<p class="ex-head"><span class="ex-badge">例 2</span> <strong>单位阶跃 u(t) 在 0 点的取值</strong> <span class="ex-tag">可以任取</span></p>
+<p><strong>题目</strong>：<span class="arithmatex">\(u(t)=\begin{cases}1,&amp;t\gt{}0\\0,&amp;t\lt{}0\end{cases}\)</span>，<span class="arithmatex">\(u(0)\)</span> 等于多少？</p>
+<p><strong>解</strong>：可以是任意值。设</p>
+<div class="arithmatex">\[
+u_1(t)=\begin{cases}1,&amp;t\ge0\\0,&amp;t\lt{}0\end{cases},\qquad
+u_2(t)=\begin{cases}1,&amp;t\gt{}0\\0,&amp;t\le0\end{cases}.
+\]</div>
+<p>两者只在 <span class="arithmatex">\(t=0\)</span> 一点不同，任何 <span class="arithmatex">\(y(t)\)</span> 与它们相乘后积分都一样。由定义三，<span class="arithmatex">\(u_1(t)=u_2(t)\)</span>，是同一个函数。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/06-05.svg" /></p>
+<p class="fig-caption"><strong>图 5</strong> 实心点是该点的取值，空心点表示不取。两者只差 <span class="arithmatex">\(t=0\)</span> 一个点，按定义三是同一个函数。</p>
+<p class="ex-head"><span class="ex-badge">例 3</span> <strong>系统 y(t)=t·x(t) 是否可逆</strong> <span class="ex-tag">可逆</span></p>
+<p><strong>题目</strong>：系统 <span class="arithmatex">\(y(t)=t\,x(t)\)</span> 可逆吗？</p>
+<p><strong>解</strong>：<span class="arithmatex">\(t\ne0\)</span> 时 <span class="arithmatex">\(x(t)=y(t)/t\)</span>，可以由输出恢复输入；只有 <span class="arithmatex">\(t=0\)</span> 一个点恢复不出来。按定义三，只差一个点的两个函数是同一个函数，所以可以认为这个系统可逆。</p>
+<div class="admonition note">
+<p class="admonition-title">说明</p>
+<p>平时做题不必走极端：例如问 <span class="arithmatex">\(u(3)\)</span> 等于多少，答 <span class="arithmatex">\(1\)</span> 即可。「在个别点上取值可以任意」只用于理解两个函数为什么相等，不要拿来否定常规的结论。</p>
+</div>
+<h3 id="44">4.4 勒贝格积分：横着数钱<a class="headerlink" href="#44" title="Permanent link">&para;</a></h3>
+<p><span class="pt-head">▸ <strong>黎曼积分(Riemann integral)。</strong></span> 高等数学里学的积分：把横轴切成一小段一小段，每段竖着取一个小矩形再相加。勒贝格的比喻是<strong>「竖着数钱」</strong>。</p>
+<p><span class="pt-head">▸ <strong>勒贝格积分(Lebesgue integral)。</strong></span> 把<strong>纵轴</strong>切成一层一层，每一层横着取出函数值落在这一层的那些 <span class="arithmatex">\(t\)</span>，再相加，即<strong>「横着数钱」</strong>。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/06-06.svg" /></p>
+<p class="fig-caption"><strong>图 6</strong> 同一个函数的两种近似求面积方法。左：按 <span class="arithmatex">\(t\)</span> 切成竖条；右：按函数值切成横条，每条的长度是「函数值不低于这一层的 <span class="arithmatex">\(t\)</span> 的范围」。</p>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<ul>
+<li>
+<p>凡是黎曼可积的函数，勒贝格积分也能积，而且结果一样。</p>
+</li>
+<li>
+<p>有些函数黎曼积分积不出来，勒贝格积分能积。经典例子是<strong>狄利克雷函数</strong>(Dirichlet function)：</p>
+<div class="arithmatex">\[
+D(t)=\begin{cases}1,&amp;t\text{ 为有理数}\\0,&amp;t\text{ 为无理数}\end{cases},\qquad
+\int_0^1D(t)\,\mathrm{d}t=0\ (\text{勒贝格积分}).
+\]</div>
+<p>任意小的区间里都既有有理数又有无理数，竖着切怎么切都积不出来。</p>
+</li>
+<li>
+<p>用勒贝格积分理解定义三，定义二中的「有限个点」可以放宽为<strong>可数个点</strong>（第 5 节）：两个函数在可数个点上不等、其他点相等，仍然相等。例如两个函数在所有有理数点上都不等、在所有无理数点上相等，它们仍然相等。</p>
+</li>
+</ul>
+</div>
+<h2 id="5">5 可数集与不可数集<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<p>无限集合分为两类：<strong>可数无限集</strong>（简称可数集(countable set)）和<strong>不可数集</strong>(uncountable set)。这个区分由康托(Cantor)给出，是实变函数的基础。</p>
+<h3 id="51">5.1 两个无限集「一样多」<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p>若存在一个由无限集 <span class="arithmatex">\(A\)</span> 到无限集 <span class="arithmatex">\(B\)</span> 的<strong>一一映射</strong>(bijection)，就称 <span class="arithmatex">\(A\)</span> 与 <span class="arithmatex">\(B\)</span> <strong>一样多</strong>，也叫<strong>等势</strong>或<strong>基数相同</strong>。</p>
+<p>一一映射：<span class="arithmatex">\(A\)</span> 中每个元素唯一对应 <span class="arithmatex">\(B\)</span> 中一个元素，<span class="arithmatex">\(B\)</span> 中每个元素也唯一对应 <span class="arithmatex">\(A\)</span> 中一个元素，<strong>没有重复，也没有遗漏</strong>。</p>
+</div>
+<p class="ex-head"><span class="ex-badge">例 1</span> <strong>自然数与偶数</strong> <span class="ex-tag">一样多</span></p>
+<p>对应 <span class="arithmatex">\(n\leftrightarrow 2n\)</span>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">自然数</td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(3\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(4\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(5\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\cdots\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">偶数</td>
+<td style="text-align: center;"><span class="arithmatex">\(2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(4\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(6\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(8\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(10\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\cdots\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>没有重复也没有遗漏，所以自然数与偶数一样多。同理，自然数与奇数也一样多。</p>
+<p class="ex-head"><span class="ex-badge">例 2</span> <strong>自然数与整数</strong> <span class="ex-tag">一样多</span></p>
+<p>按 <span class="arithmatex">\(0,1,-1,2,-2,3,-3,\dots\)</span> 的顺序编号：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">自然数</td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(3\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(4\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(5\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(6\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(7\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(8\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(9\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\cdots\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">整数</td>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(-1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(-2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(3\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(-3\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(4\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(-4\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\cdots\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>每个整数都排到了一个位置，所以一样多。</p>
+<p class="ex-head"><span class="ex-badge">例 3</span> <strong>自然数与有理数</strong> <span class="ex-tag">一样多</span></p>
+<p>有理数都能写成 <span class="arithmatex">\(\frac mn\)</span>（<span class="arithmatex">\(m,n\)</span> 为整数）。先把所有正有理数排成一张表：第 <span class="arithmatex">\(n\)</span> 行是分母为 <span class="arithmatex">\(n\)</span> 的数（重复的如 <span class="arithmatex">\(\frac22\)</span> 也先写上占位）。再按康托的<strong>折线排序</strong>走一遍：</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/06-07.svg" /></p>
+<p class="fig-caption"><strong>图 7</strong> 折线排序：<span class="arithmatex">\(\frac11\to\frac21\to\frac12\to\frac13\to\frac22\to\frac31\to\frac41\to\frac32\to\frac23\to\frac14\to\cdots\)</span>。灰色的 <span class="arithmatex">\(\frac22,\frac42,\frac33,\frac24,\frac44\)</span> 与前面重复，走到时跳过。</p>
+<p>编号时先放 <span class="arithmatex">\(0\)</span>，之后每走到一个新的正有理数，就紧跟着写上它的相反数：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">自然数</td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(3\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(4\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(5\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(6\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(7\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(8\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(9\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(10\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\cdots\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">有理数</td>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(-1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(-2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\frac12\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(-\frac12\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\frac13\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(-\frac13\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(3\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\cdots\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>所有有理数都会被排到一个位置，所以自然数与有理数一样多。</p>
+<h3 id="52">5.2 可数集与不可数集<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<ul>
+<li>
+<p><strong>可数集</strong>：与自然数集一样多（等势、基数相同）的集合。偶数集、整数集、有理数集都是可数集。</p>
+</li>
+<li>
+<p><strong>实数集不可数</strong>：实数比自然数多，无法从头到尾、不重复不遗漏地排成一列。</p>
+</li>
+</ul>
+</div>
+<p class="ex-head"><span class="ex-badge">例 4</span> <strong>实数集不可数（对角线法）</strong> <span class="ex-tag">反证法</span></p>
+<p>只看 <span class="arithmatex">\((0,1)\)</span> 内的实数。假设它们可数，就能排成一列（以下数字只是举例）：</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/06-08.svg" /></p>
+<p class="fig-caption"><strong>图 8</strong> 构造一个新数：第 <span class="arithmatex">\(k\)</span> 位故意取得和第 <span class="arithmatex">\(k\)</span> 个数的第 <span class="arithmatex">\(k\)</span> 位（红圈）不一样，例如 <span class="arithmatex">\(7\to8\)</span>、<span class="arithmatex">\(4\to3\)</span>、<span class="arithmatex">\(8\to5\)</span>、<span class="arithmatex">\(8\to9\)</span>。</p>
+<p>新数 <span class="arithmatex">\(0.8359\cdots\)</span> 与第 <span class="arithmatex">\(k\)</span> 个数至少在第 <span class="arithmatex">\(k\)</span> 位上不同，所以不在这一列里。这与「所有实数都排进去了」矛盾，因此 <span class="arithmatex">\((0,1)\)</span> 内的实数不可数，实数集不可数。</p>
+<h3 id="53">5.3 一小段实数与整条实数轴一样多<a class="headerlink" href="#53" title="Permanent link">&para;</a></h3>
+<p><span class="pt-head">▸ <strong>两段区间。</strong></span> <span class="arithmatex">\([0,1]\)</span> 与 <span class="arithmatex">\([3,7]\)</span> 一样多：取 <span class="arithmatex">\(b=4a+3\)</span>，<span class="arithmatex">\(a=0\mapsto b=3\)</span>，<span class="arithmatex">\(a=1\mapsto b=7\)</span>，是一一映射。</p>
+<p><span class="pt-head">▸ <strong>一段区间与整条实数轴。</strong></span> <span class="arithmatex">\(\left(-\frac\pi2,\frac\pi2\right)\)</span> 与 <span class="arithmatex">\((-\infty,+\infty)\)</span> 一样多：取 <span class="arithmatex">\(b=\tan a\)</span>，<span class="arithmatex">\(a\to\pm\frac\pi2\)</span> 时 <span class="arithmatex">\(b\to\pm\infty\)</span>，中间一一对应。再先用线性映射把 <span class="arithmatex">\((0,1)\)</span> 变到 <span class="arithmatex">\(\left(-\frac\pi2,\frac\pi2\right)\)</span>，就知道 <span class="arithmatex">\((0,1)\)</span> 也和整条实数轴一样多。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/06-09.svg" /></p>
+<p class="fig-caption"><strong>图 9</strong> 左：<span class="arithmatex">\([0,1]\)</span> 上每个点线性对应到 <span class="arithmatex">\([3,7]\)</span> 上一个点。右：<span class="arithmatex">\(\tan a\)</span> 把 <span class="arithmatex">\(\left(-\frac\pi2,\frac\pi2\right)\)</span> 一一对应到整条实数轴。</p>
+<p class="ex-head"><span class="ex-badge">例 5</span> <strong>线段与正方形一样多</strong> <span class="ex-tag">交错取位</span></p>
+<p><strong>题目</strong>：线段 <span class="arithmatex">\([0,1]\)</span> 上的点，与单位正方形 <span class="arithmatex">\([0,1]\times[0,1]\)</span> 上的点，哪个多？</p>
+<p><strong>解</strong>：一样多。正方形上的点写成 <span class="arithmatex">\((a,b)\)</span>，<span class="arithmatex">\(a,b\in[0,1]\)</span>；把 <span class="arithmatex">\(a\)</span>、<span class="arithmatex">\(b\)</span> 的小数位<strong>交错</strong>抄成一个数 <span class="arithmatex">\(c\)</span>：</p>
+<div class="arithmatex">\[
+a=0.7182\cdots,\quad b=0.5436\cdots
+\quad\Longrightarrow\quad
+c=0.7\,5\,1\,4\,8\,3\,2\,6\cdots
+\]</div>
+<p>（<span class="arithmatex">\(c\)</span> 的奇数位来自 <span class="arithmatex">\(a\)</span>，偶数位来自 <span class="arithmatex">\(b\)</span>。）反过来，从 <span class="arithmatex">\(c\)</span> 的奇数位、偶数位又能拆回 <span class="arithmatex">\(a\)</span> 和 <span class="arithmatex">\(b\)</span>。这建立了正方形与线段之间的一一对应。</p>
+<div class="admonition note">
+<p class="admonition-title">说明</p>
+<p>严格的证明还要处理 <span class="arithmatex">\(0.0999\cdots=0.1\)</span> 这类有两种小数写法的数，这里只讲构造思路。</p>
+</div>
+<h2 id="6">6 性质三：与冲激相乘<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<div class="arithmatex">\[
+x(t)\,\delta(t)=x(0)\,\delta(t)\qquad(\text{教材第 12 页式 1-42}).
+\]</div>
+<p>变形：</p>
+<div class="arithmatex">\[
+x(t)\,\delta(t-t_0)=x(t_0)\,\delta(t-t_0).
+\]</div>
+<p>这里的「<span class="arithmatex">\(=\)</span>」按定义三理解。</p>
+</div>
+<p><span class="pt-head">▸ <strong>证明（基于定义三）。</strong></span> 对任意 <span class="arithmatex">\(y(t)\)</span>，比较两边与 <span class="arithmatex">\(y(t)\)</span> 相乘后的积分：</p>
+<div class="arithmatex">\[
+\begin{align*}
+\text{左边：}\int_{-\infty}^{+\infty}y(t)\big[x(t)\,\delta(t)\big]\mathrm{d}t
+&amp;=\int_{-\infty}^{+\infty}\big[x(t)\,y(t)\big]\delta(t)\,\mathrm{d}t=x(0)\,y(0),\\
+\text{右边：}\int_{-\infty}^{+\infty}y(t)\big[x(0)\,\delta(t)\big]\mathrm{d}t
+&amp;=x(0)\int_{-\infty}^{+\infty}y(t)\,\delta(t)\,\mathrm{d}t=x(0)\,y(0).
+\end{align*}
+\]</div>
+<p>左边把 <span class="arithmatex">\(x(t)y(t)\)</span> 整体看成一个函数，用性质二；右边先把常数 <span class="arithmatex">\(x(0)\)</span> 提出来，再用性质二。两边相等，由定义三，命题成立。变形的证明完全一样：两边乘 <span class="arithmatex">\(y(t)\)</span> 再积分，用性质二的变形。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/06-10.svg" /></p>
+<p class="fig-caption"><strong>图 10</strong> <span class="arithmatex">\(x(t)\)</span> 乘冲激，只有 <span class="arithmatex">\(t=0\)</span> 处的值 <span class="arithmatex">\(x(0)\)</span> 起作用：结果是强度为 <span class="arithmatex">\(x(0)\)</span> 的冲激（括号里的数是强度，不是高度）。</p>
+<h2 id="7">7 性质四：尺度变换<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<div class="arithmatex">\[
+\delta(at)=\frac{1}{|a|}\,\delta(t),\quad a\ne0\qquad(\text{教材第 24 页式 1-82}).
+\]</div>
+<p>变形：</p>
+<div class="arithmatex">\[
+\delta(at+b)=\frac{1}{|a|}\,\delta\!\left(t+\frac ba\right).
+\]</div>
+</div>
+<p><span class="pt-head">▸ <strong>证明（基于定义三）。</strong></span> 对任意 <span class="arithmatex">\(y(t)\)</span>：</p>
+<p>右边：<span class="arithmatex">\(\displaystyle\int_{-\infty}^{+\infty}y(t)\,\frac1{|a|}\,\delta(t)\,\mathrm{d}t=\frac1{|a|}\,y(0)\)</span>（性质二）。</p>
+<p>左边：<span class="arithmatex">\(\displaystyle\int_{-\infty}^{+\infty}y(t)\,\delta(at)\,\mathrm{d}t\)</span>，换元 <span class="arithmatex">\(t'=at\)</span>，<span class="arithmatex">\(t=\frac{t'}a\)</span>，<span class="arithmatex">\(\mathrm{d}t=\frac{\mathrm{d}t'}a\)</span>。要按 <span class="arithmatex">\(a\)</span> 的正负讨论积分上下限：</p>
+<ol>
+<li>
+<p><span class="arithmatex">\(a\gt{}0\)</span>：<span class="arithmatex">\(t\)</span> 从 <span class="arithmatex">\(-\infty\)</span> 到 <span class="arithmatex">\(+\infty\)</span> 时，<span class="arithmatex">\(t'\)</span> 也从 <span class="arithmatex">\(-\infty\)</span> 到 <span class="arithmatex">\(+\infty\)</span>，</p>
+<div class="arithmatex">\[
+\text{左边}=\frac1a\int_{-\infty}^{+\infty}y\!\left(\frac{t'}a\right)\delta(t')\,\mathrm{d}t'=\frac1a\,y(0).
+\]</div>
+</li>
+<li>
+<p><span class="arithmatex">\(a\lt{}0\)</span>：<span class="arithmatex">\(t\)</span> 从 <span class="arithmatex">\(-\infty\)</span> 到 <span class="arithmatex">\(+\infty\)</span> 时，<span class="arithmatex">\(t'\)</span> 从 <span class="arithmatex">\(+\infty\)</span> 到 <span class="arithmatex">\(-\infty\)</span>，上下限颠倒，翻回来要加负号，</p>
+<div class="arithmatex">\[
+\text{左边}=\frac1a\int_{+\infty}^{-\infty}y\!\left(\frac{t'}a\right)\delta(t')\,\mathrm{d}t'
+=-\frac1a\int_{-\infty}^{+\infty}y\!\left(\frac{t'}a\right)\delta(t')\,\mathrm{d}t'=-\frac1a\,y(0).
+\]</div>
+</li>
+</ol>
+<p>两种情况合起来，左边 <span class="arithmatex">\(=\frac1{|a|}y(0)=\)</span> 右边。由定义三，命题成立。变形用同样的方法证明。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/06-11.svg" /></p>
+<p class="fig-caption"><strong>图 11</strong> 以 <span class="arithmatex">\(a=2\)</span> 为例：<span class="arithmatex">\(\delta_\Delta(2t)\)</span> 宽度压缩一半、高度不变，面积变成 <span class="arithmatex">\(\frac12\)</span>。取极限得 <span class="arithmatex">\(\delta(2t)=\frac12\delta(t)\)</span>。</p>
+<h2 id="8">8 函数相等与卷积<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<p>定义三下的「相等」和卷积完全兼容，可以放心地用来分析 LTI 系统。</p>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>定理</strong>：若 <span class="arithmatex">\(h_1(t)=h_2(t)\)</span>（按定义三），则对任意 <span class="arithmatex">\(x(t)\)</span>，有</p>
+<div class="arithmatex">\[
+x(t)\ast h_1(t)=x(t)\ast h_2(t).
+\]</div>
+<p>逆命题也成立：若对任意 <span class="arithmatex">\(x(t)\)</span> 都有 <span class="arithmatex">\(x(t)\ast h_1(t)=x(t)\ast h_2(t)\)</span>，则 <span class="arithmatex">\(h_1(t)=h_2(t)\)</span>。</p>
+</div>
+<p><span class="pt-head">▸ <strong>为什么需要证明。</strong></span> 按定义三，<span class="arithmatex">\(h_1=h_2\)</span> 并不保证两者每一点都相等，所以「代进卷积公式结果一样」不是显然的。</p>
+<p><span class="pt-head">▸ <strong>证明。</strong></span></p>
+<div class="arithmatex">\[
+\begin{align*}
+x(t)\ast h_1(t)
+&amp;=\int_{-\infty}^{+\infty}x(\tau)\,h_1(t-\tau)\,\mathrm{d}\tau
+&amp;&amp;\text{（连续卷积公式）}\\
+&amp;=\int_{-\infty}^{+\infty}x(t-\tau)\,h_1(\tau)\,\mathrm{d}\tau
+&amp;&amp;\text{（换元，即卷积交换律）}\\
+&amp;=\int_{-\infty}^{+\infty}x(t-\tau)\,h_2(\tau)\,\mathrm{d}\tau
+&amp;&amp;\text{（定义三，把 $x(t-\tau)$ 当作 $y(\tau)$）}\\
+&amp;=x(t)\ast h_2(t).
+\end{align*}
+\]</div>
+<p><span class="pt-head">▸ <strong>第二个等号的换元。</strong></span> 令 <span class="arithmatex">\(\tau'=t-\tau\)</span>，则 <span class="arithmatex">\(\tau=t-\tau'\)</span>，<span class="arithmatex">\(\mathrm{d}\tau=-\mathrm{d}\tau'\)</span>；<span class="arithmatex">\(\tau=-\infty\)</span> 时 <span class="arithmatex">\(\tau'=+\infty\)</span>，<span class="arithmatex">\(\tau=+\infty\)</span> 时 <span class="arithmatex">\(\tau'=-\infty\)</span>。于是</p>
+<div class="arithmatex">\[
+\int_{-\infty}^{+\infty}x(\tau)\,h_1(t-\tau)\,\mathrm{d}\tau
+=\int_{+\infty}^{-\infty}x(t-\tau')\,h_1(\tau')\,(-\mathrm{d}\tau')
+=\int_{-\infty}^{+\infty}x(t-\tau')\,h_1(\tau')\,\mathrm{d}\tau',
+\]</div>
+<p>最后把 <span class="arithmatex">\(\tau'\)</span> 改写回 <span class="arithmatex">\(\tau\)</span> 即可。</p>
+<p><span class="pt-head">▸ <strong>第三个等号。</strong></span> 对固定的 <span class="arithmatex">\(t\)</span>，<span class="arithmatex">\(x(t-\tau)\)</span> 是 <span class="arithmatex">\(\tau\)</span> 的一个函数，相当于定义三中的 <span class="arithmatex">\(y(\tau)\)</span>；<span class="arithmatex">\(h_1=h_2\)</span> 意味着它与 <span class="arithmatex">\(h_1(\tau)\)</span>、<span class="arithmatex">\(h_2(\tau)\)</span> 分别相乘积分的结果相同。</p>
+<h2 id="9">9 性质五：冲激的复合<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p>设 <span class="arithmatex">\(f(t)\)</span> 的所有零点为 <span class="arithmatex">\(t_i\)</span>（即 <span class="arithmatex">\(f(t_i)=0\)</span>），且 <span class="arithmatex">\(f'(t_i)\ne0\)</span>，则</p>
+<div class="arithmatex">\[
+\delta\big(f(t)\big)=\sum_{i}\frac{1}{|f'(t_i)|}\,\delta(t-t_i).
+\]</div>
+<p>这条性质出自郑君里《信号与系统》；证明方法仍是两边乘 <span class="arithmatex">\(y(t)\)</span> 再积分。</p>
+</div>
+<p><span class="arithmatex">\(f(t)\)</span> 每过一次零点，<span class="arithmatex">\(\delta(f(t))\)</span> 就在那里产生一个冲激，强度是该点斜率绝对值的倒数：<span class="arithmatex">\(f(t)\)</span> 穿过零点越陡，冲激越弱。</p>
+<p class="ex-head"><span class="ex-badge">例 1</span> <strong>性质四是性质五的特例</strong> <span class="ex-tag"><span class="arithmatex">\(f(t)=at\)</span></span></p>
+<p>取 <span class="arithmatex">\(f(t)=at\)</span>（<span class="arithmatex">\(a\ne0\)</span>）。当且仅当 <span class="arithmatex">\(t=0\)</span> 时 <span class="arithmatex">\(f(t)=0\)</span>；<span class="arithmatex">\(f'(t)=a\)</span>，所以 <span class="arithmatex">\(f'(0)=a\)</span>。代入性质五：</p>
+<div class="arithmatex">\[
+\delta(at)=\frac1{|a|}\,\delta(t),
+\]</div>
+<p>正是性质四。</p>
+<p class="ex-head"><span class="ex-badge">例 2</span> <strong><span class="arithmatex">\(\delta(t^2-3t+2)\)</span></strong> <span class="ex-tag"><span class="arithmatex">\(\delta(t-1)+\delta(t-2)\)</span></span></p>
+<p><strong>解</strong>：<span class="arithmatex">\(f(t)=t^2-3t+2=(t-1)(t-2)\)</span>，当且仅当 <span class="arithmatex">\(t=1\)</span>、<span class="arithmatex">\(t=2\)</span> 时 <span class="arithmatex">\(f(t)=0\)</span>。<span class="arithmatex">\(f'(t)=2t-3\)</span>，所以 <span class="arithmatex">\(f'(1)=-1\)</span>，<span class="arithmatex">\(f'(2)=1\)</span>。代入性质五：</p>
+<div class="arithmatex">\[
+\delta(t^2-3t+2)=\frac1{|-1|}\,\delta(t-1)+\frac1{|1|}\,\delta(t-2)=\delta(t-1)+\delta(t-2).
+\]</div>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/06-12.svg" /></p>
+<p class="fig-caption"><strong>图 12</strong> 左：<span class="arithmatex">\(f(t)\)</span> 在 <span class="arithmatex">\(t=1\)</span>、<span class="arithmatex">\(t=2\)</span> 处过零，斜率分别为 <span class="arithmatex">\(-1\)</span>、<span class="arithmatex">\(1\)</span>。右：<span class="arithmatex">\(\delta(f(t))\)</span> 在这两点各有一个强度为 <span class="arithmatex">\(1\)</span> 的冲激。</p>
+<p class="ex-head"><span class="ex-badge">例 3</span> <strong><span class="arithmatex">\(\delta(\cos t)\)</span> 与 <span class="arithmatex">\(\delta(\sin t)\)</span></strong> <span class="ex-tag">每隔 <span class="arithmatex">\(\pi\)</span> 一个冲激</span></p>
+<p><strong>解</strong>：设 <span class="arithmatex">\(f(t)=\cos t\)</span>，当且仅当 <span class="arithmatex">\(t=k\pi+\frac\pi2\)</span>（<span class="arithmatex">\(k\in\mathbb{Z}\)</span>）时 <span class="arithmatex">\(f(t)=0\)</span>。<span class="arithmatex">\(f'(t)=-\sin t\)</span>，</p>
+<div class="arithmatex">\[
+\left|f'\!\left(k\pi+\tfrac\pi2\right)\right|=\left|\sin\!\left(k\pi+\tfrac\pi2\right)\right|=1
+\]</div>
+<p>（正负交替，但绝对值恒为 <span class="arithmatex">\(1\)</span>）。代入性质五：</p>
+<div class="arithmatex">\[
+\delta(\cos t)=\sum_{k=-\infty}^{+\infty}\delta\!\left(t-k\pi-\frac\pi2\right).
+\]</div>
+<p>同理，<span class="arithmatex">\(\sin t\)</span> 的零点是 <span class="arithmatex">\(t=k\pi\)</span>，且 <span class="arithmatex">\(|\cos k\pi|=1\)</span>，所以</p>
+<div class="arithmatex">\[
+\delta(\sin t)=\sum_{k=-\infty}^{+\infty}\delta(t-k\pi).
+\]</div>
+<p class="ex-head"><span class="ex-badge">例 4</span> <strong><span class="arithmatex">\(\int_{-2\pi}^{2\pi}(1+t)\,\delta(\cos t)\,\mathrm{d}t\)</span></strong> <small>教材第 33 页 1-20(3)</small> <span class="ex-tag">结果为 4</span></p>
+<p><strong>解</strong>：由上一例，<span class="arithmatex">\(\delta(\cos t)\)</span> 在每个 <span class="arithmatex">\(k\pi+\frac\pi2\)</span> 处有一个强度为 <span class="arithmatex">\(1\)</span> 的冲激。积分区间 <span class="arithmatex">\([-2\pi,2\pi]\)</span> 里只有四个：<span class="arithmatex">\(-\frac{3\pi}2,\ -\frac\pi2,\ \frac\pi2,\ \frac{3\pi}2\)</span>（<span class="arithmatex">\(\pm\frac{5\pi}2\)</span> 在区间外）。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/06-13.svg" /></p>
+<p class="fig-caption"><strong>图 13</strong> 灰色虚线是 <span class="arithmatex">\(\cos t\)</span>，红色箭头是 <span class="arithmatex">\(\delta(\cos t)\)</span> 的冲激（强度均为 <span class="arithmatex">\(1\)</span>），落在 <span class="arithmatex">\(\cos t\)</span> 的每个零点上。黄色是积分区间 <span class="arithmatex">\([-2\pi,2\pi]\)</span>，里面只有四个冲激。</p>
+<div class="arithmatex">\[
+\int_{-2\pi}^{2\pi}(1+t)\,\delta(\cos t)\,\mathrm{d}t
+=\int_{-2\pi}^{2\pi}(1+t)\Big[\delta\!\left(t+\tfrac{3\pi}2\right)+\delta\!\left(t+\tfrac\pi2\right)+\delta\!\left(t-\tfrac\pi2\right)+\delta\!\left(t-\tfrac{3\pi}2\right)\Big]\mathrm{d}t .
+\]</div>
+<p>每一项用性质二的变形 <span class="arithmatex">\(\int x(t)\,\delta(t-t_0)\,\mathrm{d}t=x(t_0)\)</span>（冲激在积分区间内部，积分限不必是 <span class="arithmatex">\(\pm\infty\)</span>）：</p>
+<div class="arithmatex">\[
+=\left(1-\tfrac{3\pi}2\right)+\left(1-\tfrac\pi2\right)+\left(1+\tfrac\pi2\right)+\left(1+\tfrac{3\pi}2\right)=4 .
+\]</div>
+<p>含 <span class="arithmatex">\(\pi\)</span> 的项两两抵消。</p>
+<h2 id="10">10 冲激函数的多样性<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
+<h3 id="101-deltat">10.1 判定一个函数是不是 <span class="arithmatex">\(\delta(t)\)</span><a class="headerlink" href="#101-deltat" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\(\delta(t)\)</span> 不只有「<span class="arithmatex">\([0,\Delta]\)</span> 上的窄方波取极限」这一种写法，很多不同的极限都等于它。判定方法：</p>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p>要证明一个函数 <span class="arithmatex">\(f(t)\)</span> 是 <span class="arithmatex">\(\delta(t)\)</span>，只需证明对任意函数 <span class="arithmatex">\(y(t)\)</span> 有</p>
+<div class="arithmatex">\[
+\int_{-\infty}^{+\infty}y(t)\,f(t)\,\mathrm{d}t=y(0).
+\]</div>
+</div>
+<p>理由有两条：一是性质二，<span class="arithmatex">\(\int y(t)\,\delta(t)\,\mathrm{d}t=y(0)\)</span>；二是定义三，与任意 <span class="arithmatex">\(y(t)\)</span> 相乘积分结果都相同的两个函数相等。</p>
+<h3 id="102">10.2 对称的窄方波<a class="headerlink" href="#102" title="Permanent link">&para;</a></h3>
+<p>有的教材把 <span class="arithmatex">\(\delta_\Delta(t)\)</span> 定义为 <span class="arithmatex">\(\left[-\frac\Delta2,\frac\Delta2\right]\)</span> 上高度为 <span class="arithmatex">\(\frac1\Delta\)</span> 的方波，再令 <span class="arithmatex">\(\Delta\to0\)</span>。两种定义都对。</p>
+<p><span class="pt-head">▸ <strong>证明。</strong></span></p>
+<div class="arithmatex">\[
+\begin{align*}
+\int_{-\infty}^{+\infty}y(t)\Big[\lim_{\Delta\to0}\delta_\Delta(t)\Big]\mathrm{d}t
+&amp;=\lim_{\Delta\to0}\frac1\Delta\int_{-\Delta/2}^{\Delta/2}y(t)\,\mathrm{d}t\\
+&amp;=\lim_{\Delta\to0}\frac1\Delta\cdot y(\xi)\,\Delta,\quad -\tfrac\Delta2\le\xi\le\tfrac\Delta2
+&amp;&amp;\text{（积分中值定理）}\\
+&amp;=\lim_{\Delta\to0}y(\xi)=y(0).
+\end{align*}
+\]</div>
+<h3 id="103">10.3 三角形脉冲<a class="headerlink" href="#103" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex">\(\delta_\Delta(t)\)</span> 取底边为 <span class="arithmatex">\([-\Delta,\Delta]\)</span>、顶点高度为 <span class="arithmatex">\(\frac1\Delta\)</span> 的三角形（面积 <span class="arithmatex">\(\frac12\cdot2\Delta\cdot\frac1\Delta=1\)</span>），<span class="arithmatex">\(\Delta\to0\)</span> 时同样等于 <span class="arithmatex">\(\delta(t)\)</span>。证明方法相同，只是积分要分左右两段讨论，计算更繁琐。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/06-14.svg" /></p>
+<p class="fig-caption"><strong>图 14</strong> 三种 <span class="arithmatex">\(\delta_\Delta(t)\)</span>，面积都是 <span class="arithmatex">\(1\)</span>。<span class="arithmatex">\(\Delta\to0\)</span> 时三者都等于 <span class="arithmatex">\(\delta(t)\)</span>。</p>
+<h3 id="104">10.4 抽样函数的极限<a class="headerlink" href="#104" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<div class="arithmatex">\[
+\lim_{\omega\to+\infty}\frac{\sin(\omega t)}{\pi t}=\delta(t).
+\]</div>
+<p>这个结论在第三章还会用到，即使记不住证明，也要<strong>记住结论</strong>。</p>
+</div>
+<p><span class="pt-head">▸ <strong>直观理解。</strong></span> <span class="arithmatex">\(\dfrac{\sin(\omega t)}{\pi t}\)</span> 是一个抽样函数（Sa 函数）的形状（<span class="arithmatex">\(\omega\gt{}0\)</span>）：</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(t=0\)</span> 处取极限值 <span class="arithmatex">\(\dfrac\omega\pi\)</span>；</p>
+</li>
+<li>
+<p>零点在 <span class="arithmatex">\(t=\pm\dfrac\pi\omega,\ \pm\dfrac{2\pi}\omega,\dots\)</span>；</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\displaystyle\int_{-\infty}^{+\infty}\frac{\sin(\omega t)}{\pi t}\,\mathrm{d}t=1\)</span>，与 <span class="arithmatex">\(\omega\)</span> 无关。</p>
+</li>
+</ul>
+<p><span class="arithmatex">\(\omega\to+\infty\)</span> 时，中间的峰冲向无穷大，零点 <span class="arithmatex">\(\frac\pi\omega\to0\)</span>，整个波浪被向中间无限压缩、两侧被压平；而面积始终为 <span class="arithmatex">\(1\)</span>，和性质一吻合。看起来就像一个冲激。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/06-15.svg" /></p>
+<p class="fig-caption"><strong>图 15</strong> <span class="arithmatex">\(\frac{\sin(\omega t)}{\pi t}\)</span>。蓝：<span class="arithmatex">\(\omega=2\)</span>，峰值 <span class="arithmatex">\(\frac2\pi\)</span>，第一个零点 <span class="arithmatex">\(\frac\pi2\)</span>；红：<span class="arithmatex">\(\omega=6\)</span>，峰值 <span class="arithmatex">\(\frac6\pi\)</span>，第一个零点 <span class="arithmatex">\(\frac\pi6\)</span>。两条水平虚线标出两个峰值。<span class="arithmatex">\(\omega\)</span> 越大，峰越高越窄，面积始终为 <span class="arithmatex">\(1\)</span>。</p>
+<p><span class="pt-head">▸ <strong>引理。</strong></span> 若 <span class="arithmatex">\(x(t)\)</span> 不是无限振荡的函数，则</p>
+<div class="arithmatex">\[
+\lim_{\omega\to+\infty}\int_{-\infty}^{+\infty}x(t)\cos(\omega t)\,\mathrm{d}t=0,\qquad
+\lim_{\omega\to+\infty}\int_{-\infty}^{+\infty}x(t)\sin(\omega t)\,\mathrm{d}t=0 .
+\]</div>
+<p><strong>直观理解</strong>：<span class="arithmatex">\(\omega\)</span> 很大时 <span class="arithmatex">\(\cos(\omega t)\)</span> 上下振荡极快。相邻的半个周期里，<span class="arithmatex">\(\cos\)</span> 一正一负，而 <span class="arithmatex">\(x(t)\)</span> 变化平缓、取值几乎一样，所以 <span class="arithmatex">\(x(t)\cos(\omega t)\)</span> 在相邻两段上的积分一正一负、互相抵消，总积分趋于 <span class="arithmatex">\(0\)</span>。只有 <span class="arithmatex">\(x(t)\)</span> 自己也变化得极其剧烈（无限振荡），才抵消不掉。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/06-16.svg" /></p>
+<p class="fig-caption"><strong>图 16</strong> 蓝线是平缓的 <span class="arithmatex">\(x(t)\)</span>，红色是 <span class="arithmatex">\(x(t)\cos(\omega t)\)</span>（<span class="arithmatex">\(\omega=12\)</span>）。正、负两部分面积几乎一样，积分几乎为 <span class="arithmatex">\(0\)</span>；<span class="arithmatex">\(\omega\)</span> 越大抵消越彻底。</p>
+<p><span class="pt-head">▸ <strong>引理在 <span class="arithmatex">\(x(t)\)</span> 可导时的证明。</strong></span> 用分部积分：</p>
+<div class="arithmatex">\[
+\begin{align*}
+\int_{-\infty}^{+\infty}x(t)\cos(\omega t)\,\mathrm{d}t
+&amp;=\frac1\omega\int_{-\infty}^{+\infty}x(t)\,\mathrm{d}\big(\sin(\omega t)\big)\\
+&amp;=\frac1\omega\Big[x(t)\sin(\omega t)\Big]_{-\infty}^{+\infty}-\frac1\omega\int_{-\infty}^{+\infty}x'(t)\sin(\omega t)\,\mathrm{d}t .
+\end{align*}
+\]</div>
+<p>方括号和后面的积分都是有限值，前面乘 <span class="arithmatex">\(\frac1\omega\)</span>；<span class="arithmatex">\(\omega\to+\infty\)</span> 时两项都趋于 <span class="arithmatex">\(0\)</span>。<span class="arithmatex">\(\sin\)</span> 的情况同理。（只要求 <span class="arithmatex">\(x(t)\)</span> 不是无限振荡的版本更一般，证明更难。）</p>
+<p><span class="pt-head">▸ <strong>证明 <span class="arithmatex">\(\lim\limits_{\omega\to+\infty}\frac{\sin(\omega t)}{\pi t}=\delta(t)\)</span>。</strong></span> 由判定方法，只需证明对任意 <span class="arithmatex">\(y(t)\)</span>：</p>
+<div class="arithmatex">\[
+\int_{-\infty}^{+\infty}\Big[\lim_{\omega\to+\infty}\frac{\sin(\omega t)}{\pi t}\Big]y(t)\,\mathrm{d}t=y(0).
+\]</div>
+<p>左边 <span class="arithmatex">\(=\lim\limits_{\omega\to+\infty}\displaystyle\int_{-\infty}^{+\infty}\frac{y(t)}{\pi t}\sin(\omega t)\,\mathrm{d}t\)</span>。</p>
+<p><strong>不能直接套引理</strong>：若 <span class="arithmatex">\(y(0)\ne0\)</span>，<span class="arithmatex">\(\frac{y(t)}{\pi t}\)</span> 在 <span class="arithmatex">\(t\to0^-\)</span> 时趋于 <span class="arithmatex">\(\mp\infty\)</span>、<span class="arithmatex">\(t\to0^+\)</span> 时趋于 <span class="arithmatex">\(\pm\infty\)</span>，在 <span class="arithmatex">\(0\)</span> 点附近变化无限剧烈，不满足引理的条件。</p>
+<p><strong>做法</strong>：减一个 <span class="arithmatex">\(y(0)\)</span> 再加回来：</p>
+<div class="arithmatex">\[
+\text{左边}=\underbrace{\lim_{\omega\to+\infty}\int_{-\infty}^{+\infty}\frac{y(t)-y(0)}{\pi t}\sin(\omega t)\,\mathrm{d}t}_{(\text{A})}
++\;y(0)\underbrace{\lim_{\omega\to+\infty}\int_{-\infty}^{+\infty}\frac{\sin(\omega t)}{\pi t}\,\mathrm{d}t}_{(\text{B})}.
+\]</div>
+<ul>
+<li>
+<p>(A)：设 <span class="arithmatex">\(x(t)=\dfrac{y(t)-y(0)}{\pi t}\)</span>。<span class="arithmatex">\(t\to0\)</span> 时分子、分母都趋于 <span class="arithmatex">\(0\)</span>，由洛必达法则 <span class="arithmatex">\(x(0)=\lim\limits_{t\to0}\dfrac{y'(t)}{\pi}=\dfrac{y'(0)}{\pi}\)</span>，即</p>
+<div class="arithmatex">\[
+x(t)=\begin{cases}\dfrac{y(t)-y(0)}{\pi t},&amp;t\ne0\\[6pt]\dfrac{y'(0)}{\pi},&amp;t=0\end{cases},
+\]</div>
+<p>不再是无限振荡的函数，可以用引理：(A) <span class="arithmatex">\(=0\)</span>。</p>
+</li>
+<li>
+<p>(B)：对任意 <span class="arithmatex">\(\omega\gt{}0\)</span>，积分恒等于 <span class="arithmatex">\(1\)</span>，所以 (B) <span class="arithmatex">\(=1\)</span>。</p>
+</li>
+</ul>
+<p>因此左边 <span class="arithmatex">\(=0+y(0)\cdot1=y(0)\)</span>，命题成立。</p>
+<h3 id="105">10.5 另一个例子<a class="headerlink" href="#105" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">\[
+\lim_{\tau\to0}\frac{\tau}{\pi\,(t^2+\tau^2)}=\delta(t)
+\]</div>
+<p>也成立（郑君里《信号与系统》习题集）。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "content.code.annotate", "content.tabs.link", "announce.dismiss", "content.action.edit", "content.action.view", "content.tooltips", "navigation.tabs", "navigation.path", "navigation.indexes", "header.autohide"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+  
+      <script src="../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="../../../../vendor/mathjax/tex-mml-chtml.js"></script>
+      
+    
+  <!-- 注册离线缓存（hooks/offline.py 生成 sw.js）：弱网、断网时也能打开看过和没看过的文章 -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register(new URL("../../../../sw.js", location.href));
+    }
+  </script>
+
+  </body>
+</html>

@@ -1,0 +1,3438 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../00-%E5%85%B8%E5%9E%8B%E7%9A%84%E4%BF%A1%E5%8F%B7/">
+      
+      
+        <link rel="next" href="../02-%E5%85%B8%E5%9E%8B%E7%9A%84%E7%B3%BB%E7%BB%9F/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>信号的自变量变换 - 飞飞</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <!-- 手机「添加到主屏幕」后以全屏应用方式打开，不显示浏览器地址栏和工具栏 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="飞飞">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="飞飞" class="md-header__button md-logo" aria-label="飞飞" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.92 13.32c-.25-.04-1.21-.32-1.46-.43l-2.07 6.48-3.09-1.13 2.2-5.77L10.45 9 13 7.54c.45 1.13 1.17 2.08 2.12 2.86s2.04 1.27 3.26 1.46l1.12-3.43-1.44-.47-.52 1.6c-.66-.28-1.24-.7-1.74-1.24-.5-.55-.86-1.19-1.08-1.91l-.33-1.08c-.12-.4-.35-.72-.68-.96-.33-.23-.71-.37-1.08-.4-.39-.03-.77.03-1.13.24L8 6.23c-.37.21-.64.51-.81.89-.19.38-.23.76-.19 1.17s.26.77.54 1.08l3.57 3.71-1.69 4.46-6.95-2.49L2 16.46l14.04 5.12q1.17.42 2.49.42c.62 0 1.23-.08 1.83-.23.59-.16 1.14-.38 1.64-.66L20.87 20c-.75.33-1.53.5-2.34.5q-.99 0-1.98-.33l-.75-.28zM19 3c0 1.11-.89 2-2 2s-2-.89-2-2 .9-2 2-2 2 .9 2 2"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            飞飞
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              信号的自变量变换
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../SystemOperation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  操作系统
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../AudioAndVideo/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  音视频
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  信号与系统
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Graphics/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机图形
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../reference/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="飞飞" class="md-nav__button md-logo" aria-label="飞飞" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.92 13.32c-.25-.04-1.21-.32-1.46-.43l-2.07 6.48-3.09-1.13 2.2-5.77L10.45 9 13 7.54c.45 1.13 1.17 2.08 2.12 2.86s2.04 1.27 3.26 1.46l1.12-3.43-1.44-.47-.52 1.6c-.66-.28-1.24-.7-1.74-1.24-.5-.55-.86-1.19-1.08-1.91l-.33-1.08c-.12-.4-.35-.72-.68-.96-.33-.23-.71-.37-1.08-.4-.39-.03-.77.03-1.13.24L8 6.23c-.37.21-.64.51-.81.89-.19.38-.23.76-.19 1.17s.26.77.54 1.08l3.57 3.71-1.69 4.46-6.95-2.49L2 16.46l14.04 5.12q1.17.42 2.49.42c.62 0 1.23-.08 1.83-.23.59-.16 1.14-.38 1.64-.66L20.87 20c-.75.33-1.53.5-2.34.5q-.99 0-1.98-.33l-.75-.28zM19 3c0 1.11-.89 2-2 2s-2-.89-2-2 .9-2 2-2 2 .9 2 2"/></svg>
+
+    </a>
+    飞飞
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Home
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../SystemOperation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    操作系统
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    操作系统
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NJU
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    NJU
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/4.Python%E5%BB%BA%E6%A8%A1%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.Python建模操作系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/5.%20%E5%A4%9A%E5%A4%84%E7%90%86%E5%99%A8%E7%BC%96%E7%A8%8B%EF%BC%9A%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 多处理器编程：从入门到放弃
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/6.%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.并发控制基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/7.%20%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%EF%BC%9A%E4%BA%92%E6%96%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 并发控制：互斥
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/9.%20%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%EF%BC%9A%E5%90%8C%E6%AD%A5%20%281%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 并发控制：同步 (1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/10.%20%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%EF%BC%9A%E5%90%8C%E6%AD%A5%20%282%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 并发控制：同步 (2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/12.%20%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%9A%84%E5%B9%B6%E5%8F%91%20Bug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 真实世界的并发 Bug
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/13.%20%E5%B9%B6%E5%8F%91%20Bug%20%E7%9A%84%E5%BA%94%E5%AF%B9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 并发 Bug 的应对
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OS:ThreeEasyPieces
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OS:ThreeEasyPieces
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/OS-ThreeEasyPieces/25.Dialogue%20on%20Concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25.Dialogue on Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/OS-ThreeEasyPieces/26.Concurrency%20An%20Introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26.Concurrency An Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../AudioAndVideo/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音视频
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    音视频
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    H264
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    H264
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AudioAndVideo/H264/H264%E7%BB%93%E6%9E%84%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 码流的组织结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信号与系统
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    信号与系统
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    浙大 2022（胡浩基）
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    浙大 2022（胡浩基）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-%E5%85%B8%E5%9E%8B%E7%9A%84%E4%BF%A1%E5%8F%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    典型的信号
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信号的自变量变换
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信号的自变量变换
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 自变量变换
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 连续信号的自变量变换
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 连续信号的自变量变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 概念：四句口诀
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-x-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 概念：翻转变换 \(x(-t)\)（口诀第二句）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-xat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 概念：时间尺度变换 \(x(at)\)（口诀第三句）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-xt-t_0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 概念：平移变换 \(x(t-t_0)\)（口诀第四句）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-xatb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 概念：合在一起 \(x(at+b)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 证明：为什么口诀成立
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.8 例题：回头看熟悉的信号
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.9 例题：把几种变换组合起来
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 离散信号的自变量变换
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 离散信号的自变量变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-utun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 阶跃信号 \(u(t)\)、\(u[n]\) 的自变量变换
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 阶跃信号 \(u(t)\)、\(u[n]\) 的自变量变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 概念：令括号里的式子等于 \(0\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-u2tut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 证明：为什么 \(u(2t)=u(t)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 用阶跃信号表示「窗」
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 用阶跃信号表示「窗」">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 概念：两个阶跃相减
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 把序列写成冲激的和
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 把序列写成冲激的和">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 证明：为什么成立
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-%E5%85%B8%E5%9E%8B%E7%9A%84%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    典型的系统：线性、时不变、因果、无记忆、可逆、稳定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%28LTI%29%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%9A%E4%B9%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性时不变（LTI）系统的定义
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-%E7%A6%BB%E6%95%A3LTI%E7%B3%BB%E7%BB%9F%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    离散 LTI 系统的卷积公式推导
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-%E8%BF%9E%E7%BB%ADLTI%E7%B3%BB%E7%BB%9F%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    连续 LTI 系统的卷积公式推导
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-%E5%86%B2%E6%BF%80%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    冲激函数 δ(t) 的性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-%E8%BF%9E%E7%BB%AD%E4%BF%A1%E5%8F%B7%E5%8D%B7%E7%A7%AF%E8%AE%A1%E7%AE%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    连续信号卷积的计算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Graphics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机图形
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机图形
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Graphics/Metal/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metal
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Metal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MetalByTutorials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MetalByTutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Graphics/Metal/MetalByTutorials/Chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Graphics/OpenGL/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenGL
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OpenGL
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 自变量变换
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 连续信号的自变量变换
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 连续信号的自变量变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 概念：四句口诀
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-x-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 概念：翻转变换 \(x(-t)\)（口诀第二句）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-xat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 概念：时间尺度变换 \(x(at)\)（口诀第三句）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-xt-t_0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 概念：平移变换 \(x(t-t_0)\)（口诀第四句）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25-xatb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 概念：合在一起 \(x(at+b)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 证明：为什么口诀成立
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.8 例题：回头看熟悉的信号
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#29" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.9 例题：把几种变换组合起来
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 离散信号的自变量变换
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 离散信号的自变量变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-utun" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 阶跃信号 \(u(t)\)、\(u[n]\) 的自变量变换
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 阶跃信号 \(u(t)\)、\(u[n]\) 的自变量变换">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 概念：令括号里的式子等于 \(0\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-u2tut" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 证明：为什么 \(u(2t)=u(t)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 用阶跃信号表示「窗」
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 用阶跃信号表示「窗」">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 概念：两个阶跃相减
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 把序列写成冲激的和
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 把序列写成冲激的和">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 证明：为什么成立
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    信号与系统
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    浙大 2022（胡浩基）
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">信号的自变量变换<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p class="notes-subtitle">浙江大学 2022《信号与系统》（胡浩基）§1.4.2 听课笔记</p>
+
+<p><a class="md-button" href="../pdf/01-%E4%BF%A1%E5%8F%B7%E7%9A%84%E8%87%AA%E5%8F%98%E9%87%8F%E5%8F%98%E6%8D%A2.pdf"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> 下载 PDF 版</a></p>
+<!-- 本页由 tools/signal_notes/sync.py 从 LaTeX 笔记自动生成，请勿手改；改动请改源 .tex 后重新同步。 -->
+
+<h2 id="1">1 自变量变换<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p><strong>自变量变换</strong>(transformation of the independent variable)：把信号 <span class="arithmatex">\(x(t)\)</span> 的「<span class="arithmatex">\(t\)</span>」换成「<span class="arithmatex">\(at+b\)</span>」，得到新信号 <span class="arithmatex">\(x(at+b)\)</span>。从图像上看，就是把波形沿横轴<strong>平移</strong>、<strong>翻转</strong>、<strong>压缩或拉伸</strong>，纵轴的值不变。</p>
+<p>做这类题的核心是<strong>四句口诀</strong>（§2），它对应翻转、压缩或拉伸、平移三种基本变换。</p>
+<h2 id="2">2 连续信号的自变量变换<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 概念：四句口诀<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p>做这类题目的口诀：</p>
+<ol>
+<li>
+<p><strong>化成标准形式</strong>。</p>
+</li>
+<li>
+<p><strong>前有负号翻转</strong>。</p>
+</li>
+<li>
+<p><strong>系数大于 <span class="arithmatex">\(1\)</span> 压缩，系数小于 <span class="arithmatex">\(1\)</span> 拉伸</strong>（指系数的<strong>绝对值</strong>）。</p>
+</li>
+<li>
+<p><strong>加号左移，减号右移</strong>。</p>
+</li>
+</ol>
+</div>
+<p>口诀的第一句管起步（化成标准形式），第二、三、四句各管一种基本变换：翻转、压缩或拉伸、平移。下面先把这三种变换逐个看清。</p>
+<h3 id="22-x-t">2.2 概念：翻转变换 <span class="arithmatex">\(x(-t)\)</span>（口诀第二句）<a class="headerlink" href="#22-x-t" title="Permanent link">&para;</a></h3>
+<p>只把 <span class="arithmatex">\(t\)</span> 换成 <span class="arithmatex">\(-t\)</span> 的变换叫<strong>翻转</strong>（time reversal）：<span class="arithmatex">\(x(t)\to x(-t)\)</span>。口诀第二句「前有负号翻转」说的就是它。要点只有两条：</p>
+<ul>
+<li>
+<p><strong>以纵轴（<span class="arithmatex">\(t=0\)</span>）为对称轴做镜像</strong>：原来在 <span class="arithmatex">\(t=p\)</span> 处的点，变到 <span class="arithmatex">\(t=-p\)</span> 处，纵轴的值不变；</p>
+</li>
+<li>
+<p><strong><span class="arithmatex">\(t=0\)</span> 处的点不动</strong>（<span class="arithmatex">\(x(-0)=x(0)\)</span>）。</p>
+</li>
+</ul>
+<p>翻转两次回到原来的信号：<span class="arithmatex">\(x(-(-t))=x(t)\)</span>。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-01.svg" /></p>
+<p class="fig-caption"><strong>图 1</strong> 翻转：蓝色 <span class="arithmatex">\(x(t)\)</span> 的三个关键点 <span class="arithmatex">\(0,3,6\)</span> 变成红色 <span class="arithmatex">\(x(-t)\)</span> 的 <span class="arithmatex">\(0,-3,-6\)</span>，纵轴值不变，整体以纵轴为对称轴镜像。</p>
+<p><span class="pt-head">▸ <strong>翻转和「偶、奇信号」是同一回事。</strong></span> 第一份笔记里「偶信号 <span class="arithmatex">\(x(t)=x(-t)\)</span>」「奇信号 <span class="arithmatex">\(x(t)=-x(-t)\)</span>」，用现在的话说就是：<strong>翻转之后和原信号相同的是偶信号，翻转之后和原信号相差一个负号的是奇信号。</strong>任何信号的偶部和奇部也都是靠翻转造出来的：</p>
+<div class="arithmatex">\[
+x_e(t)=\frac{x(t)+x(-t)}{2},\qquad x_o(t)=\frac{x(t)-x(-t)}{2}.
+\]</div>
+<p>下图用上面的三角波 <span class="arithmatex">\(x(t)\)</span> 演示：<span class="arithmatex">\(x(t)\)</span> 本身不是偶的也不是奇的，它的偶部是「<span class="arithmatex">\(x(t)\)</span> 与翻转后的 <span class="arithmatex">\(x(-t)\)</span> 取平均」，两个半高度的三角形左右对称；奇部是「相减再除 <span class="arithmatex">\(2\)</span>」，右边是正的、左边是负的，关于原点反对称。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-02.svg" /></p>
+<p class="fig-caption"><strong>图 2</strong> 用翻转造出偶部与奇部：<span class="arithmatex">\(x(t)=x_e(t)+x_o(t)\)</span>。偶部和奇部的峰高都是 <span class="arithmatex">\(\tfrac12\)</span>。（验算：<span class="arithmatex">\(t=3\)</span> 时 <span class="arithmatex">\(x_e=\tfrac{1+0}{2}=\tfrac12\)</span>，<span class="arithmatex">\(x_o=\tfrac{1-0}{2}=\tfrac12\)</span>，加起来是 <span class="arithmatex">\(1\)</span>；<span class="arithmatex">\(t=-3\)</span> 时 <span class="arithmatex">\(x_e=\tfrac12\)</span>，<span class="arithmatex">\(x_o=-\tfrac12\)</span>，加起来是 <span class="arithmatex">\(0\)</span>，与 <span class="arithmatex">\(x(-3)=0\)</span> 一致。）</p>
+<p><span class="pt-head">▸ <strong>和日常经验的对应。</strong></span> 把 <span class="arithmatex">\(x(t)\)</span> 想成一段声音，<span class="arithmatex">\(x(-t)\)</span> 就是<strong>倒放</strong>（录音从后往前播）。时间上的翻转是一个数学操作；真实世界里的信号不能真的「倒着发生」，但处理已经录好的数据时可以做。</p>
+<h3 id="23-xat">2.3 概念：时间尺度变换 <span class="arithmatex">\(x(at)\)</span>（口诀第三句）<a class="headerlink" href="#23-xat" title="Permanent link">&para;</a></h3>
+<p>只做「压缩或拉伸」而不翻转、不平移的变换，叫<strong>时间尺度变换</strong>（time scaling）：<span class="arithmatex">\(x(t)\to x(at)\)</span>，<span class="arithmatex">\(a\gt{}0\)</span>。口诀第三句说的就是它：</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(a\gt{}1\)</span>：<strong>压缩</strong>，波形沿横轴向<strong>纵轴</strong>（<span class="arithmatex">\(t=0\)</span>）靠拢，变窄；</p>
+</li>
+<li>
+<p><span class="arithmatex">\(0\lt{}a\lt{}1\)</span>：<strong>拉伸</strong>，波形离纵轴越来越远，变宽。</p>
+</li>
+</ul>
+<p>关键点的位置规则：<strong>原来在 <span class="arithmatex">\(t=p\)</span> 处的点，变到 <span class="arithmatex">\(t=p/a\)</span> 处，纵轴的值不变</strong>。因为新信号在 <span class="arithmatex">\(t\)</span> 处的值是原信号在 <span class="arithmatex">\(at\)</span> 处的值，要看到原来 <span class="arithmatex">\(p\)</span> 处的特征，需要 <span class="arithmatex">\(at=p\)</span>。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;"><span class="arithmatex">\(x(t)\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(x(2t)\)</span>：压缩</th>
+<th style="text-align: center;"><span class="arithmatex">\(x(t/2)\)</span>：拉伸</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">关键点 <span class="arithmatex">\(t\)</span> 值</td>
+<td style="text-align: center;"><span class="arithmatex">\(0,\ 3,\ 6\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0,\ 1.5,\ 3\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0,\ 6,\ 12\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">峰高</td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">底边宽度</td>
+<td style="text-align: center;"><span class="arithmatex">\(6\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(3\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(12\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>（用的是一个三角波 <span class="arithmatex">\(x(t)\)</span>：<span class="arithmatex">\(t=0\)</span> 为 <span class="arithmatex">\(0\)</span>，<span class="arithmatex">\(t=3\)</span> 为峰，<span class="arithmatex">\(t=6\)</span> 为 <span class="arithmatex">\(0\)</span>。§2.7 的例 1 用的也是它。）</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-03.svg" /></p>
+<p class="fig-caption"><strong>图 3</strong> 时间尺度变换。灰：<span class="arithmatex">\(x(t)\)</span>；红：<span class="arithmatex">\(x(2t)\)</span>，所有关键点除以 <span class="arithmatex">\(2\)</span>，向纵轴靠拢；蓝：<span class="arithmatex">\(x(t/2)\)</span>，所有关键点乘以 <span class="arithmatex">\(2\)</span>，远离纵轴。三条曲线的峰高都是 <span class="arithmatex">\(1\)</span>，三角形的左端都固定在 <span class="arithmatex">\(t=0\)</span>。</p>
+<p><span class="pt-head">▸ <strong>关键：尺度变换是以纵轴为中心的。</strong></span> 上面的三角形左端恰好在 <span class="arithmatex">\(t=0\)</span>，所以看起来像「只是变窄」。如果波形不在原点，压缩的同时<strong>位置也会变</strong>：关键点 <span class="arithmatex">\(p\to p/a\)</span>，不只是宽度变。下图用一个落在 <span class="arithmatex">\([4,8]\)</span> 上的三角形来演示：</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-04.svg" /></p>
+<p class="fig-caption"><strong>图 4</strong> 原来的三角形在 <span class="arithmatex">\([4,8]\)</span>（峰在 <span class="arithmatex">\(6\)</span>）。<span class="arithmatex">\(x(2t)\)</span> 的三角形在 <span class="arithmatex">\([2,4]\)</span>（峰在 <span class="arithmatex">\(3\)</span>），向原点靠拢；<span class="arithmatex">\(x(t/2)\)</span> 的三角形在 <span class="arithmatex">\([8,16]\)</span>（峰在 <span class="arithmatex">\(12\)</span>），远离原点。每个点的位置都乘了 <span class="arithmatex">\(1/a\)</span>。</p>
+<p>所以要先做「压缩或拉伸」再做「平移」，这是同一个道理：压缩是围绕原点进行的。</p>
+<p><span class="pt-head">▸ <strong>压缩和拉伸改变了什么，没改变什么。</strong></span></p>
+<ul>
+<li>
+<p><strong>没变</strong>：峰高（纵轴的值）。</p>
+</li>
+<li>
+<p><strong>变了</strong>：宽度变成原来的 <span class="arithmatex">\(1/a\)</span> 倍；<strong>面积</strong>也变成原来的 <span class="arithmatex">\(1/a\)</span> 倍。三角形的底边 <span class="arithmatex">\(6\to3\to12\)</span>，面积 <span class="arithmatex">\(3\to1.5\to6\)</span>。一般公式 <span class="arithmatex">\(\int_{-\infty}^{+\infty}x(at)\d t=\dfrac{1}{a}\int_{-\infty}^{+\infty}x(t)\d t\)</span>（<span class="arithmatex">\(a\gt{}0\)</span>，把 <span class="arithmatex">\(s=at\)</span> 代入即可）。</p>
+</li>
+</ul>
+<p>这里能解释前面一份笔记里的一个现象：<span class="arithmatex">\(\Sa(\omega t)\)</span> 的面积是 <span class="arithmatex">\(\dfrac{\pi}{\omega}\)</span>，会随 <span class="arithmatex">\(\omega\)</span> 变小；而 <span class="arithmatex">\(\dfrac{\sin\omega t}{t}=\omega\cdot\Sa(\omega t)\)</span> 乘了一个 <span class="arithmatex">\(\omega\)</span>，面积刚好回到 <span class="arithmatex">\(\pi\)</span>。所以「<span class="arithmatex">\(\sin\omega t/t\)</span> 的积分始终是 <span class="arithmatex">\(\pi\)</span>」的几何原因是：宽度压成 <span class="arithmatex">\(1/\omega\)</span>，高度又乘 <span class="arithmatex">\(\omega\)</span>，两者抵消。</p>
+<p><span class="pt-head">▸ <strong>和日常经验的对应。</strong></span> 把 <span class="arithmatex">\(x(t)\)</span> 想成一段声音，<span class="arithmatex">\(x(2t)\)</span> 就是用 <span class="arithmatex">\(2\)</span> 倍速播放：时长缩短为一半，同时音调升高（采样点被更快地播放）。<span class="arithmatex">\(x(t/2)\)</span> 是半速播放：时长翻倍，音调降低。注意这里说的是「简单地加速或减速播放」；很多播放器的「变速不变调」用的是别的算法，不属于单纯的 <span class="arithmatex">\(x(at)\)</span>。</p>
+<p><span class="pt-head">▸ <strong><span class="arithmatex">\(a\lt{}0\)</span> 怎么办。</strong></span> <span class="arithmatex">\(x(at)\)</span>（<span class="arithmatex">\(a\lt{}0\)</span>）就是先翻转再压缩或拉伸：<span class="arithmatex">\(x(-2t)=x(2(-t))\)</span>，先画 <span class="arithmatex">\(x(-t)\)</span>，再按绝对值 <span class="arithmatex">\(2\)</span> 压缩。口诀的第二句和第三句分别处理这两件事。</p>
+<p><span class="pt-head">▸ <strong>图解：不同的 <span class="arithmatex">\(a\)</span> 一排看。</strong></span> 把同一个三角波 <span class="arithmatex">\(x(t)\)</span> 用 <span class="arithmatex">\(a=3,\,2,\,1,\,\tfrac12,\,\tfrac13\)</span> 各做一次，五行对齐，一眼看出「<span class="arithmatex">\(a\)</span> 越大越窄、越靠近纵轴，<span class="arithmatex">\(a\)</span> 越小越宽、越远离纵轴」：</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-05.svg" /></p>
+<p class="fig-caption"><strong>图 5</strong> 同一个三角波（原来的底边在 <span class="arithmatex">\([0,6]\)</span>）经 <span class="arithmatex">\(x(at)\)</span> 之后，底边的右端点变成 <span class="arithmatex">\(6/a\)</span>：<span class="arithmatex">\(a=3,2,1,\tfrac12,\tfrac13\)</span> 对应 <span class="arithmatex">\(2,3,6,12,18\)</span>。峰高始终是 <span class="arithmatex">\(1\)</span>，左端固定在 <span class="arithmatex">\(t=0\)</span>。</p>
+<p><span class="pt-head">▸ <strong>再强调三点。</strong></span></p>
+<ol>
+<li>
+<p><strong>压缩的是时间轴，不是纵轴</strong>：峰高不变，宽度变成 <span class="arithmatex">\(1/a\)</span>。</p>
+</li>
+<li>
+<p><strong><span class="arithmatex">\(a\gt{}1\)</span> 压缩，<span class="arithmatex">\(0\lt{}a\lt{}1\)</span> 拉伸</strong>：这就是口诀第三句，看的是系数的<strong>绝对值</strong>。</p>
+</li>
+<li>
+<p><strong>离散情形要小心</strong>：<span class="arithmatex">\(x[2n]\)</span> 会丢掉点，<span class="arithmatex">\(x[n/2]\)</span> 在奇数处没有定义（§3 离散一节会讲），所以离散里基本只用 <span class="arithmatex">\(\pm1\)</span>。</p>
+</li>
+</ol>
+<h3 id="24-xt-t_0">2.4 概念：平移变换 <span class="arithmatex">\(x(t-t_0)\)</span>（口诀第四句）<a class="headerlink" href="#24-xt-t_0" title="Permanent link">&para;</a></h3>
+<p>只做平移的变换：<span class="arithmatex">\(x(t)\to x(t-t_0)\)</span>。口诀第四句「加号左移，减号右移」说的就是它：</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(x(t-t_0)\)</span>（<span class="arithmatex">\(t_0\gt{}0\)</span>）：<strong>右移 <span class="arithmatex">\(t_0\)</span></strong>，也叫<strong>延迟</strong>（delay）；</p>
+</li>
+<li>
+<p><span class="arithmatex">\(x(t+t_0)\)</span>（<span class="arithmatex">\(t_0\gt{}0\)</span>）：<strong>左移 <span class="arithmatex">\(t_0\)</span></strong>，也叫<strong>超前</strong>（advance）。</p>
+</li>
+</ul>
+<p>关键点规则：<strong>原来在 <span class="arithmatex">\(t=p\)</span> 处的点，变到 <span class="arithmatex">\(t=p+t_0\)</span> 处（对 <span class="arithmatex">\(x(t-t_0)\)</span>），形状和纵轴的值都不变。</strong>理由：新信号在 <span class="arithmatex">\(t\)</span> 处的值是原信号在 <span class="arithmatex">\(t-t_0\)</span> 处的值，要看到原来 <span class="arithmatex">\(p\)</span> 处的特征，需要 <span class="arithmatex">\(t-t_0=p\)</span>，即 <span class="arithmatex">\(t=p+t_0\)</span>。「减号」对应「往大的方向（右）走」，所以减号右移。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;"><span class="arithmatex">\(x(t+2)\)</span>：左移 <span class="arithmatex">\(2\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(x(t)\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(x(t-2)\)</span>：右移 <span class="arithmatex">\(2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">关键点 <span class="arithmatex">\(t\)</span> 值</td>
+<td style="text-align: center;"><span class="arithmatex">\(-2,\ 1,\ 4\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0,\ 3,\ 6\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(2,\ 5,\ 8\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">峰高</td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">底边宽度</td>
+<td style="text-align: center;"><span class="arithmatex">\(6\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(6\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(6\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-06.svg" /></p>
+<p class="fig-caption"><strong>图 6</strong> 平移：三条同样形状的三角形，只是位置不同。竖直点线对齐三个峰（<span class="arithmatex">\(t=1,3,5\)</span>），相邻两个峰之间相差 <span class="arithmatex">\(2\)</span>。形状、峰高、底边都不变。</p>
+<p><span class="pt-head">▸ <strong>平移改变了什么，没改变什么。</strong></span></p>
+<ul>
+<li>
+<p><strong>没变</strong>：形状、峰高、面积（<span class="arithmatex">\(\int x(t-t_0)\d t=\int x(t)\d t\)</span>）、能量。</p>
+</li>
+<li>
+<p><strong>变了</strong>：每个点的位置整体移动 <span class="arithmatex">\(t_0\)</span>。</p>
+</li>
+</ul>
+<p>对比前面：<strong>压缩/拉伸</strong>会改变宽度和面积，<strong>翻转</strong>改变方向，只有<strong>平移</strong>什么形状上的东西都不改。</p>
+<h3 id="25-xatb">2.5 概念：合在一起 <span class="arithmatex">\(x(at+b)\)</span><a class="headerlink" href="#25-xatb" title="Permanent link">&para;</a></h3>
+<p>前面把口诀的二、三、四句分别拆开看过了。现在把它们放到一起：一般的自变量变换是 <span class="arithmatex">\(x(at+b)\)</span>，其中 <span class="arithmatex">\(a\)</span> 可正可负，<span class="arithmatex">\(b\)</span> 是常数。</p>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>一步到位的验算公式</strong>：原来在 <span class="arithmatex">\(t=p\)</span> 处的点，在 <span class="arithmatex">\(x(at+b)\)</span> 里变到</p>
+<div class="arithmatex">\[
+t=\frac{p-b}{a}
+\]</div>
+<p>处，纵轴值不变。（令 <span class="arithmatex">\(at+b=p\)</span> 解出 <span class="arithmatex">\(t\)</span>。）画图时可以先用这个公式把三个关键点的新位置算出来，再用口诀检查。</p>
+</div>
+<p><strong>做法顺序</strong>：先化成标准形式 <span class="arithmatex">\(x\bigl(a(t+\tfrac ba)\bigr)\)</span>，再按「翻转 <span class="arithmatex">\(\to\)</span> 压缩或拉伸 <span class="arithmatex">\(\to\)</span> 平移」做，平移量是 <span class="arithmatex">\(b/a\)</span>（不是 <span class="arithmatex">\(b\)</span>）。</p>
+<h3 id="26">2.6 证明：为什么口诀成立<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
+<p>这里把口诀成立的道理写出来，记住这三条就不容易错。</p>
+<ol>
+<li>
+<p><strong>为什么要化成 <span class="arithmatex">\(x(a(t+b/a))\)</span>（提出系数）</strong>：因为「平移」平移的是 <span class="arithmatex">\(t\)</span> 本身。<span class="arithmatex">\(x(3t+6)\)</span> 里的 <span class="arithmatex">\(6\)</span> 是对 <span class="arithmatex">\(3t\)</span> 加的，不是对 <span class="arithmatex">\(t\)</span> 加的，所以真正平移的距离是 <span class="arithmatex">\(6/3=2\)</span>，不是 <span class="arithmatex">\(6\)</span>。化成标准形式 <span class="arithmatex">\(x(3(t+2))\)</span> 之后，括号里的 <span class="arithmatex">\(2\)</span> 才是直接作用在 <span class="arithmatex">\(t\)</span> 上的平移量。</p>
+</li>
+<li>
+<p><strong>为什么加号左移</strong>：新信号在 <span class="arithmatex">\(t\)</span> 处的值，是原信号在 <span class="arithmatex">\(t+2\)</span> 处的值。原信号在 <span class="arithmatex">\(p\)</span> 处的特征（比如峰），在新信号里要到 <span class="arithmatex">\(t+2=p\)</span>，即 <span class="arithmatex">\(t=p-2\)</span> 处才看得到，比原来位置<strong>小</strong>，就是向左。减号反之。</p>
+</li>
+<li>
+<p><strong>为什么系数大于 <span class="arithmatex">\(1\)</span> 压缩</strong>：<span class="arithmatex">\(x(3t)\)</span> 在 <span class="arithmatex">\(t\)</span> 处的值是原信号在 <span class="arithmatex">\(3t\)</span> 处的值，原信号走完 <span class="arithmatex">\(3\)</span> 个单位，新信号只用 <span class="arithmatex">\(1\)</span> 个单位，所以「变快」了，波形被挤窄。系数小于 <span class="arithmatex">\(1\)</span> 则相反，被拉宽。</p>
+</li>
+</ol>
+<p>下图把第二条（为什么加号左移）画出来：下排是 <span class="arithmatex">\(x(t+2)\)</span>，上排是 <span class="arithmatex">\(x(t)\)</span>，虚线连接「新信号的点」和「它在原信号里读取的位置」（读取位置是 <span class="arithmatex">\(t+2\)</span>）。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-07.svg" /></p>
+<p class="fig-caption"><strong>图 7</strong> 下排 <span class="arithmatex">\(x(t+2)\)</span> 在 <span class="arithmatex">\(t=-2,1,4\)</span> 处的值，是上排 <span class="arithmatex">\(x(t)\)</span> 在 <span class="arithmatex">\(\tau=t+2=0,3,6\)</span> 处的值。每个特征（比如峰）在新信号里出现的位置，比原来小 <span class="arithmatex">\(2\)</span>，所以是左移。</p>
+<p><span class="pt-head">▸ <strong>图解：为什么是「压缩」——从输出倒推到输入。</strong></span> <span class="arithmatex">\(x(2t)\)</span> 在 <span class="arithmatex">\(t\)</span> 处的值，是原信号在 <span class="arithmatex">\(2t\)</span> 处的值。用具体数字走一遍（三角波：<span class="arithmatex">\(0\le\tau\le3\)</span> 时 <span class="arithmatex">\(x(\tau)=\tau/3\)</span>，<span class="arithmatex">\(3\le\tau\le6\)</span> 时 <span class="arithmatex">\(x(\tau)=(6-\tau)/3\)</span>）：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">新信号的 <span class="arithmatex">\(t\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0.5\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1.5\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(3\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">要去原信号读的位置 <span class="arithmatex">\(\tau=2t\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(3\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(4\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(6\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">读到的值 <span class="arithmatex">\(x(\tau)=x(2t)\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\tfrac13\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\tfrac23\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\tfrac23\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>新信号只走了 <span class="arithmatex">\(t=0\to3\)</span>，已经把原信号从 <span class="arithmatex">\(\tau=0\)</span> 读到了 <span class="arithmatex">\(\tau=6\)</span> 的全部内容，所以波形被「压」进了原来一半的时间里。下图把对应关系画出来：下排是 <span class="arithmatex">\(x(2t)\)</span>，上排是 <span class="arithmatex">\(x(t)\)</span>，每条虚线连接「新信号的点」和「它在原信号里读取的位置」。把这些虚线向下延长，它们会交于纵轴上的同一点（图中的「放射中心」），这就是「以纵轴为中心的压缩」。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-08.svg" /></p>
+<p class="fig-caption"><strong>图 8</strong> 压缩 <span class="arithmatex">\(2\)</span> 倍：下排 <span class="arithmatex">\(x(2t)\)</span> 上的点 <span class="arithmatex">\(t=0,1.5,3\)</span>，对应它在上排 <span class="arithmatex">\(x(t)\)</span> 里读取的位置 <span class="arithmatex">\(\tau=0,3,6\)</span>（每个读取位置是 <span class="arithmatex">\(t\)</span> 的 <span class="arithmatex">\(2\)</span> 倍）。虚线是对应关系。</p>
+<div class="admonition note">
+<p class="admonition-title">说明</p>
+<p>一个容易踩的坑：先化成标准形式，再按「翻转 <span class="arithmatex">\(\to\)</span> 压缩或拉伸 <span class="arithmatex">\(\to\)</span> 平移」的顺序做，平移量是 <span class="arithmatex">\(b/a\)</span>，不是 <span class="arithmatex">\(b\)</span>。如果坚持先平移再压缩，平移量就是 <span class="arithmatex">\(b\)</span>（即 <span class="arithmatex">\(x(t+6)\)</span>，再压缩 <span class="arithmatex">\(3\)</span> 倍），结果相同，但很容易搞错，所以「先化成标准形式」放在口诀第一条。</p>
+</div>
+<h3 id="27">2.7 例题<a class="headerlink" href="#27" title="Permanent link">&para;</a></h3>
+<p class="ex-head"><span class="ex-badge">例 1</span> <strong>三角波的 <span class="arithmatex">\(x(3t+6)\)</span> 与 <span class="arithmatex">\(x(-3t+6)\)</span></strong> <span class="ex-tag">翻转·压缩·平移</span></p>
+<p>题目：已知 <span class="arithmatex">\(x(t)\)</span> 是下面的三角波：<span class="arithmatex">\(t\in[0,3]\)</span> 上升、<span class="arithmatex">\(t\in[3,6]\)</span> 下降，最高点高度为 <span class="arithmatex">\(1\)</span>。画出 <span class="arithmatex">\(x(3t+6)\)</span> 和 <span class="arithmatex">\(x(-3t+6)\)</span>。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-09.svg" /></p>
+<p class="fig-caption"><strong>图 9</strong> 已知的三角波 <span class="arithmatex">\(x(t)\)</span>：在 <span class="arithmatex">\(t=0\)</span> 处为 <span class="arithmatex">\(0\)</span>，<span class="arithmatex">\(t=3\)</span> 处升到 <span class="arithmatex">\(1\)</span>，<span class="arithmatex">\(t=6\)</span> 处回到 <span class="arithmatex">\(0\)</span>。</p>
+<p><span class="pt-head">▸ <strong>方法一：固定关键点。</strong></span> 把波形上的三个关键点（<span class="arithmatex">\(t=0,3,6\)</span>）固定下来，问：在新信号里，这三个点分别跑到了哪里？思路是：新信号 <span class="arithmatex">\(x(3t+6)\)</span> 在 <span class="arithmatex">\(t\)</span> 处的值，等于 <span class="arithmatex">\(x\)</span> 在「括号里那个数」处的值。所以让括号里的数等于原来的关键点：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">原来的关键点</th>
+<th style="text-align: center;"><span class="arithmatex">\(x(\cdot)\)</span> 的值</th>
+<th style="text-align: center;">令 <span class="arithmatex">\(3t+6\)</span> 等于它</th>
+<th style="text-align: center;">新信号里对应的 <span class="arithmatex">\(t\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(3t+6=0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(t=-2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(3\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span>（峰）</td>
+<td style="text-align: center;"><span class="arithmatex">\(3t+6=3\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(t=-1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(6\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(3t+6=6\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(t=0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>所以 <span class="arithmatex">\(x(3t+6)\)</span> 是一个三角波：在 <span class="arithmatex">\(t=-2\)</span> 处为 <span class="arithmatex">\(0\)</span>，<span class="arithmatex">\(t=-1\)</span> 处是峰（高 <span class="arithmatex">\(1\)</span>），<span class="arithmatex">\(t=0\)</span> 处回到 <span class="arithmatex">\(0\)</span>。</p>
+<p>同样 <span class="arithmatex">\(x(-3t+6)\)</span>：<span class="arithmatex">\(-3t+6=0\Rightarrow t=2\)</span>；<span class="arithmatex">\(=3\Rightarrow t=1\)</span>；<span class="arithmatex">\(=6\Rightarrow t=0\)</span>。它是 <span class="arithmatex">\(t=0\)</span> 处为 <span class="arithmatex">\(0\)</span>、<span class="arithmatex">\(t=1\)</span> 处是峰、<span class="arithmatex">\(t=2\)</span> 处回到 <span class="arithmatex">\(0\)</span> 的三角波。</p>
+<p>下面的口诀更常用：先建立「信号移来移去、翻转过来翻转过去、拉伸缩短」的图像感。</p>
+<p><span class="pt-head">▸ <strong>方法二：四步口诀。</strong></span> <strong><span class="arithmatex">\(x(3t+6)\)</span></strong>：</p>
+<ol>
+<li>
+<p><strong>化成标准形式</strong>：把 <span class="arithmatex">\(t\)</span> 前面的系数提出来，<span class="arithmatex">\(x(3t+6)=x\bigl(3(t+2)\bigr)\)</span>；</p>
+</li>
+<li>
+<p><strong>前有负号翻转</strong>：<span class="arithmatex">\(3\)</span> 前面没有负号，这步可以不做；</p>
+</li>
+<li>
+<p><strong>系数大于 <span class="arithmatex">\(1\)</span> 压缩</strong>：系数是 <span class="arithmatex">\(3\gt{}1\)</span>，横向压缩 <span class="arithmatex">\(3\)</span> 倍。<span class="arithmatex">\(x(t)\)</span> 的关键点 <span class="arithmatex">\(0,3,6\)</span> 除以 <span class="arithmatex">\(3\)</span>，变成 <span class="arithmatex">\(0,1,2\)</span>；</p>
+</li>
+<li>
+<p><strong>加号左移</strong>：括号里是 <span class="arithmatex">\(t+2\)</span>，是加号，左移 <span class="arithmatex">\(2\)</span> 个单位：<span class="arithmatex">\(0,1,2\)</span> 变成 <span class="arithmatex">\(-2,-1,0\)</span>。</p>
+</li>
+</ol>
+<p><strong><span class="arithmatex">\(x(-3t+6)\)</span></strong>：</p>
+<ol>
+<li>
+<p><strong>化成标准形式</strong>：<span class="arithmatex">\(x(-3t+6)=x\bigl(-3(t-2)\bigr)\)</span>。（验算：<span class="arithmatex">\(-3\times(-2)=6\)</span>。）</p>
+</li>
+<li>
+<p><strong>前有负号翻转</strong>：先画 <span class="arithmatex">\(x(-t)\)</span>，以纵轴为对称轴翻过去：关键点 <span class="arithmatex">\(0,3,6\)</span> 变成 <span class="arithmatex">\(0,-3,-6\)</span>；</p>
+</li>
+<li>
+<p><strong>系数绝对值 <span class="arithmatex">\(3\gt{}1\)</span> 压缩</strong>：针对翻转后的图压缩 <span class="arithmatex">\(3\)</span> 倍：<span class="arithmatex">\(-6,-3,0\)</span> 变成 <span class="arithmatex">\(-2,-1,0\)</span>，得到 <span class="arithmatex">\(x(-3t)\)</span>；</p>
+</li>
+<li>
+<p><strong>减号右移</strong>：括号里是 <span class="arithmatex">\(t-2\)</span>，是减号，右移 <span class="arithmatex">\(2\)</span> 个单位：<span class="arithmatex">\(-2,-1,0\)</span> 变成 <span class="arithmatex">\(0,1,2\)</span>。</p>
+</li>
+</ol>
+<p>最后得到的答案和方法一的结果一致（峰在 <span class="arithmatex">\(t=1\)</span>，两端在 <span class="arithmatex">\(t=0\)</span> 和 <span class="arithmatex">\(t=2\)</span>）。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-10.svg" /></p>
+<p class="fig-caption"><strong>图 10</strong> <span class="arithmatex">\(x(3t+6)\)</span> 的做法：先压缩（<span class="arithmatex">\(x(3t)\)</span>），再左移 <span class="arithmatex">\(2\)</span>。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-11.svg" /></p>
+<p class="fig-caption"><strong>图 11</strong> <span class="arithmatex">\(x(-3t+6)\)</span> 的四步：①<span class="arithmatex">\(\to\)</span>② 翻转，②<span class="arithmatex">\(\to\)</span>③ 压缩，③<span class="arithmatex">\(\to\)</span>④ 右移。</p>
+<p><strong>这四步要熟练掌握。</strong></p>
+<p class="ex-head"><span class="ex-badge">例 2</span> <strong><span class="arithmatex">\(x\bigl(-\tfrac12t+1\bigr)\)</span></strong> <span class="ex-tag">翻转·拉伸·平移</span></p>
+<p>第二道题。注意式子是 <span class="arithmatex">\(x\bigl(-\tfrac12t+1\bigr)\)</span>，不是 <span class="arithmatex">\(x(-2t+1)\)</span>。</p>
+<p>已知 <span class="arithmatex">\(x(t)\)</span> 是一个直角三角形：在 <span class="arithmatex">\(t=-1\)</span> 处有一条竖直边（高 <span class="arithmatex">\(2\)</span>），斜边向右下落到 <span class="arithmatex">\(t=0\)</span> 处的 <span class="arithmatex">\(0\)</span>。按四步口诀计算：</p>
+<ol>
+<li>
+<p>标准形式：<span class="arithmatex">\(x\bigl(-\tfrac12t+1\bigr)=x\bigl(-\tfrac12(t-2)\bigr)\)</span>；</p>
+</li>
+<li>
+<p>前有负号翻转：竖直边从 <span class="arithmatex">\(t=-1\)</span> 翻到 <span class="arithmatex">\(t=1\)</span>，斜边落点仍在 <span class="arithmatex">\(0\)</span>；</p>
+</li>
+<li>
+<p>系数绝对值 <span class="arithmatex">\(\tfrac12\lt{}1\)</span> 拉伸：横向拉伸 <span class="arithmatex">\(2\)</span> 倍，竖直边到 <span class="arithmatex">\(t=2\)</span>，落点仍是 <span class="arithmatex">\(0\)</span>；</p>
+</li>
+<li>
+<p>减号右移 <span class="arithmatex">\(2\)</span>：竖直边到 <span class="arithmatex">\(t=4\)</span>，落点到 <span class="arithmatex">\(t=2\)</span>。</p>
+</li>
+</ol>
+<p><em>（验算两点：<span class="arithmatex">\(t=4\)</span> 时 <span class="arithmatex">\(x(-\tfrac12\cdot4+1)=x(-1)=2\)</span>；<span class="arithmatex">\(t=2\)</span> 时 <span class="arithmatex">\(x(0)=0\)</span>。）</em></p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-12.svg" /></p>
+<p class="fig-caption"><strong>图 12</strong> <span class="arithmatex">\(x(-\frac12t+1)\)</span> 的四步。</p>
+<p class="ex-head"><span class="ex-badge">例 3</span> <strong>反过来做：已知 <span class="arithmatex">\(x(3-2t)\)</span>，求 <span class="arithmatex">\(x(t)\)</span></strong> <span class="ex-tag">变量代换</span></p>
+<p>这道题「反过来了」：给的是变换<em>之后</em>的波形，要画<em>原来</em>的 <span class="arithmatex">\(x(t)\)</span>。</p>
+<p>题目给的 <span class="arithmatex">\(x(3-2t)\)</span> 的波形：<span class="arithmatex">\(t\in[2,3]\)</span> 上高度 <span class="arithmatex">\(1\)</span>，<span class="arithmatex">\(t\in[3,4]\)</span> 上高度 <span class="arithmatex">\(2\)</span>，其余为 <span class="arithmatex">\(0\)</span>。</p>
+<p><strong>思路：变量代换。</strong>设 <span class="arithmatex">\(u=3-2t\)</span>，则 <span class="arithmatex">\(t=\dfrac{3-u}{2}\)</span>。已知的是「关于 <span class="arithmatex">\(t\)</span> 的函数 <span class="arithmatex">\(x(3-2t)\)</span>」，把它的图像当成一个已知函数 <span class="arithmatex">\(g\)</span>，则要求的 <span class="arithmatex">\(x(t)=g\bigl(\tfrac{3-t}{2}\bigr)\)</span>，也就是 <span class="arithmatex">\(g\)</span> 做了自变量变换。把它化成标准形式：</p>
+<div class="arithmatex">\[
+g\Bigl(\frac{3-t}{2}\Bigr)=g\Bigl(-\frac12\,(t-3)\Bigr),
+\]</div>
+<p>然后照口诀：</p>
+<ol>
+<li>
+<p>标准形式：<span class="arithmatex">\(-\tfrac12(t-3)\)</span>；</p>
+</li>
+<li>
+<p>前有负号翻转：<span class="arithmatex">\(g\)</span> 的图（在 <span class="arithmatex">\([2,4]\)</span>）翻成 <span class="arithmatex">\([-4,-2]\)</span>；</p>
+</li>
+<li>
+<p>系数绝对值 <span class="arithmatex">\(\tfrac12\lt{}1\)</span> 拉伸 <span class="arithmatex">\(2\)</span> 倍：<span class="arithmatex">\([-8,-4]\)</span>；</p>
+</li>
+<li>
+<p>减号右移 <span class="arithmatex">\(3\)</span>：<span class="arithmatex">\([-5,-1]\)</span>。</p>
+</li>
+</ol>
+<p>答案：<span class="arithmatex">\(x(t)\)</span> 在 <span class="arithmatex">\([-5,-3]\)</span> 上高度 <span class="arithmatex">\(2\)</span>，在 <span class="arithmatex">\([-3,-1]\)</span> 上高度 <span class="arithmatex">\(1\)</span>。</p>
+<p>下面每一步单独画一张，并标上刻度（这里的 <span class="arithmatex">\(g\)</span> 就是已知的 <span class="arithmatex">\(x(3-2t)\)</span>）：</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-13.svg" /></p>
+<p class="fig-caption"><strong>图 13</strong> 例 3 的四步：①<span class="arithmatex">\(\to\)</span>② 翻转，区间 <span class="arithmatex">\([2,4]\to[-4,-2]\)</span>，高度 <span class="arithmatex">\(1,2\)</span> 的两段左右互换；②<span class="arithmatex">\(\to\)</span>③ 拉伸 <span class="arithmatex">\(2\)</span> 倍，<span class="arithmatex">\([-8,-4]\)</span>；③<span class="arithmatex">\(\to\)</span>④ 右移 <span class="arithmatex">\(3\)</span>，<span class="arithmatex">\([-5,-1]\)</span>。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-14.svg" /></p>
+<p class="fig-caption"><strong>图 14</strong> 左：已知的 <span class="arithmatex">\(x(3-2t)\)</span>；右：所求的 <span class="arithmatex">\(x(t)\)</span>。</p>
+<p><span class="pt-head">▸ <strong>易错点。</strong></span> 按口诀走一遍：翻转后区间变成 <span class="arithmatex">\([-4,-2]\)</span>，拉伸 <span class="arithmatex">\(2\)</span> 倍后坐标都乘 <span class="arithmatex">\(2\)</span>，变成 <span class="arithmatex">\([-8,-4]\)</span>，最后「减号要右移」。作图时不要把几个图画在同一根坐标轴上，并标注 <span class="arithmatex">\(t\)</span> 和关键点的数值。</p>
+<p><em>（用上面的变换验算：<span class="arithmatex">\(x(t)=g\bigl(\tfrac{3-t}{2}\bigr)\)</span>。取 <span class="arithmatex">\(t=-4\)</span>：<span class="arithmatex">\(\tfrac{3-(-4)}{2}=3.5\in[3,4]\)</span>，<span class="arithmatex">\(g=2\)</span>；取 <span class="arithmatex">\(t=-2\)</span>：<span class="arithmatex">\(\tfrac{3-(-2)}{2}=2.5\in[2,3]\)</span>，<span class="arithmatex">\(g=1\)</span>。与答案一致。）</em></p>
+<p><span class="pt-head">▸ <strong>练习。</strong></span> 教材第 31 页习题 1-7、1-8 都是这类题。</p>
+<h3 id="28">2.8 例题：回头看熟悉的信号<a class="headerlink" href="#28" title="Permanent link">&para;</a></h3>
+<p>下面用几个熟悉的信号作例子：前两个是尺度变换，阶跃、窗和脉冲的和放在 §4–§6。</p>
+<p class="ex-head"><span class="ex-badge">例 4</span> <strong><span class="arithmatex">\(\Sa(\omega t)\)</span> 与 <span class="arithmatex">\(\frac{\sin\omega t}{t}\)</span></strong> <span class="ex-tag">压缩</span></p>
+<p>已知 <span class="arithmatex">\(\Sa(t)=\dfrac{\sin t}{t}\)</span>，画 <span class="arithmatex">\(\Sa(\omega t)=\dfrac{\sin\omega t}{\omega t}\)</span>（<span class="arithmatex">\(\omega\gt{}0\)</span>）。只用第三条口诀：系数是 <span class="arithmatex">\(\omega\)</span>，<span class="arithmatex">\(\omega\gt{}1\)</span> 就压缩 <span class="arithmatex">\(\omega\)</span> 倍。原来的零点 <span class="arithmatex">\(\pm\pi,\pm2\pi,\dots\)</span> 变成 <span class="arithmatex">\(\pm\dfrac{\pi}{\omega},\pm\dfrac{2\pi}{\omega},\dots\)</span>，峰高仍是 <span class="arithmatex">\(1\)</span>。</p>
+<p>前一节的 <span class="arithmatex">\(\dfrac{\sin\omega t}{t}=\omega\cdot\Sa(\omega t)\)</span>：把 <span class="arithmatex">\(\Sa(\omega t)\)</span> <strong>乘一个 <span class="arithmatex">\(\omega\)</span></strong>，峰高就是 <span class="arithmatex">\(\omega\)</span>，零点 <span class="arithmatex">\(\pm k\pi/\omega\)</span>。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-15.svg" /></p>
+<p class="fig-caption"><strong>图 15</strong> 取 <span class="arithmatex">\(\omega=2\)</span>。灰：<span class="arithmatex">\(\Sa(t)\)</span>，零点在 <span class="arithmatex">\(\pm\pi,\pm2\pi,\dots\)</span>；红：<span class="arithmatex">\(\Sa(2t)\)</span>，零点向纵轴靠拢到 <span class="arithmatex">\(\pm\frac\pi2,\pm\pi,\dots\)</span>，峰高仍是 <span class="arithmatex">\(1\)</span>；蓝：<span class="arithmatex">\(\dfrac{\sin2t}{t}=2\Sa(2t)\)</span>，零点和红线相同，峰高变成 <span class="arithmatex">\(2\)</span>。</p>
+<p class="ex-head"><span class="ex-badge">例 5</span> <strong>第五章的例子：<span class="arithmatex">\(X(\omega/T)\)</span></strong> <span class="ex-tag">拉伸</span></p>
+<p>第五章会碰到一个标准的例子：<span class="arithmatex">\(X(\omega)\)</span> 是一个带限信号（band-limited signal，只在 <span class="arithmatex">\([-\omega_0,\omega_0]\)</span> 上有值，其他地方为 <span class="arithmatex">\(0\)</span>），峰值（<span class="arithmatex">\(\omega=0\)</span> 处）为 <span class="arithmatex">\(E\)</span>。问：<span class="arithmatex">\(X\bigl(\tfrac{\omega}{T}\bigr)\)</span> 是什么形状？答案：<strong>峰值仍是 <span class="arithmatex">\(E\)</span></strong>，两个端点从 <span class="arithmatex">\(\pm\omega_0\)</span> 变成 <span class="arithmatex">\(\pm T\omega_0\)</span>。这就是第三条口诀：系数 <span class="arithmatex">\(\tfrac1T\)</span>，<span class="arithmatex">\(T\gt{}1\)</span> 时系数小于 <span class="arithmatex">\(1\)</span>，是拉伸。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-16.svg" /></p>
+<p class="fig-caption"><strong>图 16</strong> <span class="arithmatex">\(X(\omega/T)\)</span> 是 <span class="arithmatex">\(X(\omega)\)</span> 沿 <span class="arithmatex">\(\omega\)</span> 轴拉伸 <span class="arithmatex">\(T\)</span> 倍：峰值不变，宽度变成 <span class="arithmatex">\(T\)</span> 倍。左边的钟形只是示意。</p>
+<h3 id="29">2.9 例题：把几种变换组合起来<a class="headerlink" href="#29" title="Permanent link">&para;</a></h3>
+<p><strong>用不同的变换组合把前面的口诀和公式各练一遍。</strong></p>
+<p class="ex-head"><span class="ex-badge">例 6</span> <strong>翻转加平移：<span class="arithmatex">\(x(-t+3)\)</span></strong> <span class="ex-tag">翻转·平移</span></p>
+<p><span class="arithmatex">\(x(-t+b)\)</span> 的标准形式是 <span class="arithmatex">\(x(-(t-b))\)</span>，括号里是<strong>减号</strong>，所以是翻转之后<strong>右移 <span class="arithmatex">\(b\)</span></strong>，不是左移，哪怕 <span class="arithmatex">\(b\)</span> 前面看起来是「加号」。下面用直角三角形演示 <span class="arithmatex">\(x(-t+3)\)</span>：</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-17.svg" /></p>
+<p class="fig-caption"><strong>图 17</strong> 翻转再平移。竖直边（高 <span class="arithmatex">\(2\)</span>）从 <span class="arithmatex">\(t=-1\)</span> 翻到 <span class="arithmatex">\(t=1\)</span>，再右移 <span class="arithmatex">\(3\)</span> 到 <span class="arithmatex">\(t=4\)</span>，斜边落点从 <span class="arithmatex">\(0\)</span> 经 <span class="arithmatex">\(0\)</span> 到 <span class="arithmatex">\(3\)</span>。验算：<span class="arithmatex">\(t=4\)</span> 时 <span class="arithmatex">\(x(-4+3)=x(-1)=2\)</span>；<span class="arithmatex">\(t=3\)</span> 时 <span class="arithmatex">\(x(0)=0\)</span>。</p>
+<p class="ex-head"><span class="ex-badge">例 7</span> <strong>平移和压缩一起出现：<span class="arithmatex">\(x(2t-4)\)</span></strong> <span class="ex-tag">压缩·平移</span></p>
+<p><span class="arithmatex">\(x(2t-4)\)</span> 的标准形式是 <span class="arithmatex">\(x(2(t-2))\)</span>，所以<strong>先压缩 <span class="arithmatex">\(2\)</span> 倍，再右移 <span class="arithmatex">\(2\)</span></strong>，平移量是 <span class="arithmatex">\(2\)</span> 而不是 <span class="arithmatex">\(4\)</span>。这是前面口诀第一句「化成标准形式」要防的坑。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-18.svg" /></p>
+<p class="fig-caption"><strong>图 18</strong> <span class="arithmatex">\(x(2t-4)=x(2(t-2))\)</span>：先压缩得到 <span class="arithmatex">\(x(2t)\)</span>（关键点 <span class="arithmatex">\(0,3,6\to0,1.5,3\)</span>），再右移 <span class="arithmatex">\(2\)</span> 得到 <span class="arithmatex">\(2,3.5,5\)</span>（蓝）。把 <span class="arithmatex">\(b=4\)</span> 直接当平移量会得到 <span class="arithmatex">\(4,5.5,7\)</span>（红），整体偏右。验算：<span class="arithmatex">\(t=3.5\)</span> 时 <span class="arithmatex">\(x(2\times3.5-4)=x(3)=1\)</span>，正是峰。</p>
+<p class="ex-head"><span class="ex-badge">例 8</span> <strong>不对称三角波的 <span class="arithmatex">\(x(-2t+4)\)</span></strong> <span class="ex-tag">翻转·压缩·平移</span></p>
+<p>选一个不对称的三角波，避免翻转之后恰好和原图重合：<span class="arithmatex">\(x(t)\)</span> 在 <span class="arithmatex">\(t=0\)</span> 为 <span class="arithmatex">\(0\)</span>，<span class="arithmatex">\(t=2\)</span> 为峰（高 <span class="arithmatex">\(1\)</span>），<span class="arithmatex">\(t=6\)</span> 回到 <span class="arithmatex">\(0\)</span>。</p>
+<p><strong>一步到位验算</strong>：<span class="arithmatex">\(a=-2\)</span>，<span class="arithmatex">\(b=4\)</span>，<span class="arithmatex">\(t=\dfrac{p-4}{-2}\)</span>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+<th style="text-align: center;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">原来的点 <span class="arithmatex">\(p\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(6\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">新位置 <span class="arithmatex">\(t=\frac{p-4}{-2}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(-1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>所以 <span class="arithmatex">\(x(-2t+4)\)</span> 是一个三角波：左端在 <span class="arithmatex">\(t=-1\)</span>，峰在 <span class="arithmatex">\(t=1\)</span>，右端在 <span class="arithmatex">\(t=2\)</span>。注意左右互换了（原来的 <span class="arithmatex">\(p=0\)</span> 现在在右端）。</p>
+<p><strong>口诀做法（先化成标准形式 <span class="arithmatex">\(x(-2(t-2))\)</span>）</strong>：</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-19.svg" /></p>
+<p class="fig-caption"><strong>图 19</strong> 口诀顺序：①<span class="arithmatex">\(\to\)</span>② 前有负号翻转，②<span class="arithmatex">\(\to\)</span>③ 系数绝对值 <span class="arithmatex">\(2\gt{}1\)</span> 压缩，③<span class="arithmatex">\(\to\)</span>④ 减号右移 <span class="arithmatex">\(2\)</span>。每步的三个关键点：<span class="arithmatex">\((0,2,6)\to(-6,-2,0)\to(-3,-1,0)\to(-1,1,2)\)</span>，与一步到位算出的结果一致。</p>
+<p><span class="pt-head">▸ <strong>换一种顺序也行，但平移量不同。</strong></span> 也可以先平移、再做翻转和压缩：<span class="arithmatex">\(x(-2t+4)\)</span> 是把 <span class="arithmatex">\(x(\cdot+4)\)</span>（先左移 <span class="arithmatex">\(4\)</span>）里的 <span class="arithmatex">\(t\)</span> 换成 <span class="arithmatex">\(-2t\)</span>。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-20.svg" /></p>
+<p class="fig-caption"><strong>图 20</strong> 另一种顺序：先把 <span class="arithmatex">\(x(t)\)</span> 左移 <span class="arithmatex">\(4\)</span> 得到 <span class="arithmatex">\(x(t+4)\)</span>，再把自变量换成 <span class="arithmatex">\(-2t\)</span>（翻转并压缩 <span class="arithmatex">\(2\)</span> 倍），每个点 <span class="arithmatex">\(p\to-p/2\)</span>：<span class="arithmatex">\((-4,-2,2)\to(2,1,-1)\)</span>，即左端 <span class="arithmatex">\(-1\)</span>、峰 <span class="arithmatex">\(1\)</span>、右端 <span class="arithmatex">\(2\)</span>，得到和上一种顺序相同的结果。</p>
+<p>两种顺序结果相同，区别只在平移量：<strong>先缩放再平移，要先提出系数，括号里是 <span class="arithmatex">\(t-2\)</span>，平移 <span class="arithmatex">\(2\)</span> 个单位（<span class="arithmatex">\(=|b/a|=4/2\)</span>）；先平移再缩放，平移的是 <span class="arithmatex">\(x(\cdot+4)\)</span>，平移 <span class="arithmatex">\(4\)</span> 个单位（就是 <span class="arithmatex">\(b\)</span>）。</strong>所以「化成标准形式」放在口诀第一句：提出系数之后，平移量一目了然，不用在心里换算。</p>
+<p><span class="pt-head">▸ <strong>最常见的几个错误（对照图）。</strong></span> 同样画 <span class="arithmatex">\(x(-2t+4)\)</span>，下图把正确答案和其中两种错误画在一起：</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-21.svg" /></p>
+<p class="fig-caption"><strong>图 21</strong> 蓝：正确答案（左端 <span class="arithmatex">\(-1\)</span>、峰 <span class="arithmatex">\(1\)</span>、右端 <span class="arithmatex">\(2\)</span>）。红虚线：把平移量误写成 <span class="arithmatex">\(b=4\)</span>（翻转压缩之后又右移 <span class="arithmatex">\(4\)</span>），整体偏右。橙虚线：把「减号右移」记反，左移 <span class="arithmatex">\(2\)</span>，偏到左边。</p>
+<ol>
+<li>
+<p><strong>忘了提出系数</strong>：<span class="arithmatex">\(-2t+4\)</span> 里的 <span class="arithmatex">\(4\)</span> 对应的平移量是 <span class="arithmatex">\(4/2=2\)</span>（不是 <span class="arithmatex">\(4\)</span>）；</p>
+</li>
+<li>
+<p><strong>方向记反</strong>：标准形式是 <span class="arithmatex">\(x(-2(t-2))\)</span>，括号里是<strong>减号</strong>，所以右移；</p>
+</li>
+<li>
+<p><strong>左右搞反</strong>：有负号就要翻转，翻转之后左端和右端互换（本例中原来的 <span class="arithmatex">\(p=0\)</span> 变到右端）。</p>
+</li>
+</ol>
+<p>遇到拿不准的时候，用上面「一步到位」公式把三个关键点算一遍，对照就知道哪里错了。</p>
+<p class="ex-head"><span class="ex-badge">例 9</span> <strong>回声：原声加上延迟、变小的一份</strong> <span class="ex-tag">平移的应用</span></p>
+<p>声音的回声就是「原声加上延迟之后、变小的一份」。设 <span class="arithmatex">\(x(t)\)</span> 是一个声音片段，则</p>
+<div class="arithmatex">\[
+y(t)=x(t)+\tfrac12\,x(t-8)
+\]</div>
+<p>是原声加上延迟 <span class="arithmatex">\(8\)</span>、音量减半的回声。用上面的三角波示意：</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-22.svg" /></p>
+<p class="fig-caption"><strong>图 22</strong> <span class="arithmatex">\(y(t)=x(t)+\tfrac12x(t-8)\)</span>：原声（蓝）与延迟、减半的回声（红）。两个三角形没有重叠，所以相加后就是各自原样。</p>
+<p>如果延迟小于信号宽度，两份会重叠，相加就要把重叠部分逐点加起来。下面把延迟改成 <span class="arithmatex">\(4\)</span>（小于底边 <span class="arithmatex">\(6\)</span>）：<span class="arithmatex">\(y(t)=x(t)+\tfrac12x(t-4)\)</span>。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-23.svg" /></p>
+<p class="fig-caption"><strong>图 23</strong> 延迟 <span class="arithmatex">\(4\)</span> 时两份重叠在 <span class="arithmatex">\([4,6]\)</span> 上。上：蓝 <span class="arithmatex">\(x(t)\)</span> 与红虚线 <span class="arithmatex">\(\tfrac12x(t-4)\)</span>；下：相加后的 <span class="arithmatex">\(y(t)\)</span>，关键点 <span class="arithmatex">\((0,0),(3,1),(4,\tfrac23),(6,\tfrac13),(7,\tfrac12),(10,0)\)</span>。验算：<span class="arithmatex">\(t=4\)</span> 时 <span class="arithmatex">\(x(4)=\tfrac23\)</span>，回声刚开始为 <span class="arithmatex">\(0\)</span>，和为 <span class="arithmatex">\(\tfrac23\)</span>；<span class="arithmatex">\(t=6\)</span> 时 <span class="arithmatex">\(x(6)=0\)</span>，回声 <span class="arithmatex">\(\tfrac12x(2)=\tfrac13\)</span>。</p>
+<p class="ex-head"><span class="ex-badge">例 10</span> <strong>周期信号与「余弦就是左移的正弦」</strong> <span class="ex-tag">平移与周期</span></p>
+<p>第一份笔记里周期信号的定义 <span class="arithmatex">\(x(t)=x(t+mT)\)</span>，用现在的话说就是：<strong>平移任意整数个周期，信号不变</strong>。再举一个熟悉的例子：<span class="arithmatex">\(\cos t=\sin\bigl(t+\tfrac\pi2\bigr)\)</span>，即<strong>把正弦左移 <span class="arithmatex">\(\tfrac\pi2\)</span> 就是余弦</strong>。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-24.svg" /></p>
+<p class="fig-caption"><strong>图 24</strong> <span class="arithmatex">\(\cos t=\sin(t+\tfrac\pi2)\)</span>：正弦（蓝）左移 <span class="arithmatex">\(\tfrac\pi2\)</span> 就得到余弦（红虚线）。再左移 <span class="arithmatex">\(2\pi\)</span>（一个周期）则回到原来的曲线。</p>
+<h2 id="3">3 离散信号的自变量变换<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 概念<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<p>口诀仍然是这四句，但离散的情况 <strong><span class="arithmatex">\(n\)</span> 前面的系数基本只有 <span class="arithmatex">\(+1\)</span> 或 <span class="arithmatex">\(-1\)</span></strong>，所以第三句（压缩、拉伸）一般用不上：<span class="arithmatex">\(x[2n]\)</span> 会把奇数位置的点丢掉，<span class="arithmatex">\(x[n/2]\)</span> 在 <span class="arithmatex">\(n\)</span> 为奇数时没有定义，都需要额外约定。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-25.svg" /></p>
+<p class="fig-caption"><strong>图 25</strong> 离散情形不能随便缩放。上：<span class="arithmatex">\(x[n]\)</span>（<span class="arithmatex">\(x[-2]=\tfrac12\)</span>，<span class="arithmatex">\(x[-1]=-\tfrac12\)</span>，<span class="arithmatex">\(x[0..3]=1\)</span>）。中：<span class="arithmatex">\(x[2n]\)</span> 取 <span class="arithmatex">\(x[-2],x[0],x[2]\)</span>，放在 <span class="arithmatex">\(n=-1,0,1\)</span>，奇数位置的 <span class="arithmatex">\(x[-1],x[1],x[3]\)</span> 被丢掉了。下：<span class="arithmatex">\(x[n/2]\)</span> 把 <span class="arithmatex">\(x[k]\)</span> 放到 <span class="arithmatex">\(n=2k\)</span> 处，奇数 <span class="arithmatex">\(n\)</span> 要读 <span class="arithmatex">\(x\)</span> 在半整数处的值，没有定义。</p>
+<p><span class="pt-head">▸ <strong>离散的翻转。</strong></span> <span class="arithmatex">\(x[n]\to x[-n]\)</span>，同样以 <span class="arithmatex">\(n=0\)</span> 为对称轴：<span class="arithmatex">\(n=p\)</span> 处的值变到 <span class="arithmatex">\(n=-p\)</span> 处。用一个小序列 <span class="arithmatex">\(x[n]\)</span>（<span class="arithmatex">\(x[-2]=\tfrac12\)</span>，<span class="arithmatex">\(x[-1]=-\tfrac12\)</span>，<span class="arithmatex">\(x[0..3]=1\)</span>，后面的例题用的也是它）：翻转后 <span class="arithmatex">\(x[-n]\)</span> 在 <span class="arithmatex">\(n=2\)</span> 处是 <span class="arithmatex">\(\tfrac12\)</span>，<span class="arithmatex">\(n=1\)</span> 处是 <span class="arithmatex">\(-\tfrac12\)</span>，<span class="arithmatex">\(n=0,-1,-2,-3\)</span> 处是 <span class="arithmatex">\(1\)</span>。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-26.svg" /></p>
+<p class="fig-caption"><strong>图 26</strong> 离散翻转：每根竖线以 <span class="arithmatex">\(n=0\)</span> 为轴镜像，高度不变。</p>
+<p><span class="pt-head">▸ <strong>离散的平移。</strong></span> <span class="arithmatex">\(x[n-k]\)</span>（<span class="arithmatex">\(k\)</span> 为整数）右移 <span class="arithmatex">\(k\)</span>，<span class="arithmatex">\(x[n+k]\)</span> 左移 <span class="arithmatex">\(k\)</span>，形状不变，后面例题里的 <span class="arithmatex">\(x[n-3]\)</span> 就是这种。离散的平移量只能是整数（相邻采样点之间没有点可放）。</p>
+<h3 id="32">3.2 例题<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<p class="ex-head"><span class="ex-badge">例 1</span> <strong><span class="arithmatex">\(x[n-3]\)</span> 与 <span class="arithmatex">\(x[4-n]\)</span></strong> <span class="ex-tag">右移·翻转</span></p>
+<p>已知 <span class="arithmatex">\(x[n]\)</span>：<span class="arithmatex">\(x[-2]=\tfrac12\)</span>，<span class="arithmatex">\(x[-1]=-\tfrac12\)</span>，<span class="arithmatex">\(x[0]=x[1]=x[2]=x[3]=1\)</span>，其余为 <span class="arithmatex">\(0\)</span>。</p>
+<p><strong><span class="arithmatex">\(x[n-3]\)</span></strong>：已经是标准形式；<span class="arithmatex">\(n\)</span> 前面没有负号，系数是 <span class="arithmatex">\(1\)</span>，不用翻转也不用压缩；减号右移 <span class="arithmatex">\(3\)</span>。形状不变，把坐标改一改：原来 <span class="arithmatex">\(-2,-1\)</span> 的点移到 <span class="arithmatex">\(1,2\)</span>，原来 <span class="arithmatex">\(0,1,2,3\)</span> 的点移到 <span class="arithmatex">\(3,4,5,6\)</span>，即右移三个单位。</p>
+<p><strong><span class="arithmatex">\(x[4-n]\)</span></strong>：标准形式是 <span class="arithmatex">\(x[-(n-4)]\)</span>，先翻转，再右移 <span class="arithmatex">\(4\)</span>。逐步追踪每个点：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">原来的 <span class="arithmatex">\(n\)</span></th>
+<th style="text-align: center;">翻转后</th>
+<th style="text-align: center;">右移 <span class="arithmatex">\(4\)</span> 后</th>
+<th style="text-align: center;">在新信号里的位置</th>
+<th style="text-align: center;">值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(3\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(-3\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(n=1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(-2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(n=2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(-1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(3\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(n=3\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(4\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(n=4\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(-1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(5\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(n=5\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(-\tfrac12\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(-2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(2\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(6\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(n=6\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\tfrac12\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-27.svg" /></p>
+<p class="fig-caption"><strong>图 27</strong> 离散信号的自变量变换。<span class="arithmatex">\(x[n]\)</span> 在 <span class="arithmatex">\(n=-2,-1\)</span> 处是 <span class="arithmatex">\(\tfrac12,-\tfrac12\)</span>，在 <span class="arithmatex">\(n=0,1,2,3\)</span> 处是 <span class="arithmatex">\(1\)</span>。</p>
+<h2 id="4-utun">4 阶跃信号 <span class="arithmatex">\(u(t)\)</span>、<span class="arithmatex">\(u[n]\)</span> 的自变量变换<a class="headerlink" href="#4-utun" title="Permanent link">&para;</a></h2>
+<h3 id="41-0">4.1 概念：令括号里的式子等于 <span class="arithmatex">\(0\)</span><a class="headerlink" href="#41-0" title="Permanent link">&para;</a></h3>
+<p><strong>把口诀用到最简单的信号上：阶跃。</strong></p>
+<p><span class="arithmatex">\(u(t)\)</span> 只有一个「跳变」：括号里的数大于 <span class="arithmatex">\(0\)</span> 时为 <span class="arithmatex">\(1\)</span>，小于 <span class="arithmatex">\(0\)</span> 时为 <span class="arithmatex">\(0\)</span>。所以对 <span class="arithmatex">\(u(at+b)\)</span> 有一个最省事的办法，不用画中间步骤：</p>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>令括号里的式子 <span class="arithmatex">\(at+b\)</span> 等于 <span class="arithmatex">\(0\)</span>，解出的 <span class="arithmatex">\(t\)</span> 就是跳变位置；再看括号里 <span class="arithmatex">\(\gt{}0\)</span> 的那一侧，那一侧取 <span class="arithmatex">\(1\)</span>。</strong></p>
+</div>
+<p><span class="pt-head">▸ <strong>离散：<span class="arithmatex">\(u[n]\)</span>。</strong></span> <span class="arithmatex">\(u[n]\)</span> 的定义是 <span class="arithmatex">\(n\ge0\)</span> 时为 <span class="arithmatex">\(1\)</span>，<span class="arithmatex">\(n\lt{}0\)</span> 时为 <span class="arithmatex">\(0\)</span>。所以对 <span class="arithmatex">\(u[n+b]\)</span> 或 <span class="arithmatex">\(u[-n+b]\)</span> 也可以用同一个最省事的办法：</p>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>令括号里的式子 <span class="arithmatex">\(\ge0\)</span>，解出的 <span class="arithmatex">\(n\)</span> 的范围就是取 <span class="arithmatex">\(1\)</span> 的那一段；其余是 <span class="arithmatex">\(0\)</span>。</strong>（注意是「<span class="arithmatex">\(\ge0\)</span>」，因为 <span class="arithmatex">\(u[0]=1\)</span>，连续的 <span class="arithmatex">\(u(t)\)</span> 在边界上不规定值，这里的边界点是<strong>包含</strong>的。）</p>
+</div>
+<p><span class="pt-head">▸ <strong>离散情形的一个区别。</strong></span> <span class="arithmatex">\(u[n]\)</span> 在 <span class="arithmatex">\(n=0\)</span> 处<strong>有确定的值 <span class="arithmatex">\(1\)</span></strong>，所以 <span class="arithmatex">\(u[-n]\)</span> 在 <span class="arithmatex">\(n\le0\)</span> 上是 <span class="arithmatex">\(1\)</span>（包含 <span class="arithmatex">\(n=0\)</span>），<span class="arithmatex">\(u[n-3]\)</span> 在 <span class="arithmatex">\(n\ge3\)</span> 上是 <span class="arithmatex">\(1\)</span>（包含 <span class="arithmatex">\(n=3\)</span>）。连续的 <span class="arithmatex">\(u(t)\)</span> 跳变点处的值不规定，离散的没有这个问题（§5 里 <span class="arithmatex">\(u[n+2]-u[n-3]\)</span> 一题，边界点的处理就是靠这一点）。</p>
+<p><span class="pt-head">▸ <strong>连续 <span class="arithmatex">\(u(t)\)</span> 与离散 <span class="arithmatex">\(u[n]\)</span> 的对比。</strong></span></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: center;">连续 <span class="arithmatex">\(u(t)\)</span></th>
+<th style="text-align: center;">离散 <span class="arithmatex">\(u[n]\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">跳变（边界）点的值</td>
+<td style="text-align: center;">不规定</td>
+<td style="text-align: center;">确定为 <span class="arithmatex">\(1\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">取 <span class="arithmatex">\(1\)</span> 的条件</td>
+<td style="text-align: center;">括号里 <span class="arithmatex">\(\gt{}0\)</span></td>
+<td style="text-align: center;">括号里 <span class="arithmatex">\(\ge0\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(u(at)\)</span> 与 <span class="arithmatex">\(u[an]\)</span>（<span class="arithmatex">\(a\gt{}0\)</span>）</td>
+<td style="text-align: center;">都等于原来的阶跃</td>
+<td style="text-align: center;"><span class="arithmatex">\(u[2n]=u[n]\)</span>，但一般要小心</td>
+</tr>
+</tbody>
+</table>
+<h3 id="42-u2tut">4.2 证明：为什么 <span class="arithmatex">\(u(2t)=u(t)\)</span><a class="headerlink" href="#42-u2tut" title="Permanent link">&para;</a></h3>
+<p><span class="pt-head">▸ <strong>连续：压缩对阶跃没有效果。</strong></span> <span class="arithmatex">\(2t\gt{}0\)</span> 和 <span class="arithmatex">\(t\gt{}0\)</span> 是同一个条件，跳变位置都在 <span class="arithmatex">\(t=0\)</span>（而 <span class="arithmatex">\(0\)</span> 压缩任意倍还是 <span class="arithmatex">\(0\)</span>）。更一般地，对任意 <span class="arithmatex">\(a\gt{}0\)</span>，<span class="arithmatex">\(u(at)=u(t)\)</span>。这是阶跃信号很特殊的地方：<strong>拉伸压缩都不改变它的图像</strong>，只有平移和翻转才会改变。<em>（这一点对「冲激信号」不成立：<span class="arithmatex">\(\delta(at)\)</span> 与 <span class="arithmatex">\(\delta(t)\)</span> 差一个系数，第二章再讲。）</em></p>
+<p><span class="pt-head">▸ <strong>离散：<span class="arithmatex">\(u[2n]\)</span> 怎么看。</strong></span> <span class="arithmatex">\(u[2n]\)</span> 是把 <span class="arithmatex">\(u[n]\)</span> 每隔一个取一个点（<span class="arithmatex">\(n=\dots,-2,-1,0,1,2,\dots\)</span> 对应 <span class="arithmatex">\(u\)</span> 的 <span class="arithmatex">\(\dots,-4,-2,0,2,4,\dots\)</span> 这些位置），取出来的值是：负的 <span class="arithmatex">\(n\)</span> 全是 <span class="arithmatex">\(0\)</span>，<span class="arithmatex">\(n\ge0\)</span> 全是 <span class="arithmatex">\(1\)</span>，所以结果仍是 <span class="arithmatex">\(u[n]\)</span>。这与连续的 <span class="arithmatex">\(u(2t)=u(t)\)</span> 一致。一般离散信号在 <span class="arithmatex">\(n\)</span> 前面带 <span class="arithmatex">\(2\)</span> 会丢掉点，不能简单说成「压缩」；<span class="arithmatex">\(u[n/2]\)</span> 在 <span class="arithmatex">\(n\)</span> 为奇数时没有定义，需要额外约定。</p>
+<h3 id="43">4.3 例题<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<p class="ex-head"><span class="ex-badge">例 1</span> <strong>阶跃函数 <span class="arithmatex">\(u(t)\)</span> 的五个变换</strong> <span class="ex-tag">跳变位置</span></p>
+<p>按上面的办法算五个，再用口诀对照检查：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">信号</th>
+<th style="text-align: left;">跳变位置</th>
+<th style="text-align: left;">取 <span class="arithmatex">\(1\)</span> 的一侧</th>
+<th style="text-align: left;">对应的口诀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(u(t-2)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(t=2\)</span></td>
+<td style="text-align: left;">右侧</td>
+<td style="text-align: left;">减号右移 <span class="arithmatex">\(2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(u(t+2)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(t=-2\)</span></td>
+<td style="text-align: left;">右侧</td>
+<td style="text-align: left;">加号左移 <span class="arithmatex">\(2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(u(-t)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(t=0\)</span></td>
+<td style="text-align: left;"><strong>左侧</strong>（<span class="arithmatex">\(-t\gt{}0\iff t\lt{}0\)</span>）</td>
+<td style="text-align: left;">前有负号翻转</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(u(2t)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(t=0\)</span></td>
+<td style="text-align: left;">右侧</td>
+<td style="text-align: left;">压缩 <span class="arithmatex">\(2\)</span> 倍，但<strong>图没有变</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(u(-2t+4)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(t=2\)</span></td>
+<td style="text-align: left;"><strong>左侧</strong>（<span class="arithmatex">\(-2t+4\gt{}0\iff t\lt{}2\)</span>）</td>
+<td style="text-align: left;">标准形式 <span class="arithmatex">\(u(-2(t-2))\)</span>：翻转、压缩（无影响）、右移 <span class="arithmatex">\(2\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-28.svg" /></p>
+<p class="fig-caption"><strong>图 28</strong> <span class="arithmatex">\(u(t)\)</span> 的自变量变换。蓝色粗线是新信号，横轴上方一条线表示取值 <span class="arithmatex">\(1\)</span>，下方（贴着横轴）表示取值 <span class="arithmatex">\(0\)</span>。跳变点处的值不规定（和 <span class="arithmatex">\(u(0)\)</span> 任取一样）。</p>
+<p class="ex-head"><span class="ex-badge">例 2</span> <strong>阶跃序列 <span class="arithmatex">\(u[n]\)</span> 的五个变换</strong> <span class="ex-tag">取 1 的范围</span></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">序列</th>
+<th style="text-align: left;">括号里 <span class="arithmatex">\(\ge0\)</span></th>
+<th style="text-align: left;">取 <span class="arithmatex">\(1\)</span> 的范围</th>
+<th style="text-align: left;">对应的口诀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(u[n-3]\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(n-3\ge0\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(n\ge3\)</span></td>
+<td style="text-align: left;">减号右移 <span class="arithmatex">\(3\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(u[n+2]\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(n+2\ge0\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(n\ge-2\)</span></td>
+<td style="text-align: left;">加号左移 <span class="arithmatex">\(2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(u[-n]\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(-n\ge0\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(n\le0\)</span></td>
+<td style="text-align: left;">前有负号翻转</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(u[-n+4]\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(-n+4\ge0\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(n\le4\)</span></td>
+<td style="text-align: left;">标准形式 <span class="arithmatex">\(u[-(n-4)]\)</span>：翻转，减号右移 <span class="arithmatex">\(4\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(u[2n]\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(2n\ge0\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(n\ge0\)</span></td>
+<td style="text-align: left;">与 <span class="arithmatex">\(u[n]\)</span> 的图相同（见 §4.2）</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-29.svg" /></p>
+<p class="fig-caption"><strong>图 29</strong> <span class="arithmatex">\(u[n]\)</span> 的自变量变换。每根竖线高 <span class="arithmatex">\(1\)</span>，横轴上的小圆点表示取值 <span class="arithmatex">\(0\)</span>；边界点 <span class="arithmatex">\(n_0\)</span> 处的值是确定的 <span class="arithmatex">\(1\)</span>，所以 <span class="arithmatex">\(u[n-3]\)</span> 的第一根线在 <span class="arithmatex">\(n=3\)</span>，<span class="arithmatex">\(u[-n]\)</span> 的最后一根线在 <span class="arithmatex">\(n=0\)</span>。</p>
+<h2 id="5">5 用阶跃信号表示「窗」<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 概念：两个阶跃相减<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p><span class="arithmatex">\(u(t-t_0)\)</span>：阶跃函数 <span class="arithmatex">\(u(t)\)</span> 的自变量减 <span class="arithmatex">\(t_0\)</span>，<strong>减号右移 <span class="arithmatex">\(t_0\)</span></strong>：从 <span class="arithmatex">\(t=t_0\)</span> 开始等于 <span class="arithmatex">\(1\)</span>。</p>
+</li>
+<li>
+<p>方波 <span class="arithmatex">\(g(t)\)</span>：在 <span class="arithmatex">\(0\lt{}t\lt{}t_0\)</span> 上为 <span class="arithmatex">\(1\)</span>，其他地方为 <span class="arithmatex">\(0\)</span>：</p>
+<div class="arithmatex">\[
+g(t)=u(t)-u(t-t_0).
+\]</div>
+<p>理由：<span class="arithmatex">\(u(t)\)</span> 从 <span class="arithmatex">\(0\)</span> 开始是 <span class="arithmatex">\(1\)</span>，<span class="arithmatex">\(u(t-t_0)\)</span> 从 <span class="arithmatex">\(t_0\)</span> 开始是 <span class="arithmatex">\(1\)</span>，两个相减：<span class="arithmatex">\(t\lt{}0\)</span> 时都是 <span class="arithmatex">\(0\)</span>，<span class="arithmatex">\(t\gt{}t_0\)</span> 时是 <span class="arithmatex">\(1-1=0\)</span>，只在 <span class="arithmatex">\(0\lt{}t\lt{}t_0\)</span> 一段 <span class="arithmatex">\(1-0=1\)</span>。</p>
+</li>
+</ol>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-30.svg" /></p>
+<p class="fig-caption"><strong>图 30</strong> 用两个阶跃相减得到方波：<span class="arithmatex">\(g(t)=u(t)-u(t-t_0)\)</span>。</p>
+<p><span class="pt-head">▸ <strong>离散的版本。</strong></span> <span class="arithmatex">\(g_N[n]\)</span>：在 <span class="arithmatex">\(n=0,1,\dots,N-1\)</span> 上为 <span class="arithmatex">\(1\)</span>，其余为 <span class="arithmatex">\(0\)</span>。写法：<span class="arithmatex">\(g_N[n]=u[n]-u[n-N]\)</span>。理由：<span class="arithmatex">\(u[n]\)</span> 从 <span class="arithmatex">\(0\)</span> 开始是 <span class="arithmatex">\(1\)</span>，<span class="arithmatex">\(u[n-N]\)</span> 从 <span class="arithmatex">\(N\)</span> 开始是 <span class="arithmatex">\(1\)</span>，相减后只在 <span class="arithmatex">\(0\le n\le N-1\)</span> 上是 <span class="arithmatex">\(1\)</span>。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-31.svg" /></p>
+<p class="fig-caption"><strong>图 31</strong> 离散的「窗」<span class="arithmatex">\(g_N[n]=u[n]-u[n-N]\)</span>（图中 <span class="arithmatex">\(N=4\)</span>）：在 <span class="arithmatex">\(n=0,1,\dots,N-1\)</span> 上为 <span class="arithmatex">\(1\)</span>。</p>
+<h3 id="52">5.2 例题<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<p class="ex-head"><span class="ex-badge">例 1</span> <strong><span class="arithmatex">\(u(t+3)-u(t-3)\)</span></strong> <span class="ex-tag">方波</span></p>
+<p>画 <span class="arithmatex">\(u(t+3)-u(t-3)\)</span>：加号左移 <span class="arithmatex">\(3\)</span>，从 <span class="arithmatex">\(t=-3\)</span> 开始是 <span class="arithmatex">\(1\)</span>；减号右移 <span class="arithmatex">\(3\)</span>，从 <span class="arithmatex">\(t=3\)</span> 开始是 <span class="arithmatex">\(1\)</span>；相减后 <strong>在 <span class="arithmatex">\(-3\lt{}t\lt{}3\)</span> 上等于 <span class="arithmatex">\(1\)</span></strong>，其他为 <span class="arithmatex">\(0\)</span>。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-32.svg" /></p>
+<p class="fig-caption"><strong>图 32</strong> <span class="arithmatex">\(u(t+3)-u(t-3)\)</span> 在 <span class="arithmatex">\(-3\lt{}t\lt{}3\)</span> 上等于 <span class="arithmatex">\(1\)</span>。</p>
+<p class="ex-head"><span class="ex-badge">例 2</span> <strong><span class="arithmatex">\(u[n+2]-u[n-3]\)</span></strong> <span class="ex-tag">5 个点</span></p>
+<p>画 <span class="arithmatex">\(u[n+2]-u[n-3]\)</span>：<span class="arithmatex">\(u[n+2]\)</span> 从 <span class="arithmatex">\(n=-2\)</span> 开始是 <span class="arithmatex">\(1\)</span>，<span class="arithmatex">\(u[n-3]\)</span> 从 <span class="arithmatex">\(n=3\)</span> 开始是 <span class="arithmatex">\(1\)</span>，相减后<strong>在 <span class="arithmatex">\(n=-2,-1,0,1,2\)</span>（共 5 个点）上是 <span class="arithmatex">\(1\)</span>，其余为 <span class="arithmatex">\(0\)</span></strong>。 离散的这类题比连续的<strong>稍微烧脑</strong>，难点是「<strong>在边界处哪里开始等于零</strong>」要算清楚：右边在 <span class="arithmatex">\(n=3\)</span> 处，两个阶跃都是 <span class="arithmatex">\(1\)</span>，相减等于 <span class="arithmatex">\(0\)</span>，所以右端点是 <span class="arithmatex">\(n=2\)</span> 而不是 <span class="arithmatex">\(n=3\)</span>。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-33.svg" /></p>
+<p class="fig-caption"><strong>图 33</strong> <span class="arithmatex">\(u[n+2]-u[n-3]\)</span> 在 <span class="arithmatex">\(n=-2,\dots,2\)</span> 上为 <span class="arithmatex">\(1\)</span>。</p>
+<h2 id="6">6 把序列写成冲激的和<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="61">6.1 概念<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<p><span class="pt-head">▸ <strong>一个著名的公式（书第 45 页，式 2-28）：序列等于平移并加权的单位脉冲之和。</strong></span></p>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<div class="arithmatex">\[
+x[n]=\sum_{k=-\infty}^{+\infty}x[k]\,\delta[n-k]
+\]</div>
+</div>
+<h3 id="62">6.2 证明：为什么成立<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p><span class="arithmatex">\(x[k]\)</span> 是 <span class="arithmatex">\(x[n]\)</span> 在 <span class="arithmatex">\(n=k\)</span> 处的值（一个数）；</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\delta[n-k]\)</span> 是在 <span class="arithmatex">\(n=k\)</span> 处为 <span class="arithmatex">\(1\)</span>、其他处为 <span class="arithmatex">\(0\)</span> 的信号；</p>
+</li>
+<li>
+<p>两者相乘，得到「只在 <span class="arithmatex">\(n=k\)</span> 处等于 <span class="arithmatex">\(x[k]\)</span>，其余处为 <span class="arithmatex">\(0\)</span>」的信号；</p>
+</li>
+<li>
+<p>对每一个不同的 <span class="arithmatex">\(k\)</span> 都这样做，再全部加起来，每个位置 <span class="arithmatex">\(n\)</span> 上都取到了正确的值。</p>
+</li>
+</ul>
+<p>这个公式第二章还会再讲；有了「移来移去」的概念就容易理解。下面例题里的五项相加，就是它的一个具体实例（只有 <span class="arithmatex">\(k=-2,\dots,2\)</span> 这五项非零）。</p>
+<h3 id="63">6.3 例题<a class="headerlink" href="#63" title="Permanent link">&para;</a></h3>
+<p class="ex-head"><span class="ex-badge">例 1</span> <strong>把 <span class="arithmatex">\(x[-2..2]=1,2,1,-1,-2\)</span> 写成脉冲的和</strong> <span class="ex-tag">五项之和</span></p>
+<p>例：<span class="arithmatex">\(x[n]\)</span> 在 <span class="arithmatex">\(n=-2,-1,0,1,2\)</span> 处分别是 <span class="arithmatex">\(1,2,1,-1,-2\)</span>，其余为 <span class="arithmatex">\(0\)</span>。问：能看出它等于下面这个式子吗？</p>
+<div class="arithmatex">\[
+x[n]=\delta[n+2]+2\,\delta[n+1]+\delta[n]-\delta[n-1]-2\,\delta[n-2].
+\]</div>
+<p><strong>解释（用的还是那两句口诀）：</strong></p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\delta[n]\)</span> 只在 <span class="arithmatex">\(n=0\)</span> 处是 <span class="arithmatex">\(1\)</span>；</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\delta[n+2]\)</span>：加号左移 <span class="arithmatex">\(2\)</span>，在 <span class="arithmatex">\(n=-2\)</span> 处是 <span class="arithmatex">\(1\)</span>，所以第一项刚好对应 <span class="arithmatex">\(x[-2]=1\)</span>；</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\delta[n+1]\)</span> 在 <span class="arithmatex">\(n=-1\)</span> 处是 <span class="arithmatex">\(1\)</span>，但 <span class="arithmatex">\(x[-1]=2\)</span>，所以要乘 <span class="arithmatex">\(2\)</span>：<span class="arithmatex">\(2\delta[n+1]\)</span>；</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\delta[n-1]\)</span>：减号右移 <span class="arithmatex">\(1\)</span>，在 <span class="arithmatex">\(n=1\)</span> 处是 <span class="arithmatex">\(1\)</span>，而 <span class="arithmatex">\(x[1]=-1\)</span>，所以乘 <span class="arithmatex">\(-1\)</span>；</p>
+</li>
+<li>
+<p>同理 <span class="arithmatex">\(-2\,\delta[n-2]\)</span> 对应 <span class="arithmatex">\(x[2]=-2\)</span>。</p>
+</li>
+</ul>
+<p>看到这样的序列，应马上反应到：它就是若干个平移过的单位脉冲，每一个按对应的值加权，再加起来。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/01-34.svg" /></p>
+<p class="fig-caption"><strong>图 34</strong> 把 <span class="arithmatex">\(x[n]\)</span> 拆成五个平移并加权的单位脉冲：五个分量相加就是左上角的 <span class="arithmatex">\(x[n]\)</span>（<span class="arithmatex">\(x[-2..2]=1,2,1,-1,-2\)</span>）。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "content.code.annotate", "content.tabs.link", "announce.dismiss", "content.action.edit", "content.action.view", "content.tooltips", "navigation.tabs", "navigation.path", "navigation.indexes", "header.autohide"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+  
+      <script src="../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="../../../../vendor/mathjax/tex-mml-chtml.js"></script>
+      
+    
+  <!-- 注册离线缓存（hooks/offline.py 生成 sw.js）：弱网、断网时也能打开看过和没看过的文章 -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register(new URL("../../../../sw.js", location.href));
+    }
+  </script>
+
+  </body>
+</html>

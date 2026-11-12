@@ -1,0 +1,4124 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../01-%E4%BF%A1%E5%8F%B7%E7%9A%84%E8%87%AA%E5%8F%98%E9%87%8F%E5%8F%98%E6%8D%A2/">
+      
+      
+        <link rel="next" href="../03-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%28LTI%29%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%9A%E4%B9%89/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>典型的系统：线性、时不变、因果、无记忆、可逆、稳定 - 飞飞</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <!-- 手机「添加到主屏幕」后以全屏应用方式打开，不显示浏览器地址栏和工具栏 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="飞飞">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="飞飞" class="md-header__button md-logo" aria-label="飞飞" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.92 13.32c-.25-.04-1.21-.32-1.46-.43l-2.07 6.48-3.09-1.13 2.2-5.77L10.45 9 13 7.54c.45 1.13 1.17 2.08 2.12 2.86s2.04 1.27 3.26 1.46l1.12-3.43-1.44-.47-.52 1.6c-.66-.28-1.24-.7-1.74-1.24-.5-.55-.86-1.19-1.08-1.91l-.33-1.08c-.12-.4-.35-.72-.68-.96-.33-.23-.71-.37-1.08-.4-.39-.03-.77.03-1.13.24L8 6.23c-.37.21-.64.51-.81.89-.19.38-.23.76-.19 1.17s.26.77.54 1.08l3.57 3.71-1.69 4.46-6.95-2.49L2 16.46l14.04 5.12q1.17.42 2.49.42c.62 0 1.23-.08 1.83-.23.59-.16 1.14-.38 1.64-.66L20.87 20c-.75.33-1.53.5-2.34.5q-.99 0-1.98-.33l-.75-.28zM19 3c0 1.11-.89 2-2 2s-2-.89-2-2 .9-2 2-2 2 .9 2 2"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            飞飞
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              典型的系统：线性、时不变、因果、无记忆、可逆、稳定
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../SystemOperation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  操作系统
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../AudioAndVideo/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  音视频
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  信号与系统
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Graphics/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机图形
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../reference/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="飞飞" class="md-nav__button md-logo" aria-label="飞飞" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.92 13.32c-.25-.04-1.21-.32-1.46-.43l-2.07 6.48-3.09-1.13 2.2-5.77L10.45 9 13 7.54c.45 1.13 1.17 2.08 2.12 2.86s2.04 1.27 3.26 1.46l1.12-3.43-1.44-.47-.52 1.6c-.66-.28-1.24-.7-1.74-1.24-.5-.55-.86-1.19-1.08-1.91l-.33-1.08c-.12-.4-.35-.72-.68-.96-.33-.23-.71-.37-1.08-.4-.39-.03-.77.03-1.13.24L8 6.23c-.37.21-.64.51-.81.89-.19.38-.23.76-.19 1.17s.26.77.54 1.08l3.57 3.71-1.69 4.46-6.95-2.49L2 16.46l14.04 5.12q1.17.42 2.49.42c.62 0 1.23-.08 1.83-.23.59-.16 1.14-.38 1.64-.66L20.87 20c-.75.33-1.53.5-2.34.5q-.99 0-1.98-.33l-.75-.28zM19 3c0 1.11-.89 2-2 2s-2-.89-2-2 .9-2 2-2 2 .9 2 2"/></svg>
+
+    </a>
+    飞飞
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Home
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../SystemOperation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    操作系统
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    操作系统
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NJU
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    NJU
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/4.Python%E5%BB%BA%E6%A8%A1%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.Python建模操作系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/5.%20%E5%A4%9A%E5%A4%84%E7%90%86%E5%99%A8%E7%BC%96%E7%A8%8B%EF%BC%9A%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 多处理器编程：从入门到放弃
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/6.%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.并发控制基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/7.%20%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%EF%BC%9A%E4%BA%92%E6%96%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 并发控制：互斥
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/9.%20%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%EF%BC%9A%E5%90%8C%E6%AD%A5%20%281%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 并发控制：同步 (1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/10.%20%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%EF%BC%9A%E5%90%8C%E6%AD%A5%20%282%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 并发控制：同步 (2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/12.%20%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%9A%84%E5%B9%B6%E5%8F%91%20Bug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 真实世界的并发 Bug
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/13.%20%E5%B9%B6%E5%8F%91%20Bug%20%E7%9A%84%E5%BA%94%E5%AF%B9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 并发 Bug 的应对
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OS:ThreeEasyPieces
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OS:ThreeEasyPieces
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/OS-ThreeEasyPieces/25.Dialogue%20on%20Concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25.Dialogue on Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/OS-ThreeEasyPieces/26.Concurrency%20An%20Introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26.Concurrency An Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../AudioAndVideo/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音视频
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    音视频
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    H264
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    H264
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AudioAndVideo/H264/H264%E7%BB%93%E6%9E%84%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 码流的组织结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信号与系统
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    信号与系统
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    浙大 2022（胡浩基）
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    浙大 2022（胡浩基）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-%E5%85%B8%E5%9E%8B%E7%9A%84%E4%BF%A1%E5%8F%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    典型的信号
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-%E4%BF%A1%E5%8F%B7%E7%9A%84%E8%87%AA%E5%8F%98%E9%87%8F%E5%8F%98%E6%8D%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信号的自变量变换
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    典型的系统：线性、时不变、因果、无记忆、可逆、稳定
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    典型的系统：线性、时不变、因果、无记忆、可逆、稳定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 概览：6 对性质
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 线性系统
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 线性系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 例题：证明是线性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 例题：证明不是线性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 线性的快速判据：两句话
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 与教材定义的等价
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 思考题：缺一不可
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 时不变系统
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 时不变系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 做题步骤：固定写两行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 例题：证明时不变
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 例题：证明时变（反例）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 时不变的快速判据：两句话
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 练习：五道
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 因果系统
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 因果系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 证明：判据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 记忆与无记忆系统
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 记忆与无记忆系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 证明：判据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 可逆系统
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 可逆系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 证明：判据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 稳定系统
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7 稳定系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 概念：有界进，有界出
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 例题：稳定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 例题：不稳定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-33-1-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8 综合习题：教材第 33 页习题 1-16
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8 综合习题：教材第 33 页习题 1-16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-ytext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 第一行 \(y(t)=e^{x(t)}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-ynxnxn-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 第二行 \(y[n]=x[n]\,x[n-1]\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-ytdfracmathrmdxtmathrmdt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 第三行 微分器 \(y(t)=\dfrac{\mathrm{d}x(t)}{\mathrm{d}t}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 小测验
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%28LTI%29%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%9A%E4%B9%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性时不变（LTI）系统的定义
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-%E7%A6%BB%E6%95%A3LTI%E7%B3%BB%E7%BB%9F%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    离散 LTI 系统的卷积公式推导
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-%E8%BF%9E%E7%BB%ADLTI%E7%B3%BB%E7%BB%9F%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    连续 LTI 系统的卷积公式推导
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-%E5%86%B2%E6%BF%80%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    冲激函数 δ(t) 的性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-%E8%BF%9E%E7%BB%AD%E4%BF%A1%E5%8F%B7%E5%8D%B7%E7%A7%AF%E8%AE%A1%E7%AE%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    连续信号卷积的计算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Graphics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机图形
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机图形
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Graphics/Metal/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metal
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Metal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MetalByTutorials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MetalByTutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Graphics/Metal/MetalByTutorials/Chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Graphics/OpenGL/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenGL
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OpenGL
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 概览：6 对性质
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 线性系统
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 线性系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 例题：证明是线性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 例题：证明不是线性
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.5 线性的快速判据：两句话
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#26" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.6 与教材定义的等价
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.7 思考题：缺一不可
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 时不变系统
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 时不变系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 做题步骤：固定写两行
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 例题：证明时不变
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 例题：证明时变（反例）
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 时不变的快速判据：两句话
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#37" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.7 练习：五道
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 因果系统
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 因果系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 证明：判据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 记忆与无记忆系统
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 记忆与无记忆系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 证明：判据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6 可逆系统
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6 可逆系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1 概念
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2 证明：判据
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.3 例题
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7 稳定系统
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7 稳定系统">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.1 概念：有界进，有界出
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.2 证明
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#73" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.3 例题：稳定
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#74" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7.4 例题：不稳定
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-33-1-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8 综合习题：教材第 33 页习题 1-16
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8 综合习题：教材第 33 页习题 1-16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81-ytext" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.1 第一行 \(y(t)=e^{x(t)}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82-ynxnxn-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.2 第二行 \(y[n]=x[n]\,x[n-1]\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83-ytdfracmathrmdxtmathrmdt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.3 第三行 微分器 \(y(t)=\dfrac{\mathrm{d}x(t)}{\mathrm{d}t}\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8.4 小测验
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    信号与系统
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    浙大 2022（胡浩基）
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="_1">典型的系统：线性、时不变、因果、无记忆、可逆、稳定<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p class="notes-subtitle">浙江大学 2022《信号与系统》（胡浩基）教材第 28 页「系统的基本性质」听课笔记</p>
+
+<p><a class="md-button" href="../pdf/02-%E5%85%B8%E5%9E%8B%E7%9A%84%E7%B3%BB%E7%BB%9F.pdf"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> 下载 PDF 版</a></p>
+<!-- 本页由 tools/signal_notes/sync.py 从 LaTeX 笔记自动生成，请勿手改；改动请改源 .tex 后重新同步。 -->
+
+<h2 id="1-6">1 概览：6 对性质<a class="headerlink" href="#1-6" title="Permanent link">&para;</a></h2>
+<p>一个<strong>系统</strong>(system)是一台机器：信号 <span class="arithmatex">\(x(t)\)</span> 进去，信号 <span class="arithmatex">\(y(t)\)</span> 出来。后面所有性质，都是在问「这台机器有什么脾气」。6 对性质每一对都<strong>非此即彼</strong>（不是线性就是非线性，以此类推），所以只要把正面的定义写严格就够了。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">性质</th>
+<th style="text-align: left;">反面</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">线性系统(linear system)</td>
+<td style="text-align: left;">非线性系统(nonlinear system)</td>
+</tr>
+<tr>
+<td style="text-align: left;">时不变系统(time-invariant system)</td>
+<td style="text-align: left;">时变系统(time-varying system)</td>
+</tr>
+<tr>
+<td style="text-align: left;">因果系统(causal system)</td>
+<td style="text-align: left;">非因果系统(non-causal system)</td>
+</tr>
+<tr>
+<td style="text-align: left;">无记忆系统(memoryless system)</td>
+<td style="text-align: left;">记忆系统(system with memory)</td>
+</tr>
+<tr>
+<td style="text-align: left;">可逆系统(invertible system)</td>
+<td style="text-align: left;">不可逆系统</td>
+</tr>
+<tr>
+<td style="text-align: left;">稳定系统(stable system)</td>
+<td style="text-align: left;">不稳定系统</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2">2 线性系统<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21">2.1 概念<a class="headerlink" href="#21" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p>一个系统，如果<strong>同时</strong>满足下面两条，它就是线性系统；否则（只满足一条，或两条都不满足）就是非线性系统。</p>
+<p>假设对<strong>任意</strong>输入 <span class="arithmatex">\(x(t)\)</span>，系统给出输出 <span class="arithmatex">\(y(t)\)</span>（记作 <span class="arithmatex">\(x(t)\to y(t)\)</span>），那么：</p>
+<ol>
+<li>
+<p><strong>齐次性</strong>(homogeneity)：<span class="arithmatex">\(a\,x(t)\to a\,y(t)\)</span>，其中 <span class="arithmatex">\(a\)</span> 是任意实数。<br />
+    <em>输入放大 <span class="arithmatex">\(a\)</span> 倍，输出也恰好放大 <span class="arithmatex">\(a\)</span> 倍。</em></p>
+</li>
+<li>
+<p><strong>叠加性</strong>(superposition，也叫可加性)：若 <span class="arithmatex">\(x_1(t)\to y_1(t)\)</span>、<span class="arithmatex">\(x_2(t)\to y_2(t)\)</span>，则 <span class="arithmatex">\(x_1(t)+x_2(t)\to y_1(t)+y_2(t)\)</span>。<br />
+    <em>两个输入加在一起送进去，输出就是它们各自输出的和。</em></p>
+</li>
+</ol>
+</div>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/02-01.svg" /></p>
+<p class="fig-caption"><strong>图 1</strong> 线性系统的两条规矩。注意每一行里的「系统」都是<strong>同一台</strong>机器。</p>
+<p>两点要记住：</p>
+<ul>
+<li>
+<p><strong>缺一不可</strong>：只有齐次性和叠加性同时满足才是线性（见本节末的思考题）。</p>
+</li>
+<li>
+<p><strong>「任意」是定义的灵魂</strong>：<span class="arithmatex">\(x(t)\)</span>、<span class="arithmatex">\(x_1(t)\)</span>、<span class="arithmatex">\(x_2(t)\)</span>、<span class="arithmatex">\(a\)</span> 都是任意的（记作 <span class="arithmatex">\(\forall\)</span>）。后面所有难点，都出在没有真正理解这个「任意」。例如 <span class="arithmatex">\(y(t)=3x(t)\)</span> 的意思是：这台机器对<strong>任意</strong>输入都乘 3。</p>
+</li>
+</ul>
+<p>离散线性系统的定义只需把圆括号 <span class="arithmatex">\((t)\)</span> 换成方括号 <span class="arithmatex">\([n]\)</span>：<span class="arithmatex">\(x[n]\to y[n]\)</span>，<span class="arithmatex">\(a\,x[n]\to a\,y[n]\)</span>，<span class="arithmatex">\(x_1[n]+x_2[n]\to y_1[n]+y_2[n]\)</span>。</p>
+<h3 id="22">2.2 证明<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>证</strong>一个系统是线性的：对<strong>所有</strong>输入、<strong>所有</strong> <span class="arithmatex">\(a\)</span> 都验证两条规矩，一条也不能漏。</p>
+<p><strong>证</strong>一个系统不是线性的：只要找到<strong>一个</strong>反例，让它不满足齐次性或叠加性之一，就够了。</p>
+<p>原因就是定义里的「任意」：说「对任意都成立」要全部验完；说「不是对任意都成立」，有一个例外就够。</p>
+</div>
+<p><span class="pt-head">▸ <strong>证线性：设中间变量，打成「一包」。</strong></span> 先看清这台机器的规矩：「送进去信号 <span class="arithmatex">\(f\)</span>，出来 <span class="arithmatex">\(F[f]\)</span>」（例如放大器：送进去 <span class="arithmatex">\(f\)</span>，出来 <span class="arithmatex">\(3f\)</span>）。因为 <span class="arithmatex">\(x(t)\)</span> 是任意信号，所以 <span class="arithmatex">\(a\,x(t)\)</span> 也<strong>只是又一个信号</strong>；设中间变量 <span class="arithmatex">\(f(t)=a\,x(t)\)</span>，把它当成一包整体送进去，再做代换。步骤：</p>
+<ol>
+<li>
+<p>齐次性：令 <span class="arithmatex">\(f=a\,x(t)\)</span>，算出 <span class="arithmatex">\(F[f]\)</span>，化成 <span class="arithmatex">\(a\,y(t)\)</span>；</p>
+</li>
+<li>
+<p>叠加性：令 <span class="arithmatex">\(f=x_1(t)+x_2(t)\)</span>，算出 <span class="arithmatex">\(F[f]\)</span>，化成 <span class="arithmatex">\(y_1(t)+y_2(t)\)</span>。</p>
+</li>
+</ol>
+<p><span class="pt-head">▸ <strong>证非线性：对照「实际」和「希望」。</strong></span> 取最简单的输入（如 <span class="arithmatex">\(x\equiv0\)</span> 或 <span class="arithmatex">\(x\equiv1\)</span>，<span class="arithmatex">\(\equiv\)</span> 表示恒等于）和 <span class="arithmatex">\(a=2\)</span>：<strong>实际</strong>是把 <span class="arithmatex">\(a\,x\)</span> 送进系统得到的输出；<strong>希望</strong>是「若齐次性成立，应得 <span class="arithmatex">\(a\,y\)</span>」。两者不等，就矛盾，说明系统不是线性的。</p>
+<h3 id="23">2.3 例题：证明是线性<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p>下面每题都按定义分<strong>齐次性</strong>、<strong>叠加性</strong>两步，写成证明。</p>
+<p class="ex-head"><span class="ex-badge">例 1</span> <strong>放大器 <span class="arithmatex">\(y(t)=3x(t)\)</span></strong> <span class="ex-tag">线性</span></p>
+<p><strong>系统</strong>：<span class="arithmatex">\(x(t)\to y(t)=3x(t)\)</span>，即输入乘 <span class="arithmatex">\(3\)</span>。</p>
+<p><strong>证明</strong>。</p>
+<div class="arithmatex">\[
+\begin{align*}
+\text{齐次性：}\quad &amp; a\,x(t)\ \to\ 3\cdot a\,x(t)=a\cdot 3x(t)=a\,y(t),\\
+\text{叠加性：}\quad &amp; x_1(t)+x_2(t)\ \to\ 3\bigl(x_1(t)+x_2(t)\bigr)=3x_1(t)+3x_2(t)=y_1(t)+y_2(t).
+\end{align*}
+\]</div>
+<p>两式对任意输入、任意实数 <span class="arithmatex">\(a\)</span> 均成立，故 <span class="arithmatex">\(y(t)=3x(t)\)</span> 为线性系统。<span class="arithmatex">\(\blacksquare\)</span></p>
+<p class="ex-head"><span class="ex-badge">例 2</span> <strong><span class="arithmatex">\(y(t)=t\,x(t)\)</span></strong> <span class="ex-tag">线性</span></p>
+<p><strong>系统</strong>：<span class="arithmatex">\(x(t)\to y(t)=t\,x(t)\)</span>。<span class="arithmatex">\(t\)</span> 是每个时刻的乘数，不随输入改变。</p>
+<p><strong>证明</strong>。</p>
+<div class="arithmatex">\[
+\begin{align*}
+\text{齐次性：}\quad &amp; a\,x(t)\ \to\ t\cdot a\,x(t)=a\bigl(t\,x(t)\bigr)=a\,y(t),\\
+\text{叠加性：}\quad &amp; x_1(t)+x_2(t)\ \to\ t\bigl(x_1(t)+x_2(t)\bigr)=t\,x_1(t)+t\,x_2(t)=y_1(t)+y_2(t).
+\end{align*}
+\]</div>
+<p>两式对任意输入、任意实数 <span class="arithmatex">\(a\)</span> 均成立，故 <span class="arithmatex">\(y(t)=t\,x(t)\)</span> 为线性系统。<span class="arithmatex">\(\blacksquare\)</span></p>
+<p><strong>注</strong>：<span class="arithmatex">\(t\)</span> 随时间变化不影响线性——线性只问「放大或相加时，输出是否跟着放大或相加」，<span class="arithmatex">\(t\)</span> 只是逐点的系数；它的影响体现在时不变性上（见下一节的 <span class="arithmatex">\(y(t)=t\,x(t)\)</span>）。</p>
+<p class="ex-head"><span class="ex-badge">例 3</span> <strong>微分器 <span class="arithmatex">\(y(t)=\dfrac{\mathrm{d}x(t)}{\mathrm{d}t}\)</span></strong> <span class="ex-tag">线性</span></p>
+<p><strong>系统</strong>：<span class="arithmatex">\(x(t)\to y(t)=\dfrac{\mathrm{d}x(t)}{\mathrm{d}t}\)</span>。</p>
+<p><strong>证明</strong>。用微分的线性：</p>
+<div class="arithmatex">\[
+\begin{align*}
+\text{齐次性：}\quad &amp; \frac{\mathrm{d}}{\mathrm{d}t}\bigl[a\,x(t)\bigr]=a\frac{\mathrm{d}x(t)}{\mathrm{d}t}=a\,y(t),\\
+\text{叠加性：}\quad &amp; \frac{\mathrm{d}}{\mathrm{d}t}\bigl[x_1(t)+x_2(t)\bigr]=\frac{\mathrm{d}x_1(t)}{\mathrm{d}t}+\frac{\mathrm{d}x_2(t)}{\mathrm{d}t}=y_1(t)+y_2(t).
+\end{align*}
+\]</div>
+<p>故微分器为线性系统。<span class="arithmatex">\(\blacksquare\)</span></p>
+<p class="ex-head"><span class="ex-badge">例 4</span> <strong>积分器 <span class="arithmatex">\(y(t)=\displaystyle\int_{-\infty}^{t}x(\tau)\,\mathrm{d}\tau\)</span></strong> <span class="ex-tag">线性</span></p>
+<p><strong>系统</strong>：<span class="arithmatex">\(x(t)\to y(t)=\displaystyle\int_{-\infty}^{t}x(\tau)\,\mathrm{d}\tau\)</span>。</p>
+<p><strong>证明</strong>。用积分的线性（常数可提出，和的积分等于积分的和）：</p>
+<div class="arithmatex">\[
+\begin{align*}
+\text{齐次性：}\quad &amp; \int_{-\infty}^{t}a\,x(\tau)\,\mathrm{d}\tau=a\int_{-\infty}^{t}x(\tau)\,\mathrm{d}\tau=a\,y(t),\\
+\text{叠加性：}\quad &amp; \int_{-\infty}^{t}\bigl[x_1(\tau)+x_2(\tau)\bigr]\mathrm{d}\tau=\int_{-\infty}^{t}x_1(\tau)\,\mathrm{d}\tau+\int_{-\infty}^{t}x_2(\tau)\,\mathrm{d}\tau=y_1(t)+y_2(t).
+\end{align*}
+\]</div>
+<p>故积分器为线性系统。<span class="arithmatex">\(\blacksquare\)</span></p>
+<p class="ex-head"><span class="ex-badge">例 5</span> <strong>离散的四个系统</strong> <span class="ex-tag">线性</span></p>
+<p>把前面几个系统改写成离散形式：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">系统</th>
+<th style="text-align: left;">在做什么</th>
+<th style="text-align: left;">结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y[n]=2x[n]\)</span></td>
+<td style="text-align: left;">每个数乘 2</td>
+<td style="text-align: left;">线性，证法同 <span class="arithmatex">\(3x(t)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y[n]=n\,x[n]\)</span></td>
+<td style="text-align: left;">第 <span class="arithmatex">\(n\)</span> 个数乘 <span class="arithmatex">\(n\)</span></td>
+<td style="text-align: left;">线性，证法同 <span class="arithmatex">\(t\,x(t)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y[n]=x[n]-x[n-1]\)</span></td>
+<td style="text-align: left;">当前值减前一个值（<strong>差分</strong>）</td>
+<td style="text-align: left;">线性，下面完整证</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y[n]=\displaystyle\sum_{k=-\infty}^{n}x[k]\)</span></td>
+<td style="text-align: left;">从最早加到现在（<strong>累加</strong>）</td>
+<td style="text-align: left;">线性，留作练习</td>
+</tr>
+</tbody>
+</table>
+<p>差分(difference)就是离散的微分器（离散信号没法求导，「后一个减前一个」就是近似的求导）；累加(accumulator)就是离散的积分器。</p>
+<p><span class="pt-head">▸ <strong>差分 <span class="arithmatex">\(y[n]=x[n]-x[n-1]\)</span> 的证明。</strong></span></p>
+<ul>
+<li>
+<p>齐次性：输入 <span class="arithmatex">\(a\,x[n]\)</span>，输出 <span class="arithmatex">\(a\,x[n]-a\,x[n-1]=a\bigl(x[n]-x[n-1]\bigr)=a\,y[n]\)</span>；</p>
+</li>
+<li>
+<p>叠加性：输入 <span class="arithmatex">\(x_1[n]+x_2[n]\)</span>，输出 <span class="arithmatex">\(\bigl(x_1[n]-x_1[n-1]\bigr)+\bigl(x_2[n]-x_2[n-1]\bigr)=y_1[n]+y_2[n]\)</span>。</p>
+</li>
+</ul>
+<p>故差分为线性系统。<span class="arithmatex">\(\blacksquare\)</span></p>
+<h3 id="24">2.4 例题：证明不是线性<a class="headerlink" href="#24" title="Permanent link">&para;</a></h3>
+<p class="ex-head"><span class="ex-badge">例 6</span> <strong><span class="arithmatex">\(y(t)=x(t)+1\)</span></strong> <span class="ex-tag">非线性</span></p>
+<p><strong>系统</strong>：<span class="arithmatex">\(x(t)\to y(t)=x(t)+1\)</span>。</p>
+<p><strong>证明</strong>（举反例）。取 <span class="arithmatex">\(x(t)\equiv0\)</span>、<span class="arithmatex">\(a=2\)</span>：</p>
+<ul>
+<li>
+<p>输入 <span class="arithmatex">\(x(t)\equiv0\)</span>，输出 <span class="arithmatex">\(y(t)=0+1=1\)</span>；</p>
+</li>
+<li>
+<p>输入 <span class="arithmatex">\(2x(t)\equiv0\)</span>，与原输入是<strong>同一个信号</strong>，实际输出仍为 <span class="arithmatex">\(1\)</span>；</p>
+</li>
+<li>
+<p>若齐次性成立，应有 <span class="arithmatex">\(a\,y(t)=2\times1=2\)</span>。</p>
+</li>
+</ul>
+<p>实际输出 <span class="arithmatex">\(1\neq\)</span> 期望值 <span class="arithmatex">\(2\)</span>，故齐次性不成立，<span class="arithmatex">\(y(t)=x(t)+1\)</span> 为非线性系统。<span class="arithmatex">\(\blacksquare\)</span></p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/02-02.svg" /></p>
+<p class="fig-caption"><strong>图 2</strong> 反例 <span class="arithmatex">\(y(t)=x(t)+1\)</span>：输入是同一个全零信号，输出却被要求同时等于 <span class="arithmatex">\(1\)</span> 和 <span class="arithmatex">\(2\)</span>。</p>
+<p class="ex-head"><span class="ex-badge">例 7</span> <strong><span class="arithmatex">\(y(t)=x(t)^2\)</span></strong> <span class="ex-tag">非线性</span></p>
+<p><strong>系统</strong>：<span class="arithmatex">\(x(t)\to y(t)=x(t)^2\)</span>。</p>
+<p><strong>证明</strong>（举反例）。取 <span class="arithmatex">\(x(t)\equiv1\)</span>、<span class="arithmatex">\(a=2\)</span>：</p>
+<div class="arithmatex">\[
+\begin{align*}
+\text{实际：}\quad &amp; x(t)\equiv1\ \to\ y(t)=1^2=1,\qquad 2x(t)\equiv2\ \to\ 2^2=4;\\
+\text{期望：}\quad &amp; a\,y(t)=2\times1=2.
+\end{align*}
+\]</div>
+<p>实际输出 <span class="arithmatex">\(4\neq\)</span> 期望值 <span class="arithmatex">\(2\)</span>，故齐次性不成立，<span class="arithmatex">\(y(t)=x(t)^2\)</span> 为非线性系统。<span class="arithmatex">\(\blacksquare\)</span></p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/02-03.svg" /></p>
+<p class="fig-caption"><strong>图 3</strong> 反例 <span class="arithmatex">\(y(t)=x(t)^2\)</span>：输入翻一倍，输出翻了<strong>四</strong>倍。</p>
+<details class="abstract">
+<summary>可跳过</summary>
+<p><strong>快速检查：全零输入必须得到全零输出</strong>。齐次性里 <span class="arithmatex">\(a\)</span> 可取 <span class="arithmatex">\(0\)</span>，所以线性系统对零输入一定给零输出；<span class="arithmatex">\(y(t)=x(t)+1\)</span> 就栽在这里。反过来<strong>不成立</strong>：<span class="arithmatex">\(y(t)=x(t)^2\)</span> 对零输入给零，却不是线性的。所以这个检查只能「判死刑」，不能「判线性」。</p>
+</details>
+<h3 id="25">2.5 线性的快速判据：两句话<a class="headerlink" href="#25" title="Permanent link">&para;</a></h3>
+<p>这个办法不能覆盖所有系统，但能覆盖 70%–80% 以上。</p>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p>线性系统的判据：</p>
+<ol>
+<li>
+<p><strong>每一项都有 <span class="arithmatex">\(x\)</span></strong>；</p>
+</li>
+<li>
+<p><strong>每一项的 <span class="arithmatex">\(x\)</span> 都是一次</strong>。</p>
+</li>
+</ol>
+</div>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/02-04.svg" /></p>
+<p class="fig-caption"><strong>图 4</strong> 线性系统的两句话判断法。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">系统</th>
+<th style="text-align: left;">两句话检查</th>
+<th style="text-align: left;">结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)=3x(t)+2x(t-2)\)</span></td>
+<td style="text-align: left;">两项都有 <span class="arithmatex">\(x\)</span>，都是一次</td>
+<td style="text-align: left;">线性</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y[n]=n\,x[n-2]+3x[n+1]\)</span></td>
+<td style="text-align: left;">两项都有 <span class="arithmatex">\(x\)</span>，都是一次（<span class="arithmatex">\(n\)</span> 是系数，不是 <span class="arithmatex">\(x\)</span>）</td>
+<td style="text-align: left;">线性</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)=3x(t)+2\)</span></td>
+<td style="text-align: left;">第二项「<span class="arithmatex">\(2\)</span>」<strong>没有 <span class="arithmatex">\(x\)</span></strong></td>
+<td style="text-align: left;">非线性</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y[n]=e^{x[n]}\)</span></td>
+<td style="text-align: left;">看起来「有 <span class="arithmatex">\(x\)</span>，也只出现一次」，<strong>但要展开看</strong></td>
+<td style="text-align: left;">非线性</td>
+</tr>
+</tbody>
+</table>
+<p><span class="pt-head">▸ <strong>为什么 <span class="arithmatex">\(e^{x[n]}\)</span> 看起来像线性却不是。</strong></span> <span class="arithmatex">\(e^{x}=1+x+\dfrac{x^2}{2!}+\cdots\)</span>（泰勒展开，Taylor expansion），里面有常数项 <span class="arithmatex">\(1\)</span>（没有 <span class="arithmatex">\(x\)</span>）、有 <span class="arithmatex">\(x^2\)</span>（不是一次），两句话都不满足，所以非线性。两句话要看<strong>展开以后</strong>每一项的样子，不是看表面写法。</p>
+<details class="abstract">
+<summary>可跳过</summary>
+<p><strong>两句话的边界</strong>：<span class="arithmatex">\(x\)</span> 被套在函数里，如 <span class="arithmatex">\(|x(t)|\)</span>、<span class="arithmatex">\(\sin x(t)\)</span>，和 <span class="arithmatex">\(e^{x}\)</span> 是同一类陷阱；两个 <span class="arithmatex">\(x\)</span> 相乘，如 <span class="arithmatex">\(x(t)\,x(t-1)\)</span>，「一次」就不满足；真要严格证明，还是回到齐次 + 叠加。</p>
+</details>
+<h3 id="26">2.6 与教材定义的等价<a class="headerlink" href="#26" title="Permanent link">&para;</a></h3>
+<p>教材把两条合成一条（教材第 28 页，式 1-89、1-90）。两种定义<strong>完全等价</strong>，关键在「任意」。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">分开写</td>
+<td style="text-align: left;">两条分开写：齐次性 <span class="arithmatex">\(x(t)\to y(t)\Rightarrow a\,x(t)\to a\,y(t)\)</span>；叠加性 <span class="arithmatex">\(x_1\to y_1,\ x_2\to y_2\Rightarrow x_1+x_2\to y_1+y_2\)</span>。</td>
+</tr>
+<tr>
+<td style="text-align: left;">合并写</td>
+<td style="text-align: left;">一条合起来写：对任意 <span class="arithmatex">\(x_1\to y_1\)</span>、<span class="arithmatex">\(x_2\to y_2\)</span> 和任意实数 <span class="arithmatex">\(a,b\)</span>，都有 <span class="arithmatex">\(a\,x_1(t)+b\,x_2(t)\to a\,y_1(t)+b\,y_2(t)\)</span>。</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/02-05.svg" /></p>
+<p class="fig-caption"><strong>图 5</strong> 两个定义互相推得出对方，所以说它们等价。</p>
+<p><span class="pt-head">▸ <strong>合并写 <span class="arithmatex">\(\Rightarrow\)</span> 分开写（简单）。</strong></span> 取 <span class="arithmatex">\(b=0\)</span>（<span class="arithmatex">\(a\)</span> 任意），<span class="arithmatex">\(x_1=x\)</span>：<span class="arithmatex">\(a\,x+0\to a\,y+0\)</span>，即齐次性 <span class="arithmatex">\(a\,x\to a\,y\)</span>。取 <span class="arithmatex">\(a=b=1\)</span>：直接得到叠加性。</p>
+<p><span class="pt-head">▸ <strong>分开写 <span class="arithmatex">\(\Rightarrow\)</span> 合并写（稍难）。</strong></span> <strong>已知</strong>（分开写的定义，对<strong>任意</strong>输入都成立）。为避免和后面的 <span class="arithmatex">\(a,b\)</span> 混淆，齐次性里的倍数换用字母 <span class="arithmatex">\(c\)</span>：</p>
+<ul>
+<li>
+<p>齐次性：若 <span class="arithmatex">\(x\to y\)</span>，则对任意实数 <span class="arithmatex">\(c\)</span>，有 <span class="arithmatex">\(c\,x\to c\,y\)</span>；</p>
+</li>
+<li>
+<p>叠加性：若 <span class="arithmatex">\(x_A\to y_A\)</span>、<span class="arithmatex">\(x_B\to y_B\)</span>，则 <span class="arithmatex">\(x_A+x_B\to y_A+y_B\)</span>。</p>
+</li>
+</ul>
+<p><strong>要证</strong>（合并写的定义）：任取 <span class="arithmatex">\(x_1\to y_1\)</span>、<span class="arithmatex">\(x_2\to y_2\)</span>，任取实数 <span class="arithmatex">\(a,b\)</span>，都有</p>
+<div class="arithmatex">\[
+a\,x_1(t)+b\,x_2(t)\ \to\ a\,y_1(t)+b\,y_2(t).
+\]</div>
+<p><strong>证明</strong>。分三步，只用 (H) 和 (S)，完全不去管系统「里面」具体是什么运算：</p>
+<ol>
+<li>
+<p><strong>对 <span class="arithmatex">\(x_1\)</span> 用 (H)，取 <span class="arithmatex">\(c=a\)</span>。</strong><span class="arithmatex">\(x_1\)</span> 是任意输入，已知 <span class="arithmatex">\(x_1\to y_1\)</span>，所以 (H) 对它成立：</p>
+<div class="arithmatex">\[
+a\,x_1(t)\ \to\ a\,y_1(t).
+\]</div>
+</li>
+<li>
+<p><strong>对 <span class="arithmatex">\(x_2\)</span> 用 (H)，取 <span class="arithmatex">\(c=b\)</span>。</strong><span class="arithmatex">\(x_2\)</span> 也是任意输入，已知 <span class="arithmatex">\(x_2\to y_2\)</span>，<span class="arithmatex">\(b\)</span> 是任意实数，所以</p>
+<div class="arithmatex">\[
+b\,x_2(t)\ \to\ b\,y_2(t).
+\]</div>
+</li>
+<li>
+<p><strong>把前两步的结果当作两个输入，用 (S)。</strong>令 <span class="arithmatex">\(u(t)=a\,x_1(t)\)</span>，<span class="arithmatex">\(v(t)=b\,x_2(t)\)</span>。它们各自只是一个信号（「一包」）；由第 1、2 步，<span class="arithmatex">\(u\to a\,y_1\)</span>，<span class="arithmatex">\(v\to b\,y_2\)</span>。(S) 对<strong>任意</strong>两个输入都成立，取 <span class="arithmatex">\(x_A=u\)</span>、<span class="arithmatex">\(x_B=v\)</span>，<span class="arithmatex">\(y_A=a\,y_1\)</span>、<span class="arithmatex">\(y_B=b\,y_2\)</span>，得</p>
+<div class="arithmatex">\[
+u+v\ \to\ a\,y_1+b\,y_2,\qquad\text{即}\qquad a\,x_1(t)+b\,x_2(t)\ \to\ a\,y_1(t)+b\,y_2(t).
+\]</div>
+</li>
+</ol>
+<p><span class="arithmatex">\(x_1,x_2,a,b\)</span> 都是任取的，所以合并写的定义对<strong>任意</strong>输入、任意 <span class="arithmatex">\(a,b\)</span> 成立。证毕。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/02-06.svg" /></p>
+<p class="fig-caption"><strong>图 6</strong> 分开写 <span class="arithmatex">\(\Rightarrow\)</span> 合并写：先用齐次性分别把 <span class="arithmatex">\(x_1\)</span>、<span class="arithmatex">\(x_2\)</span> 放大成 <span class="arithmatex">\(a\,x_1\)</span>、<span class="arithmatex">\(b\,x_2\)</span>，再用叠加性把两个放大后的信号加起来。每一行的「系统」仍是<strong>同一台</strong>机器。</p>
+<p><span class="pt-head">▸ <strong>几个容易卡住的地方</strong></span></p>
+<ul>
+<li>
+<p><strong>为什么能对 <span class="arithmatex">\(x_1\)</span> 用 (H)</strong>：(H) 里的 <span class="arithmatex">\(x\)</span> 是<strong>任意</strong>输入，<span class="arithmatex">\(x_1\)</span> 就是其中一个；(H) 里的 <span class="arithmatex">\(c\)</span> 是任意实数，取成 <span class="arithmatex">\(a\)</span> 当然允许（<span class="arithmatex">\(a=0\)</span> 或负数也行）。这就是「任意」的用法：把定义里的字母换成手头的具体信号和数。</p>
+</li>
+<li>
+<p><strong>第 1 步的输出 <span class="arithmatex">\(a\,y_1\)</span> 是 (H) 保证的</strong>，不是我们自己去算 <span class="arithmatex">\(a\,x_1\)</span> 经过系统得到的；我们根本不知道系统内部怎么算，只知道 (H)。</p>
+</li>
+<li>
+<p><strong>第 3 步为什么不是「直接相加」</strong>：<span class="arithmatex">\(a\,x_1\)</span> 和 <span class="arithmatex">\(b\,x_2\)</span> 的输出 <span class="arithmatex">\(a\,y_1\)</span>、<span class="arithmatex">\(b\,y_2\)</span> 是第 1、2 步得到的结论；要把「两个输入的和」对应到「两个输出的和」，靠的是 (S)，不能省。(S) 只管「两个输入相加」，所以要先用 (H) 把 <span class="arithmatex">\(a,b\)</span> 吸收进信号里，凑成 (S) 的形状。</p>
+</li>
+</ul>
+<p>若觉得绕、烧脑，核心是没有理解「任意」。日常用哪个都行：分开写更适合入门证明，合并写更适合推别的结论。</p>
+<h3 id="27">2.7 思考题：缺一不可<a class="headerlink" href="#27" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<ol>
+<li>
+<p>请举一个系统，<strong>满足齐次性，不满足叠加性</strong>；</p>
+</li>
+<li>
+<p>请再举一个系统，<strong>满足叠加性，不满足齐次性</strong>。</p>
+</li>
+</ol>
+</div>
+<p>两道里<strong>有一道特别难</strong>（提示：<span class="arithmatex">\(a\)</span> 可取负数）。</p>
+<details class="abstract">
+<summary>可跳过</summary>
+<p><strong>第 1 道</strong>：<span class="arithmatex">\(y(t)=\dfrac{x(t)^2}{x(t-1)}\)</span>（分母为 <span class="arithmatex">\(0\)</span> 时约定输出 <span class="arithmatex">\(0\)</span>）满足齐次性：<span class="arithmatex">\(\dfrac{a^2x(t)^2}{a\,x(t-1)}=a\cdot\dfrac{x(t)^2}{x(t-1)}\)</span>；但取某一时刻 <span class="arithmatex">\((x_1(t),x_1(t-1))=(1,1)\)</span>、<span class="arithmatex">\((x_2(t),x_2(t-1))=(1,2)\)</span>，则 <span class="arithmatex">\(y_1=1\)</span>、<span class="arithmatex">\(y_2=\tfrac12\)</span>，而和的输出是 <span class="arithmatex">\(\tfrac{2^2}{3}=\tfrac43\neq\tfrac32\)</span>，叠加性不成立。第 2 道很难：<span class="arithmatex">\(a\)</span> 取任意实数时，叠加性已能推出整数、分数的齐次性，反例只能靠「病态」函数（柯西函数方程的非线性解，需借助选择公理）。</p>
+</details>
+<h2 id="3">3 时不变系统<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31">3.1 概念<a class="headerlink" href="#31" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p>假设对<strong>任意</strong>输入 <span class="arithmatex">\(x(t)\)</span>，系统给出输出 <span class="arithmatex">\(y(t)\)</span>。如果对<strong>任意实数</strong> <span class="arithmatex">\(t_0\)</span>，都有</p>
+<div class="arithmatex">\[
+x(t-t_0)\ \to\ y(t-t_0),
+\]</div>
+<p>那么它是<strong>时不变系统</strong>(time-invariant system)；否则是<strong>时变系统</strong>(time-varying system)。</p>
+<p><em>直观理解：输入晚到 <span class="arithmatex">\(t_0\)</span> 秒，输出也恰好晚 <span class="arithmatex">\(t_0\)</span> 秒，形状一点不变。</em></p>
+</div>
+<p><span class="arithmatex">\(x(t-t_0)\)</span> 就是把 <span class="arithmatex">\(x\)</span> <strong>右移 <span class="arithmatex">\(t_0\)</span> 个单位</strong>（<span class="arithmatex">\(t_0\)</span> 为负则左移）。</p>
+<p>时不变：同样的输入无论何时送入，输出都一样；若输出随送入时刻改变，就是时变。系统的输出不随输入送入的时刻而改变。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/02-07.svg" /></p>
+<p class="fig-caption"><strong>图 7</strong> 时不变：输入整体右移 <span class="arithmatex">\(t_0\)</span>，输出也只是同样右移 <span class="arithmatex">\(t_0\)</span>，形状不变，即 <span class="arithmatex">\(x(t-t_0)\to y(t-t_0)\)</span>。</p>
+<h3 id="32">3.2 证明<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>证</strong>时不变：必须严格按定义证。设中间变量 <span class="arithmatex">\(f(t)=x(t-t_0)\)</span>，代进系统的规矩，得到「实际」输出；再把 <span class="arithmatex">\(y(t)\)</span> 里所有的 <span class="arithmatex">\(t\)</span> 换成 <span class="arithmatex">\(t-t_0\)</span>，得到「希望」输出。两边相等就是时不变。</p>
+<p><strong>证</strong>时变：举一个反例，列出「实际」和「希望」，二者不等即可。</p>
+</div>
+<h3 id="33">3.3 做题步骤：固定写两行<a class="headerlink" href="#33" title="Permanent link">&para;</a></h3>
+<p><strong>固定写两行，按部就班不容易代错。</strong></p>
+<ol>
+<li>
+<p><strong>先用口诀预判</strong>：<span class="arithmatex">\(x\)</span> 括号外有没有随 <span class="arithmatex">\(t\)</span> 变的项？括号里是不是只有 <span class="arithmatex">\(t\)</span> 加减常数？两条都过，多半时不变；有一条不过，多半时变。带积分或求和的系统口诀不灵，直接走下面几步（积分要换元，例子见例 5）。</p>
+</li>
+<li>
+<p><strong>写出系统规矩</strong>：用中间变量 <span class="arithmatex">\(f\)</span> 表示「送进来的任意信号」，把系统写成 <span class="arithmatex">\(f(t)\to\cdots\)</span>。例：<span class="arithmatex">\(x(2t)\)</span> 写成 <span class="arithmatex">\(f(t)\to f(2t)\)</span>；<span class="arithmatex">\(t\,x(t)\)</span> 写成 <span class="arithmatex">\(f(t)\to t\,f(t)\)</span>。</p>
+</li>
+<li>
+<p><strong>第一行，写「实际」</strong>（先移输入，再过系统）：令 <span class="arithmatex">\(f(t)=x(t-t_0)\)</span>，先写出它的入口规则 <span class="arithmatex">\(f(\square)=x(\square-t_0)\)</span>，再把系统规矩里要的东西填进 <span class="arithmatex">\(\square\)</span>。系统自带的东西（<span class="arithmatex">\(2t\)</span> 里的 <span class="arithmatex">\(2\)</span>、<span class="arithmatex">\(\cos t\)</span>、单独的 <span class="arithmatex">\(t\)</span>）<strong>原样保留，不跟着 <span class="arithmatex">\(t_0\)</span> 动</strong>。</p>
+</li>
+<li>
+<p><strong>第二行，写「期望」</strong>（先过系统，再移输出）：先写出 <span class="arithmatex">\(y(\square)\)</span> 的规则，再把 <span class="arithmatex">\(\square\)</span> 换成 <span class="arithmatex">\(t-t_0\)</span>：<span class="arithmatex">\(y(t)\)</span> 里<strong>所有</strong>的 <span class="arithmatex">\(t\)</span> 一起换。</p>
+</li>
+<li>
+<p><strong>比较两行</strong>。对任意 <span class="arithmatex">\(t_0\)</span> 都相等，是时不变，<span class="arithmatex">\(\blacksquare\)</span>；不等，是时变。证时变时再取一个具体的 <span class="arithmatex">\(x\)</span>（矩形脉冲、阶跃、单位脉冲）和一个具体的 <span class="arithmatex">\(t_0\)</span>（如 <span class="arithmatex">\(1\)</span>），算出两个不同的结果，<span class="arithmatex">\(\blacksquare\)</span>。</p>
+</li>
+</ol>
+<p><strong>时变的两种来源</strong>（看到哪一种，就知道「实际」和「期望」会在哪里分家）：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">类型</th>
+<th style="text-align: left;">例子</th>
+<th style="text-align: left;">为什么「实际」<span class="arithmatex">\(\neq\)</span>「期望」</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">对 <span class="arithmatex">\(t\)</span> 缩放或反转</td>
+<td style="text-align: left;"><span class="arithmatex">\(x(2t)\)</span>、<span class="arithmatex">\(x(-t)\)</span>、<span class="arithmatex">\(x[3-n]\)</span></td>
+<td style="text-align: left;">「实际」里输入的平移被系统打折（<span class="arithmatex">\(x(2t)\)</span>：<span class="arithmatex">\(t_0\)</span> 变成 <span class="arithmatex">\(t_0/2\)</span>）或反向；「期望」是原样平移</td>
+</tr>
+<tr>
+<td style="text-align: left;">括号外挂着随 <span class="arithmatex">\(t\)</span> 变的项（乘或加都算）</td>
+<td style="text-align: left;"><span class="arithmatex">\(t\,x(t)\)</span>、<span class="arithmatex">\(x(t)\cos t\)</span>、<span class="arithmatex">\(x(t)+\cos t\)</span></td>
+<td style="text-align: left;">这一项是系统自带的，钉在时间轴上：输入挪了它不动；而「期望」是整个输出一起平移，它跟着挪</td>
+</tr>
+</tbody>
+</table>
+<p><strong>三个最容易犯的错</strong>：</p>
+<ol>
+<li>
+<p>把 <span class="arithmatex">\(y(t-t_0)\)</span> 当成「延时输入之后的输出」。它是先过系统再延时，是「期望」；</p>
+</li>
+<li>
+<p>算「实际」时把系统里的 <span class="arithmatex">\(2\)</span> 也乘到 <span class="arithmatex">\(t_0\)</span> 上，写成 <span class="arithmatex">\(x\bigl(2(t-t_0)\bigr)\)</span>；</p>
+</li>
+<li>
+<p>以为 <span class="arithmatex">\(\cos t\)</span>、<span class="arithmatex">\(t\)</span> 这类系统自带的项会跟着输入一起延时。</p>
+</li>
+</ol>
+<h3 id="34">3.4 例题：证明时不变<a class="headerlink" href="#34" title="Permanent link">&para;</a></h3>
+<p class="ex-head"><span class="ex-badge">例 1</span> <strong><span class="arithmatex">\(y(t)=x(t-1)\)</span></strong> <span class="ex-tag">时不变</span></p>
+<p><strong>系统</strong>：<span class="arithmatex">\(x(t)\to y(t)=x(t-1)\)</span>，即输入右移 <span class="arithmatex">\(1\)</span> 个单位。</p>
+<p><strong>证明</strong>。任取 <span class="arithmatex">\(t_0\)</span>。</p>
+<ul>
+<li>
+<p>实际：输入 <span class="arithmatex">\(f(t)=x(t-t_0)\)</span>，输出 <span class="arithmatex">\(f(t-1)=x\bigl((t-1)-t_0\bigr)=x(t-1-t_0)\)</span>；</p>
+</li>
+<li>
+<p>期望：<span class="arithmatex">\(y(t-t_0)=x\bigl((t-t_0)-1\bigr)=x(t-1-t_0)\)</span>。</p>
+</li>
+</ul>
+<p>实际 <span class="arithmatex">\(=\)</span> 期望，对任意 <span class="arithmatex">\(t_0\)</span> 成立，故 <span class="arithmatex">\(y(t)=x(t-1)\)</span> 为时不变系统。<span class="arithmatex">\(\blacksquare\)</span></p>
+<p class="ex-head"><span class="ex-badge">例 2</span> <strong><span class="arithmatex">\(y(t)=e^{x(t+1)}\)</span></strong> <span class="ex-tag">时不变</span></p>
+<p><strong>系统</strong>：<span class="arithmatex">\(f(t)\to e^{f(t+1)}\)</span>。</p>
+<p><strong>证明</strong>。任取 <span class="arithmatex">\(t_0\)</span>。</p>
+<ul>
+<li>
+<p>实际：输入 <span class="arithmatex">\(f(t)=x(t-t_0)\)</span>，输出 <span class="arithmatex">\(e^{f(t+1)}=e^{x(t+1-t_0)}\)</span>；</p>
+</li>
+<li>
+<p>期望：<span class="arithmatex">\(y(t-t_0)=e^{x((t-t_0)+1)}=e^{x(t+1-t_0)}\)</span>。</p>
+</li>
+</ul>
+<p>实际 <span class="arithmatex">\(=\)</span> 期望，对任意 <span class="arithmatex">\(t_0\)</span> 成立，故 <span class="arithmatex">\(y(t)=e^{x(t+1)}\)</span> 为时不变系统。<span class="arithmatex">\(\blacksquare\)</span></p>
+<p class="ex-head"><span class="ex-badge">例 3</span> <strong>微分器 <span class="arithmatex">\(y(t)=\dfrac{\mathrm{d}x(t)}{\mathrm{d}t}\)</span></strong> <span class="ex-tag">时不变</span></p>
+<p><strong>系统</strong>：<span class="arithmatex">\(f(t)\to\dfrac{\mathrm{d}f(t)}{\mathrm{d}t}\)</span>。<span class="arithmatex">\(x'\)</span> 表示 <span class="arithmatex">\(x\)</span> 的导函数。</p>
+<p><strong>证明</strong>。任取 <span class="arithmatex">\(t_0\)</span>。</p>
+<ul>
+<li>
+<p>实际：输入 <span class="arithmatex">\(f(t)=x(t-t_0)\)</span>，输出 <span class="arithmatex">\(\dfrac{\mathrm{d}}{\mathrm{d}t}\,x(t-t_0)=x'(t-t_0)\)</span>（括号里的 <span class="arithmatex">\(t-t_0\)</span> 对 <span class="arithmatex">\(t\)</span> 的导数是 <span class="arithmatex">\(1\)</span>，不会多出系数）；</p>
+</li>
+<li>
+<p>期望：<span class="arithmatex">\(y(t)=x'(t)\)</span>，故 <span class="arithmatex">\(y(t-t_0)=x'(t-t_0)\)</span>。</p>
+</li>
+</ul>
+<p>实际 <span class="arithmatex">\(=\)</span> 期望，对任意 <span class="arithmatex">\(t_0\)</span> 成立，故微分器为时不变系统。<span class="arithmatex">\(\blacksquare\)</span></p>
+<p>数字看一眼：取 <span class="arithmatex">\(x(t)=t^2\)</span>，<span class="arithmatex">\(t_0=1\)</span>。输入 <span class="arithmatex">\((t-1)^2\)</span> 的导数是 <span class="arithmatex">\(2(t-1)\)</span>，<span class="arithmatex">\(y(t-1)=2(t-1)\)</span>，两边一样。直觉：曲线整体右移，每一点附近的变化率也跟着右移，形状不变。</p>
+<p class="ex-head"><span class="ex-badge">例 4</span> <strong>差分 <span class="arithmatex">\(y[n]=x[n]-x[n-1]\)</span></strong> <span class="ex-tag">时不变</span></p>
+<p><strong>系统</strong>：<span class="arithmatex">\(f[n]\to f[n]-f[n-1]\)</span>（当前值减前一个值）。离散信号的时不变，是对任意<strong>整数</strong> <span class="arithmatex">\(n_0\)</span>：输入 <span class="arithmatex">\(x[n-n_0]\)</span> 时，输出 <span class="arithmatex">\(y[n-n_0]\)</span>。</p>
+<p><strong>证明</strong>。任取整数 <span class="arithmatex">\(n_0\)</span>。</p>
+<ul>
+<li>
+<p>实际：输入 <span class="arithmatex">\(f[n]=x[n-n_0]\)</span>，则 <span class="arithmatex">\(f[n-1]=x\bigl[(n-1)-n_0\bigr]\)</span>，输出 <span class="arithmatex">\(f[n]-f[n-1]=x[n-n_0]-x[n-1-n_0]\)</span>；</p>
+</li>
+<li>
+<p>期望：<span class="arithmatex">\(y[n]=x[n]-x[n-1]\)</span>，故 <span class="arithmatex">\(y[n-n_0]=x[n-n_0]-x\bigl[(n-n_0)-1\bigr]=x[n-n_0]-x[n-1-n_0]\)</span>。</p>
+</li>
+</ul>
+<p>实际 <span class="arithmatex">\(=\)</span> 期望，对任意整数 <span class="arithmatex">\(n_0\)</span> 成立，故差分为时不变系统。<span class="arithmatex">\(\blacksquare\)</span></p>
+<p>数字看一眼：输入单位脉冲 <span class="arithmatex">\(\delta[n]\)</span>，输出 <span class="arithmatex">\(\delta[n]-\delta[n-1]\)</span>（<span class="arithmatex">\(n=0\)</span> 处为 <span class="arithmatex">\(1\)</span>，<span class="arithmatex">\(n=1\)</span> 处为 <span class="arithmatex">\(-1\)</span>）。输入右移 <span class="arithmatex">\(2\)</span> 变成 <span class="arithmatex">\(\delta[n-2]\)</span>，输出 <span class="arithmatex">\(\delta[n-2]-\delta[n-3]\)</span>（<span class="arithmatex">\(n=2\)</span> 处为 <span class="arithmatex">\(1\)</span>，<span class="arithmatex">\(n=3\)</span> 处为 <span class="arithmatex">\(-1\)</span>），正好是原输出右移 <span class="arithmatex">\(2\)</span>。口诀也直接过：<span class="arithmatex">\(n\)</span> 只在括号里，只是 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(n-1\)</span>。</p>
+<p class="ex-head"><span class="ex-badge">例 5</span> <strong>积分器 <span class="arithmatex">\(y(t)=\displaystyle\int_{-\infty}^{t}x(\tau)\,\mathrm{d}\tau\)</span></strong> <span class="ex-tag">时不变</span></p>
+<p><strong>系统</strong>：<span class="arithmatex">\(f(t)\to\displaystyle\int_{-\infty}^{t}f(\tau)\,\mathrm{d}\tau\)</span>。<span class="arithmatex">\(t\)</span> 在积分上限，口诀按字面会判成时变，所以必须回到定义。</p>
+<p><strong>证明</strong>。任取 <span class="arithmatex">\(t_0\)</span>。</p>
+<ul>
+<li>
+<p>实际：输入 <span class="arithmatex">\(f(\tau)=x(\tau-t_0)\)</span>，输出 <span class="arithmatex">\(\displaystyle\int_{-\infty}^{t}x(\tau-t_0)\,\mathrm{d}\tau\)</span>。令 <span class="arithmatex">\(s=\tau-t_0\)</span>（理由见下文），则 <span class="arithmatex">\(\mathrm{d}\tau=\mathrm{d}s\)</span>；<span class="arithmatex">\(\tau=-\infty\)</span> 时 <span class="arithmatex">\(s=-\infty\)</span>，<span class="arithmatex">\(\tau=t\)</span> 时 <span class="arithmatex">\(s=t-t_0\)</span>。于是输出 <span class="arithmatex">\(=\displaystyle\int_{-\infty}^{t-t_0}x(s)\,\mathrm{d}s\)</span>；</p>
+</li>
+<li>
+<p>期望：<span class="arithmatex">\(y(t)=\displaystyle\int_{-\infty}^{t}x(\tau)\,\mathrm{d}\tau\)</span>，把所有 <span class="arithmatex">\(t\)</span> 换成 <span class="arithmatex">\(t-t_0\)</span>，<span class="arithmatex">\(y(t-t_0)=\displaystyle\int_{-\infty}^{t-t_0}x(\tau)\,\mathrm{d}\tau\)</span>。积分变量只是计数的名字（哑变量，dummy variable），写成 <span class="arithmatex">\(\tau\)</span> 还是 <span class="arithmatex">\(s\)</span> 结果一样，故 <span class="arithmatex">\(=\displaystyle\int_{-\infty}^{t-t_0}x(s)\,\mathrm{d}s\)</span>。</p>
+</li>
+</ul>
+<p>实际 <span class="arithmatex">\(=\)</span> 期望，对任意 <span class="arithmatex">\(t_0\)</span> 成立，故积分器为时不变系统。<span class="arithmatex">\(\blacksquare\)</span></p>
+<p>数字看一眼：取 <span class="arithmatex">\(x\)</span> 为 <span class="arithmatex">\([0,1]\)</span> 上等于 <span class="arithmatex">\(1\)</span> 的矩形，<span class="arithmatex">\(t_0=1\)</span>。原输出：<span class="arithmatex">\(t\lt{}0\)</span> 为 <span class="arithmatex">\(0\)</span>，<span class="arithmatex">\(0\le t\le1\)</span> 为 <span class="arithmatex">\(t\)</span>（斜坡），<span class="arithmatex">\(t\gt{}1\)</span> 停在 <span class="arithmatex">\(1\)</span>。输入右移 <span class="arithmatex">\(1\)</span> 变成 <span class="arithmatex">\([1,2]\)</span> 上的矩形，实际输出：<span class="arithmatex">\(t\lt{}1\)</span> 为 <span class="arithmatex">\(0\)</span>，<span class="arithmatex">\(1\le t\le2\)</span> 为 <span class="arithmatex">\(t-1\)</span>，<span class="arithmatex">\(t\gt{}2\)</span> 停在 <span class="arithmatex">\(1\)</span>，正好是原输出右移 <span class="arithmatex">\(1\)</span>。</p>
+<details class="abstract">
+<summary>可跳过</summary>
+<p><strong>为什么要令 <span class="arithmatex">\(s=\tau-t_0\)</span></strong>。</p>
+<ol>
+<li>
+<p><strong>目的</strong>：「实际」那行里被积的是<strong>挪过的</strong> <span class="arithmatex">\(x(\tau-t_0)\)</span>，而 <span class="arithmatex">\(y\)</span> 的定义只会算「<span class="arithmatex">\(x\)</span> 本人」的积分，两边长得不一样，没法比。把 <span class="arithmatex">\(\tau-t_0\)</span> 整个起个新名字 <span class="arithmatex">\(s\)</span>，被积函数还原成 <span class="arithmatex">\(x(s)\)</span>，才能和「期望」对上。</p>
+</li>
+<li>
+<p><strong>代价</strong>：积分范围也要用新名字重算：上限 <span class="arithmatex">\(t\)</span> 变成 <span class="arithmatex">\(t-t_0\)</span>，下限 <span class="arithmatex">\(-\infty\)</span> 不变；<span class="arithmatex">\(\mathrm{d}\tau\)</span> 变成 <span class="arithmatex">\(\mathrm{d}s\)</span>（<span class="arithmatex">\(t_0\)</span> 是常数）。</p>
+</li>
+<li>
+<p><strong>效果</strong>：平移从被积函数里「搬」到了积分上限里。直觉：曲线右移 <span class="arithmatex">\(t_0\)</span> 再累计到 <span class="arithmatex">\(t\)</span>，等于曲线不动，只累计到 <span class="arithmatex">\(t-t_0\)</span>。</p>
+</li>
+</ol>
+</details>
+<p class="ex-head"><span class="ex-badge">例 6</span> <strong>累加器 <span class="arithmatex">\(y[n]=\displaystyle\sum_{k=-\infty}^{n}x[k]\)</span></strong> <span class="ex-tag">时不变</span></p>
+<p><strong>系统</strong>：<span class="arithmatex">\(f[n]\to\displaystyle\sum_{k=-\infty}^{n}f[k]\)</span>。它是离散的积分器，<span class="arithmatex">\(n\)</span> 同样在求和上限，口诀不适用。证法和积分器一样，只是把积分换成求和、<span class="arithmatex">\(\tau\)</span> 换成 <span class="arithmatex">\(k\)</span>。</p>
+<p><strong>证明</strong>。任取整数 <span class="arithmatex">\(n_0\)</span>。</p>
+<ul>
+<li>
+<p>实际：输入 <span class="arithmatex">\(f[k]=x[k-n_0]\)</span>，输出 <span class="arithmatex">\(\displaystyle\sum_{k=-\infty}^{n}x[k-n_0]\)</span>。令 <span class="arithmatex">\(m=k-n_0\)</span>：<span class="arithmatex">\(k=-\infty\)</span> 时 <span class="arithmatex">\(m=-\infty\)</span>，<span class="arithmatex">\(k=n\)</span> 时 <span class="arithmatex">\(m=n-n_0\)</span>。于是输出 <span class="arithmatex">\(=\displaystyle\sum_{m=-\infty}^{n-n_0}x[m]\)</span>；</p>
+</li>
+<li>
+<p>期望：<span class="arithmatex">\(y[n-n_0]=\displaystyle\sum_{k=-\infty}^{n-n_0}x[k]=\sum_{m=-\infty}^{n-n_0}x[m]\)</span>（求和下标 <span class="arithmatex">\(k\)</span>、<span class="arithmatex">\(m\)</span> 只是计数的名字，叫什么都一样）。</p>
+</li>
+</ul>
+<p>实际 <span class="arithmatex">\(=\)</span> 期望，对任意整数 <span class="arithmatex">\(n_0\)</span> 成立，故累加器为时不变系统。<span class="arithmatex">\(\blacksquare\)</span></p>
+<p>数字看一眼：输入 <span class="arithmatex">\(\delta[n]\)</span>，输出从 <span class="arithmatex">\(n=0\)</span> 起全为 <span class="arithmatex">\(1\)</span>（<span class="arithmatex">\(n\lt{}0\)</span> 为 <span class="arithmatex">\(0\)</span>）。输入右移 <span class="arithmatex">\(2\)</span> 变成 <span class="arithmatex">\(\delta[n-2]\)</span>，输出从 <span class="arithmatex">\(n=2\)</span> 起全为 <span class="arithmatex">\(1\)</span>，正好是原输出右移 <span class="arithmatex">\(2\)</span>。</p>
+<p>微分器、积分器、差分、累加器这四个都是时不变。它们的规则只看「相对位置」（和前一刻比，或从最早累积到现在），不看「几点钟」；输入整体挪了，「现在」跟着挪，输出也就只是整体跟着挪。</p>
+<h3 id="35">3.5 例题：证明时变（反例）<a class="headerlink" href="#35" title="Permanent link">&para;</a></h3>
+<p class="ex-head"><span class="ex-badge">例 7</span> <strong><span class="arithmatex">\(y(t)=x(2t)\)</span></strong> <span class="ex-tag">时变</span></p>
+<p><strong>系统</strong>：<span class="arithmatex">\(x(t)\to y(t)=x(2t)\)</span>，即波形沿时间轴压缩 <span class="arithmatex">\(2\)</span> 倍。</p>
+<p><strong>证明</strong>（举反例）。取 <span class="arithmatex">\(x(t)=1\)</span>（<span class="arithmatex">\(0\le t\le1\)</span>），其余为 <span class="arithmatex">\(0\)</span>；取 <span class="arithmatex">\(t_0=1\)</span>。</p>
+<ul>
+<li>
+<p>实际：输入 <span class="arithmatex">\(x(t-1)\)</span> 在 <span class="arithmatex">\(1\le t\le2\)</span> 上为 <span class="arithmatex">\(1\)</span>，经系统压缩后在 <span class="arithmatex">\(0.5\le t\le1\)</span> 上为 <span class="arithmatex">\(1\)</span>；</p>
+</li>
+<li>
+<p>期望：若时不变，输出应为 <span class="arithmatex">\(y(t-1)\)</span>，即 <span class="arithmatex">\(y(t)\)</span> 右移 <span class="arithmatex">\(1\)</span>，在 <span class="arithmatex">\(1\le t\le1.5\)</span> 上为 <span class="arithmatex">\(1\)</span>。</p>
+</li>
+</ul>
+<p>实际 <span class="arithmatex">\(\neq\)</span> 期望，故 <span class="arithmatex">\(y(t)=x(2t)\)</span> 为时变系统。<span class="arithmatex">\(\blacksquare\)</span></p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/02-08.svg" /></p>
+<p class="fig-caption"><strong>图 8</strong> <span class="arithmatex">\(y(t)=x(2t)\)</span> 的反例：第二行红色（实际）和绿色虚线（希望）不在同一位置，所以是时变系统。</p>
+<details class="abstract">
+<summary>可跳过</summary>
+<p><strong>为什么「实际」是 <span class="arithmatex">\(x(2t-t_0)\)</span>，而不是 <span class="arithmatex">\(x\bigl(2(t-t_0)\bigr)\)</span></strong>。这是最容易绕晕的一步，关键是看清<strong>入口 <span class="arithmatex">\(\square\)</span> 里填的是什么</strong>。把函数当成一台机器，括号里的 <span class="arithmatex">\(\square\)</span> 是入口：</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(y\)</span> 这台机器（<span class="arithmatex">\(y(t)=x(2t)\)</span>）：<strong>进去一个数，先乘 <span class="arithmatex">\(2\)</span>，再交给 <span class="arithmatex">\(x\)</span></strong>，即 <span class="arithmatex">\(y(\square)=x(2\square)\)</span>；</p>
+</li>
+<li>
+<p><span class="arithmatex">\(f\)</span> 这台机器（<span class="arithmatex">\(f(t)=x(t-t_0)\)</span>）：<strong>进去一个数，先减 <span class="arithmatex">\(t_0\)</span>，再交给 <span class="arithmatex">\(x\)</span></strong>，即 <span class="arithmatex">\(f(\square)=x(\square-t_0)\)</span>。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">路线</th>
+<th style="text-align: left;">把什么填进哪台机器</th>
+<th style="text-align: left;">结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">实际：先移输入，再过系统</td>
+<td style="text-align: left;">系统规矩 <span class="arithmatex">\(f(t)\to f(2t)\)</span>：把 <span class="arithmatex">\(2t\)</span> 填进 <span class="arithmatex">\(f\)</span>（先减 <span class="arithmatex">\(t_0\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(x(2t-t_0)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">期望：先过系统，再移输出</td>
+<td style="text-align: left;">把 <span class="arithmatex">\(t-t_0\)</span> 填进 <span class="arithmatex">\(y\)</span>（先乘 <span class="arithmatex">\(2\)</span>）</td>
+<td style="text-align: left;"><span class="arithmatex">\(x\bigl(2(t-t_0)\bigr)=x(2t-2t_0)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>两条路里「乘 <span class="arithmatex">\(2\)</span>」和「减 <span class="arithmatex">\(t_0\)</span>」的先后次序相反，所以结果不同。注意：<span class="arithmatex">\(y(t-t_0)\)</span> 是「先过系统，再延时输出」，那是<strong>期望</strong>，不是延时输入之后的输出。</p>
+<p><strong>代数字看</strong>：取 <span class="arithmatex">\(t_0=1\)</span>、看 <span class="arithmatex">\(t=3\)</span> 这一刻，实际取 <span class="arithmatex">\(x(2\cdot3-1)=x(5)\)</span>，期望取 <span class="arithmatex">\(x(2\cdot3-2)=x(4)\)</span>，两边读的是 <span class="arithmatex">\(x\)</span> 在不同位置的值。用上面的矩形（<span class="arithmatex">\(0\le t\le1\)</span> 为 <span class="arithmatex">\(1\)</span>）：实际 <span class="arithmatex">\(x(2t-1)\)</span> 在 <span class="arithmatex">\(0.5\le t\le1\)</span> 为 <span class="arithmatex">\(1\)</span>，期望 <span class="arithmatex">\(x(2t-2)\)</span> 在 <span class="arithmatex">\(1\le t\le1.5\)</span> 为 <span class="arithmatex">\(1\)</span>，正是图里的红色和绿色虚线。</p>
+<p><strong>换个写法</strong>：<span class="arithmatex">\(x(2t-t_0)=x\bigl(2(t-\tfrac{t_0}{2})\bigr)\)</span>。输入右移了 <span class="arithmatex">\(t_0\)</span>，输出却只右移 <span class="arithmatex">\(\tfrac{t_0}{2}\)</span>（延迟被压缩打了对折）；时不变要求输出也右移 <span class="arithmatex">\(t_0\)</span>，对不上。推广：<span class="arithmatex">\(x(at)\)</span> 的输入右移 <span class="arithmatex">\(t_0\)</span>，输出只右移 <span class="arithmatex">\(t_0/a\)</span>，只要 <span class="arithmatex">\(a\neq1\)</span> 就是时变。</p>
+</details>
+<p class="ex-head"><span class="ex-badge">例 8</span> <strong><span class="arithmatex">\(y(t)=t\,x(t)\)</span></strong> <span class="ex-tag">时变</span></p>
+<p><strong>系统</strong>：<span class="arithmatex">\(x(t)\to y(t)=t\,x(t)\)</span>。</p>
+<p><strong>证明</strong>（举反例）。取 <span class="arithmatex">\(x(t)=u(t)\)</span>（单位阶跃：<span class="arithmatex">\(t\gt{}0\)</span> 为 <span class="arithmatex">\(1\)</span>，<span class="arithmatex">\(t\lt{}0\)</span> 为 <span class="arithmatex">\(0\)</span>），<span class="arithmatex">\(t_0=1\)</span>。</p>
+<ul>
+<li>
+<p>实际：输入 <span class="arithmatex">\(u(t-1)\)</span>，输出 <span class="arithmatex">\(t\,u(t-1)\)</span>：<span class="arithmatex">\(t\lt{}1\)</span> 时为 <span class="arithmatex">\(0\)</span>，<span class="arithmatex">\(t\ge1\)</span> 时等于 <span class="arithmatex">\(t\)</span>；</p>
+</li>
+<li>
+<p>期望：<span class="arithmatex">\(y(t-1)=(t-1)\,u(t-1)\)</span>：<span class="arithmatex">\(t\lt{}1\)</span> 时为 <span class="arithmatex">\(0\)</span>，<span class="arithmatex">\(t\ge1\)</span> 时等于 <span class="arithmatex">\(t-1\)</span>。</p>
+</li>
+</ul>
+<p><span class="arithmatex">\(t\ge1\)</span> 时两者相差 <span class="arithmatex">\(1\)</span>（如 <span class="arithmatex">\(t=1\)</span>：实际为 <span class="arithmatex">\(1\)</span>，期望为 <span class="arithmatex">\(0\)</span>），故 <span class="arithmatex">\(y(t)=t\,x(t)\)</span> 为时变系统。<span class="arithmatex">\(\blacksquare\)</span></p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/02-09.svg" /></p>
+<p class="fig-caption"><strong>图 9</strong> <span class="arithmatex">\(y(t)=t\,x(t)\)</span> 的反例，输入 <span class="arithmatex">\(u(t-1)\)</span>：实际输出（红）在 <span class="arithmatex">\(t=1\)</span> 处直接跳到 <span class="arithmatex">\(1\)</span>，而希望的输出（绿虚线）是从 <span class="arithmatex">\(0\)</span> 开始爬。两条线上下错开了整整 <span class="arithmatex">\(1\)</span>。</p>
+<p class="ex-head"><span class="ex-badge">例 9</span> <strong><span class="arithmatex">\(y[n]=x[3-n]\)</span></strong> <span class="ex-tag">时变</span></p>
+<p><strong>系统</strong>：<span class="arithmatex">\(x[n]\to y[n]=x[3-n]\)</span>。<span class="arithmatex">\(n\)</span> 前的负号把平移变成了反向平移。</p>
+<p><strong>证明</strong>（举反例）。取 <span class="arithmatex">\(x[n]=\delta[n]\)</span>（单位脉冲：只在 <span class="arithmatex">\(n=0\)</span> 处为 <span class="arithmatex">\(1\)</span>）。</p>
+<ul>
+<li>
+<p>输入 <span class="arithmatex">\(\delta[n]\)</span>，输出 <span class="arithmatex">\(y[n]=\delta[3-n]\)</span>，脉冲在 <span class="arithmatex">\(n=3\)</span>；</p>
+</li>
+<li>
+<p>输入 <span class="arithmatex">\(\delta[n-1]\)</span>（右移 <span class="arithmatex">\(1\)</span>），实际输出 <span class="arithmatex">\(y[n]=\delta[(3-n)-1]=\delta[2-n]\)</span>，脉冲在 <span class="arithmatex">\(n=2\)</span>；</p>
+</li>
+<li>
+<p>期望：若时不变，输出应是第 1 步结果的右移 <span class="arithmatex">\(1\)</span>，脉冲在 <span class="arithmatex">\(n=4\)</span>。</p>
+</li>
+</ul>
+<p>实际（<span class="arithmatex">\(n=2\)</span>）<span class="arithmatex">\(\neq\)</span> 期望（<span class="arithmatex">\(n=4\)</span>），故 <span class="arithmatex">\(y[n]=x[3-n]\)</span> 为时变系统。<span class="arithmatex">\(\blacksquare\)</span></p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/02-10.svg" /></p>
+<p class="fig-caption"><strong>图 10</strong> <span class="arithmatex">\(y[n]=x[3-n]\)</span> 的反例：输入右移 1，实际输出的脉冲不是右移到 <span class="arithmatex">\(4\)</span>，而是左移到 <span class="arithmatex">\(2\)</span>。</p>
+<p class="ex-head"><span class="ex-badge">例 10</span> <strong><span class="arithmatex">\(y(t)=x(t)+\cos t\)</span></strong> <span class="ex-tag">时变</span></p>
+<p><strong>系统</strong>：<span class="arithmatex">\(f(t)\to f(t)+\cos t\)</span>。式子里的 <span class="arithmatex">\(\cos t\)</span> 是<strong>系统自带</strong>的，不是输入的一部分：输入右移，它不动；把整个输出右移，它才跟着一起动。</p>
+<p><strong>证明</strong>。任取 <span class="arithmatex">\(t_0\)</span>。</p>
+<ul>
+<li>
+<p>实际：输入 <span class="arithmatex">\(f(t)=x(t-t_0)\)</span>，输出 <span class="arithmatex">\(f(t)+\cos t=x(t-t_0)+\cos t\)</span>；</p>
+</li>
+<li>
+<p>期望：<span class="arithmatex">\(y(t-t_0)=x(t-t_0)+\cos(t-t_0)\)</span>。</p>
+</li>
+</ul>
+<p>两者相差 <span class="arithmatex">\(\cos t-\cos(t-t_0)\)</span>。取 <span class="arithmatex">\(x(t)\equiv0\)</span>、<span class="arithmatex">\(t_0=\dfrac{\pi}{2}\)</span>、<span class="arithmatex">\(t=0\)</span>：实际 <span class="arithmatex">\(=\cos0=1\)</span>，期望 <span class="arithmatex">\(=\cos\bigl(-\dfrac{\pi}{2}\bigr)=0\)</span>，不等，故 <span class="arithmatex">\(y(t)=x(t)+\cos t\)</span> 为时变系统。<span class="arithmatex">\(\blacksquare\)</span></p>
+<p>对照：<span class="arithmatex">\(y(t)=x(t)+5\)</span> 加的是常数，实际 <span class="arithmatex">\(x(t-t_0)+5=\)</span> 期望 <span class="arithmatex">\(x(t-t_0)+5\)</span>，是时不变。</p>
+<h3 id="36">3.6 时不变的快速判据：两句话<a class="headerlink" href="#36" title="Permanent link">&para;</a></h3>
+<p>这个办法能覆盖 80% 以上的常见系统。</p>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p>时不变系统的判据：</p>
+<ol>
+<li>
+<p><strong><span class="arithmatex">\(t\)</span> 只在 <span class="arithmatex">\(x\)</span> 的括号里</strong>（括号外面不能再有 <span class="arithmatex">\(t\)</span>）；</p>
+</li>
+<li>
+<p><strong><span class="arithmatex">\(t\)</span> 只能是 <span class="arithmatex">\(t\)</span></strong>，不能是 <span class="arithmatex">\(2t\)</span>、<span class="arithmatex">\(-2t\)</span>、<span class="arithmatex">\(t^2\)</span> 等其他函数。</p>
+</li>
+</ol>
+<p>离散的时候把 <span class="arithmatex">\(t\)</span> 换成 <span class="arithmatex">\(n\)</span>。</p>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">系统</th>
+<th style="text-align: left;">两句话检查</th>
+<th style="text-align: left;">结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)=x(t-1)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(t\)</span> 只在括号里，括号里就是 <span class="arithmatex">\(t\)</span>（平移了 1）</td>
+<td style="text-align: left;">时不变</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)=e^{x(t)}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(t\)</span> 只在括号里，括号里是 <span class="arithmatex">\(t\)</span></td>
+<td style="text-align: left;">时不变</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)=x(2t)\)</span></td>
+<td style="text-align: left;">括号里是 <span class="arithmatex">\(2t\)</span>，不只是 <span class="arithmatex">\(t\)</span></td>
+<td style="text-align: left;">时变</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)=t\,x(t)\)</span></td>
+<td style="text-align: left;">有一个 <span class="arithmatex">\(t\)</span> 跑到了 <span class="arithmatex">\(x\)</span> 的<strong>括号外面</strong></td>
+<td style="text-align: left;">时变</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y[n]=x[3-n]\)</span></td>
+<td style="text-align: left;">括号里是 <span class="arithmatex">\(3-n\)</span>，<span class="arithmatex">\(n\)</span> 前面有<strong>负号</strong></td>
+<td style="text-align: left;">时变</td>
+</tr>
+</tbody>
+</table>
+<details class="abstract">
+<summary>可跳过</summary>
+<p><strong>一处要留意</strong>：第 2 句应读成「括号里是 <span class="arithmatex">\(t\)</span> 加减一个<strong>常数</strong>（只平移）」；乘系数（<span class="arithmatex">\(2t\)</span>）、取反（<span class="arithmatex">\(-t\)</span>、<span class="arithmatex">\(3-n\)</span>）、平方（<span class="arithmatex">\(t^2\)</span>）才算「其他函数」。</p>
+</details>
+<details class="abstract">
+<summary>可跳过</summary>
+<p><strong>口诀的两处提醒</strong>。</p>
+<ol>
+<li>
+<p>第 1 条的「括号外不能有 <span class="arithmatex">\(t\)</span>」，<strong>乘和加都算</strong>：<span class="arithmatex">\(t\,x(t)\)</span>、<span class="arithmatex">\(x(t)\cos t\)</span>、<span class="arithmatex">\(x(t)+\cos t\)</span> 都是时变。括号外是<strong>常数</strong>不算：<span class="arithmatex">\(3x(t)\)</span>、<span class="arithmatex">\(x(t)+5\)</span> 仍是时不变。</p>
+</li>
+<li>
+<p>口诀只是筛查，不是定义；带积分的系统要回到定义。例如积分器 <span class="arithmatex">\(y(t)=\displaystyle\int_{-\infty}^{t}x(\tau)\,\mathrm{d}\tau\)</span>：<span class="arithmatex">\(t\)</span> 在积分上限，跑到了 <span class="arithmatex">\(x\)</span> 的括号外面，口诀按字面会判成时变，但它其实是时不变（证明见例 5），离散的累加器同理（例 6）。</p>
+</li>
+</ol>
+</details>
+<h3 id="37">3.7 练习：五道<a class="headerlink" href="#37" title="Permanent link">&para;</a></h3>
+<p>先盖住结论自己判，再对答案。每题先用口诀预判，再按「做题步骤」写两行；证时变要取具体的 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(t_0\)</span>。</p>
+<p><span class="pt-head">▸ <strong>练习 1<span class="arithmatex">\(y(t)=x(t-1)+2\)</span>：时不变</strong></span></p>
+<ul>
+<li>
+<p>实际：<span class="arithmatex">\(f(t)=x(t-t_0)\)</span>，输出 <span class="arithmatex">\(f(t-1)+2=x(t-1-t_0)+2\)</span>；</p>
+</li>
+<li>
+<p>期望：<span class="arithmatex">\(y(t-t_0)=x\bigl((t-t_0)-1\bigr)+2=x(t-1-t_0)+2\)</span>。</p>
+</li>
+</ul>
+<p>相等，时不变。<span class="arithmatex">\(+2\)</span> 是常数，不随 <span class="arithmatex">\(t\)</span> 变，不影响。</p>
+<p><span class="pt-head">▸ <strong>练习 2<span class="arithmatex">\(y(t)=x(2t)+3\)</span>：时变</strong></span></p>
+<ul>
+<li>
+<p>实际：输出 <span class="arithmatex">\(f(2t)+3=x(2t-t_0)+3\)</span>；</p>
+</li>
+<li>
+<p>期望：<span class="arithmatex">\(y(t-t_0)=x\bigl(2(t-t_0)\bigr)+3=x(2t-2t_0)+3\)</span>。</p>
+</li>
+</ul>
+<p>取例 7 的矩形（<span class="arithmatex">\(0\le t\le1\)</span> 为 <span class="arithmatex">\(1\)</span>）和 <span class="arithmatex">\(t_0=1\)</span>：实际在 <span class="arithmatex">\(0.5\le t\le1\)</span> 上比 <span class="arithmatex">\(3\)</span> 高 <span class="arithmatex">\(1\)</span>，期望在 <span class="arithmatex">\(1\le t\le1.5\)</span> 上比 <span class="arithmatex">\(3\)</span> 高 <span class="arithmatex">\(1\)</span>，位置不同。<span class="arithmatex">\(+3\)</span> 无害，问题出在 <span class="arithmatex">\(2t\)</span>。</p>
+<p><span class="pt-head">▸ <strong>练习 3<span class="arithmatex">\(y(t)=x(t)\cos 2t\)</span>：时变</strong></span></p>
+<ul>
+<li>
+<p>实际：<span class="arithmatex">\(x(t-t_0)\cos2t\)</span>（系统自带的 <span class="arithmatex">\(\cos2t\)</span> 不动）；</p>
+</li>
+<li>
+<p>期望：<span class="arithmatex">\(x(t-t_0)\cos\bigl(2(t-t_0)\bigr)\)</span>。</p>
+</li>
+</ul>
+<p>取 <span class="arithmatex">\(x(t)\equiv1\)</span>、<span class="arithmatex">\(t_0=\dfrac{\pi}{4}\)</span>、<span class="arithmatex">\(t=0\)</span>：实际 <span class="arithmatex">\(=\cos0=1\)</span>，期望 <span class="arithmatex">\(=\cos\bigl(-\dfrac{\pi}{2}\bigr)=0\)</span>，不等。<strong><span class="arithmatex">\(t_0\)</span> 不能乱取</strong>：<span class="arithmatex">\(\cos2t\)</span> 的周期是 <span class="arithmatex">\(\pi\)</span>，取 <span class="arithmatex">\(t_0=\pi\)</span> 时两行恰好相等。时不变要求对<strong>任意</strong> <span class="arithmatex">\(t_0\)</span> 成立，所以证时变时要挑一个不相等的 <span class="arithmatex">\(t_0\)</span>。</p>
+<p><span class="pt-head">▸ <strong>练习 4<span class="arithmatex">\(y(t)=x(t+1)\,x(t-1)\)</span>：时不变（易错：非线性不等于时变）</strong></span></p>
+<ul>
+<li>
+<p>实际：输出 <span class="arithmatex">\(f(t+1)f(t-1)=x(t+1-t_0)\,x(t-1-t_0)\)</span>；</p>
+</li>
+<li>
+<p>期望：<span class="arithmatex">\(y(t-t_0)=x\bigl((t-t_0)+1\bigr)\,x\bigl((t-t_0)-1\bigr)=x(t+1-t_0)\,x(t-1-t_0)\)</span>。</p>
+</li>
+</ul>
+<p>相等，时不变。数字看一眼：取 <span class="arithmatex">\(x\)</span> 为 <span class="arithmatex">\([0,3]\)</span> 上等于 <span class="arithmatex">\(1\)</span> 的矩形，<span class="arithmatex">\(t_0=1\)</span>。原输出在 <span class="arithmatex">\([1,2]\)</span> 为 <span class="arithmatex">\(1\)</span>；输入右移 <span class="arithmatex">\(1\)</span> 后，实际输出在 <span class="arithmatex">\([2,3]\)</span> 为 <span class="arithmatex">\(1\)</span>，正是原输出右移 <span class="arithmatex">\(1\)</span>。</p>
+<p>两个 <span class="arithmatex">\(x\)</span> 相乘是非线性，但时不变只看「括号外有没有随 <span class="arithmatex">\(t\)</span> 变的项、括号里是不是只有 <span class="arithmatex">\(t\)</span> 加减常数」，和线性无关。两个括号里的数不一样（<span class="arithmatex">\(t+1\)</span>、<span class="arithmatex">\(t-1\)</span>）只说明系统有记忆，是另一对性质。</p>
+<p><span class="pt-head">▸ <strong>练习 5<span class="arithmatex">\(y(t)=x(t)\,x(-t)\)</span>：时变</strong></span></p>
+<ul>
+<li>
+<p>实际：输出 <span class="arithmatex">\(f(t)f(-t)=x(t-t_0)\,x(-t-t_0)\)</span>；</p>
+</li>
+<li>
+<p>期望：<span class="arithmatex">\(y(t-t_0)=x(t-t_0)\,x\bigl(-(t-t_0)\bigr)=x(t-t_0)\,x(t_0-t)\)</span>。</p>
+</li>
+</ul>
+<p>取 <span class="arithmatex">\(x\)</span> 为 <span class="arithmatex">\([-1,1]\)</span> 上等于 <span class="arithmatex">\(1\)</span> 的矩形，<span class="arithmatex">\(t_0=1\)</span>：原输出在 <span class="arithmatex">\([-1,1]\)</span> 为 <span class="arithmatex">\(1\)</span>，期望是它右移 <span class="arithmatex">\(1\)</span>，在 <span class="arithmatex">\([0,2]\)</span> 为 <span class="arithmatex">\(1\)</span>。实际：输入右移后在 <span class="arithmatex">\([0,2]\)</span>，<span class="arithmatex">\(f(-t)\)</span> 在 <span class="arithmatex">\([-2,0]\)</span>，两段只在 <span class="arithmatex">\(t=0\)</span> 一点相遇，输出除这一点外全为 <span class="arithmatex">\(0\)</span>。原因是 <span class="arithmatex">\(x(-t)\)</span> 把方向反了：输入向右挪，这一项在输出里向左挪，和例 9 的 <span class="arithmatex">\(x[3-n]\)</span> 同一类。</p>
+<h2 id="4">4 因果系统<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<h3 id="41">4.1 概念<a class="headerlink" href="#41" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>因果系统</strong>(causal system)：任何时刻的输出，只取决于<strong>现在和过去</strong>的输入，不取决于未来的输入（教材 P29 的定义）。</p>
+</div>
+<p>形象地说，输出 <span class="arithmatex">\(y(t)\)</span> 在输入 <span class="arithmatex">\(x(t)\)</span> 之后发生：输入 <span class="arithmatex">\(x\)</span> <strong>从 <span class="arithmatex">\(t_0\)</span> 才开始有值</strong>，输出 <span class="arithmatex">\(y\)</span> <strong>从 <span class="arithmatex">\(t_1\)</span> 才开始有值</strong>，则<strong>系统是因果的，当且仅当 <span class="arithmatex">\(t_1\ge t_0\)</span></strong>。若 <span class="arithmatex">\(t_1\lt{}t_0\)</span>，输入还没来，输出就「未卜先知」地出来了，是<strong>非因果系统</strong>(non-causal system)。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/02-11.svg" /></p>
+<p class="fig-caption"><strong>图 11</strong> 因果与非因果：比较两个「起点」<span class="arithmatex">\(t_0\)</span>（输入从这里开始）和 <span class="arithmatex">\(t_1\)</span>（输出从这里开始）。</p>
+<div class="admonition note">
+<p class="admonition-title">说明</p>
+<ul>
+<li>
+<p>教材定义（P29）为准：「输出在输入之后」只是形象说法。</p>
+</li>
+<li>
+<p>现实系统不具备预知能力，所以非因果系统<strong>物理上难以实现</strong>。</p>
+</li>
+</ul>
+</div>
+<h3 id="42">4.2 证明：判据<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>因果的判据</strong>：<span class="arithmatex">\(x\)</span> 括号里的数，<strong>恒</strong>不大于 <span class="arithmatex">\(y\)</span> 括号里的数。</p>
+<p>只要有<strong>任何一个时刻</strong>，<span class="arithmatex">\(x\)</span> 括号里的数比 <span class="arithmatex">\(y\)</span> 的更大，就是非因果。</p>
+</div>
+<h3 id="43">4.3 例题<a class="headerlink" href="#43" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">系统</th>
+<th style="text-align: left;"><span class="arithmatex">\(x\)</span> 括号里 vs <span class="arithmatex">\(y\)</span> 括号里（<span class="arithmatex">\(t\)</span> 或 <span class="arithmatex">\(n\)</span>）</th>
+<th style="text-align: left;">结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)=x(t-1)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(t-1\lt{}t\)</span>，恒成立</td>
+<td style="text-align: left;">因果</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)=x(t+1)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(t+1\gt{}t\)</span>，输出比输入早一个单位</td>
+<td style="text-align: left;">非因果</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)=x(2t)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(t\gt{}0\)</span> 时 <span class="arithmatex">\(2t\gt{}t\)</span>。反例：输入从 <span class="arithmatex">\(t=1\)</span> 开始，压缩 2 倍后输出从 <span class="arithmatex">\(t=\tfrac12\)</span> 开始，<strong>提前</strong></td>
+<td style="text-align: left;">非因果</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)=x(\tfrac12 t)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(t\lt{}0\)</span> 时 <span class="arithmatex">\(\tfrac12t\gt{}t\)</span>（如 <span class="arithmatex">\(t=-2\)</span>，<span class="arithmatex">\(\tfrac12t=-1\gt{}-2\)</span>）。反例：输入从 <span class="arithmatex">\(t=-1\)</span> 开始，拉伸 2 倍后输出从 <span class="arithmatex">\(t=-2\)</span> 开始，<strong>早</strong></td>
+<td style="text-align: left;">非因果</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y[n]=x[3-n]\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(3-n\)</span> 和 <span class="arithmatex">\(n\)</span> 没有恒定的大小关系</td>
+<td style="text-align: left;">非因果</td>
+</tr>
+</tbody>
+</table>
+<p><span class="arithmatex">\(x(\tfrac12t)\)</span> 这一题要换到 <span class="arithmatex">\(t\lt{}0\)</span>：取 <span class="arithmatex">\(t\gt{}0\)</span> 时 <span class="arithmatex">\(\tfrac12t\lt{}t\)</span>，用到的是过去的输入，看不出问题；但<strong>只要有一处时刻</strong>用到未来，就是非因果。</p>
+<h2 id="5">5 记忆与无记忆系统<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 概念<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>无记忆系统</strong>(memoryless system)：<strong><span class="arithmatex">\(y(t)\)</span> 的值仅仅依赖于 <span class="arithmatex">\(x(t)\)</span> 的值</strong>（同一时刻的输入）。离散时把圆括号换成方括号。反面是<strong>记忆系统</strong>(system with memory)。</p>
+</div>
+<p>直观理解：无记忆像<strong>计算器</strong>，按下哪个数立刻出结果，只看这一次按键；记忆像<strong>银行余额</strong>，取决于过去所有的存取记录。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/02-12.svg" /></p>
+<p class="fig-caption"><strong>图 12</strong> 无记忆：<span class="arithmatex">\(y(t)\)</span> 只由同一时刻的 <span class="arithmatex">\(x(t)\)</span> 决定；有记忆：还要用到其它时刻的输入。</p>
+<h3 id="52">5.2 证明：判据<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>无记忆的判据</strong>：<span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 括号里的数<strong>完全一样</strong>。（因果是「不大于」，无记忆是「相等」。）</p>
+</div>
+<h3 id="53">5.3 例题<a class="headerlink" href="#53" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">系统</th>
+<th style="text-align: left;">结论</th>
+<th style="text-align: left;">理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)=x(t)^2+e^{x(t)}\)</span></td>
+<td style="text-align: left;">无记忆</td>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)\)</span> 只依赖 <span class="arithmatex">\(x(t)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)=x(t-1)\)</span></td>
+<td style="text-align: left;">记忆</td>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)\)</span> 依赖 <span class="arithmatex">\(t-1\)</span> 时刻的值</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y[n]=x[n]^3\)</span></td>
+<td style="text-align: left;">无记忆</td>
+<td style="text-align: left;">只依赖同一个 <span class="arithmatex">\(n\)</span> 的值</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y[n]=x[2n]\)</span></td>
+<td style="text-align: left;">记忆</td>
+<td style="text-align: left;"><span class="arithmatex">\(n\)</span> 点的输出依赖 <span class="arithmatex">\(x\)</span> 在 <span class="arithmatex">\(2n\)</span> 点的值</td>
+</tr>
+</tbody>
+</table>
+<p><span class="pt-head">▸ <strong>无记忆系统一定是因果系统吗？</strong></span> <strong>对</strong>。因果判据是「<span class="arithmatex">\(x\)</span> 括号里的数恒小于或等于 <span class="arithmatex">\(y\)</span> 括号里的数」，无记忆两个括号里的数<strong>恰好相等</strong>，落在「等于」这一种情况里，所以一定因果；反过来不成立：<span class="arithmatex">\(y(t)=x(t-1)\)</span> 因果但有记忆。</p>
+<h2 id="6">6 可逆系统<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<h3 id="61">6.1 概念<a class="headerlink" href="#61" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>可逆系统</strong>(invertible system)：<strong><span class="arithmatex">\(x(t)\)</span> 能唯一地写成 <span class="arithmatex">\(y(t)\)</span> 的形式</strong>。三种等价的说法：</p>
+<ul>
+<li>
+<p>从输出可以<strong>唯一地</strong>倒推出输入；</p>
+</li>
+<li>
+<p><span class="arithmatex">\(y(t)\)</span> 和 <span class="arithmatex">\(x(t)\)</span> 是<strong>一一对应</strong>的映射；</p>
+</li>
+<li>
+<p><span class="arithmatex">\(y=f(x)\)</span> <strong>有反函数</strong>。</p>
+</li>
+</ul>
+</div>
+<p>这与「什么函数有反函数」同理。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/02-13.svg" /></p>
+<p class="fig-caption"><strong>图 13</strong> 可逆：存在逆系统把输出唯一地还原成输入；两个不同输入给出同一输出时不可逆。</p>
+<h3 id="62">6.2 证明：判据<a class="headerlink" href="#62" title="Permanent link">&para;</a></h3>
+<p>能把 <span class="arithmatex">\(x\)</span> 用 <span class="arithmatex">\(y\)</span> 写出来（写得出逆），就可逆；若有两个不同的输入给出同一个输出（或倒推时出现多个解），就不可逆。</p>
+<h3 id="63">6.3 例题<a class="headerlink" href="#63" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">系统</th>
+<th style="text-align: left;">结论</th>
+<th style="text-align: left;">理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)=x(t-1)\)</span></td>
+<td style="text-align: left;">可逆</td>
+<td style="text-align: left;"><span class="arithmatex">\(x(t)=y(t+1)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)=x(t)^2\)</span></td>
+<td style="text-align: left;"><strong>不可逆</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(x(t)=\pm\sqrt{y(t)}\)</span>，一个 <span class="arithmatex">\(y\)</span> 对应<strong>两个</strong>不同的 <span class="arithmatex">\(x\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)=x(2t)\)</span></td>
+<td style="text-align: left;">可逆</td>
+<td style="text-align: left;"><span class="arithmatex">\(x(t)=y(\tfrac12t)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">累加器 <span class="arithmatex">\(y[n]=\displaystyle\sum_{k=-\infty}^{n}x[k]\)</span></td>
+<td style="text-align: left;">可逆</td>
+<td style="text-align: left;"><span class="arithmatex">\(x[n]=y[n]-y[n-1]\)</span>（相邻两个累加一减，刚好剩下 <span class="arithmatex">\(x[n]\)</span>）</td>
+</tr>
+<tr>
+<td style="text-align: left;">积分器 <span class="arithmatex">\(y(t)=\displaystyle\int_{-\infty}^{t}x(\tau)\,\mathrm{d}\tau\)</span></td>
+<td style="text-align: left;">可逆</td>
+<td style="text-align: left;"><span class="arithmatex">\(x(t)=\dfrac{\mathrm{d}y(t)}{\mathrm{d}t}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">微分器 <span class="arithmatex">\(y(t)=\dfrac{\mathrm{d}x(t)}{\mathrm{d}t}\)</span></td>
+<td style="text-align: left;"><strong>不可逆</strong></td>
+<td style="text-align: left;"><span class="arithmatex">\(x(t)=\displaystyle\int_{-\infty}^{t}y(\tau)\,\mathrm{d}\tau+C\)</span>，常数 <span class="arithmatex">\(C\)</span> 可取任意值，倒推不唯一</td>
+</tr>
+</tbody>
+</table>
+<p>累加器的逆：把 <span class="arithmatex">\(y[n]\)</span> 与 <span class="arithmatex">\(y[n-1]\)</span> 相减，只剩 <span class="arithmatex">\(x[n]\)</span>。结论：<strong>积分器、累加器可逆，微分器不可逆</strong>。</p>
+<p><strong>微分器为什么不可逆</strong>：求导会把常数丢掉。<span class="arithmatex">\(x(t)=5\)</span> 和 <span class="arithmatex">\(x(t)=7\)</span> 求导后都是 <span class="arithmatex">\(0\)</span>，倒推时说不清原来是 <span class="arithmatex">\(5\)</span> 还是 <span class="arithmatex">\(7\)</span>，这就是「<span class="arithmatex">\(+C\)</span>」的来源。积分器每一刻都在累积，信息没有丢，所以可以求导还原。</p>
+<h2 id="7">7 稳定系统<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
+<h3 id="71">7.1 概念：有界进，有界出<a class="headerlink" href="#71" title="Permanent link">&para;</a></h3>
+<p>设 <span class="arithmatex">\(x(t)\to y(t)\)</span>。若 <span class="arithmatex">\(x(t)\)</span> <strong>有界</strong>就能推出 <span class="arithmatex">\(y(t)\)</span> <strong>有界</strong>，即「输入有界对应着输出有界」，就是<strong>稳定系统</strong>(stable system)；若有界的输入能对应出<strong>无界</strong>的输出，就是不稳定系统。（英文教材常称 BIBO 稳定，bounded-input bounded-output。）</p>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>有界</strong>(bounded)的定义：</p>
+<div class="arithmatex">\[
+x(t)\ \text{有界}\ \Longleftrightarrow\ \text{存在}\ M,\ \text{对任意的}\ t\ \text{有}\ |x(t)|\lt{}M.
+\]</div>
+<p>画出来：<span class="arithmatex">\(x(t)\)</span> 始终被「上面 <span class="arithmatex">\(+M\)</span>、下面 <span class="arithmatex">\(-M\)</span>」两条线夹住，不可能飞到 <span class="arithmatex">\(\pm\infty\)</span>。</p>
+</div>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/02-14.svg" /></p>
+<p class="fig-caption"><strong>图 14</strong> 有界信号：不管 <span class="arithmatex">\(t\)</span> 取多大多小，波形始终待在两条红色虚线之间。</p>
+<h3 id="72">7.2 证明<a class="headerlink" href="#72" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>证</strong>稳定：设 <span class="arithmatex">\(|x(t)|\lt{}M\)</span>，推出 <span class="arithmatex">\(|y(t)|\)</span> 被某个固定的数夹住。这个数可以很大，只要固定就行。</p>
+<p><strong>证</strong>不稳定：举一个有界的输入，让输出变成无界。</p>
+</div>
+<h3 id="73">7.3 例题：稳定<a class="headerlink" href="#73" title="Permanent link">&para;</a></h3>
+<p class="ex-head"><span class="ex-badge">例 1</span> <strong><span class="arithmatex">\(y(t)=e^{x(t)}\)</span></strong> <span class="ex-tag">稳定</span></p>
+<p><strong>系统</strong>：<span class="arithmatex">\(x(t)\to y(t)=e^{x(t)}\)</span>。</p>
+<p><strong>证明</strong>。设输入有界：<span class="arithmatex">\(|x(t)|\lt{}M\)</span>。则</p>
+<div class="arithmatex">\[
+|y(t)|=\bigl|e^{x(t)}\bigr|=e^{x(t)}\ \le\ e^{|x(t)|}\ \le\ e^{M},
+\]</div>
+<p>其中第一处不等号用到 <span class="arithmatex">\(x(t)\le|x(t)|\)</span> 及 <span class="arithmatex">\(e^{u}\)</span> 单调递增。<span class="arithmatex">\(e^{M}\)</span> 是与 <span class="arithmatex">\(t\)</span> 无关的固定上界，故 <span class="arithmatex">\(y(t)\)</span> 有界，系统稳定。<span class="arithmatex">\(\blacksquare\)</span></p>
+<p class="ex-head"><span class="ex-badge">例 2</span> <strong><span class="arithmatex">\(y(t)=x(t)^3-2x(t)^2+x(t)+1\)</span></strong> <span class="ex-tag">稳定</span></p>
+<p><strong>系统</strong>：<span class="arithmatex">\(x(t)\to y(t)=x(t)^3-2x(t)^2+x(t)+1\)</span>。</p>
+<p><strong>证明</strong>。设 <span class="arithmatex">\(|x(t)|\lt{}M\)</span>。由三角不等式 <span class="arithmatex">\(|a+b+c+d|\le|a|+|b|+|c|+|d|\)</span>（并注意 <span class="arithmatex">\(|-2x^2|=2|x|^2\)</span>），</p>
+<div class="arithmatex">\[
+\begin{align*}
+|y(t)|&amp;=\bigl|x^3-2x^2+x+1\bigr|\\
+&amp;\le |x|^3+2|x|^2+|x|+1\\
+&amp;\le M^3+2M^2+M+1.
+\end{align*}
+\]</div>
+<p><span class="arithmatex">\(M^3+2M^2+M+1\)</span> 是固定上界，故 <span class="arithmatex">\(y(t)\)</span> 有界，系统稳定。<span class="arithmatex">\(\blacksquare\)</span></p>
+<p>多项式型系统都可用同一办法：把每一项的 <span class="arithmatex">\(|x|\)</span> 换成 <span class="arithmatex">\(M\)</span>，得到的数只要固定，系统就稳定——与表达式看起来多「大」无关。</p>
+<h3 id="74">7.4 例题：不稳定<a class="headerlink" href="#74" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">系统</th>
+<th style="text-align: left;">结论</th>
+<th style="text-align: left;">反例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">微分器<br />
+<span class="arithmatex">\(y(t)=\dfrac{\mathrm{d}x(t)}{\mathrm{d}t}\)</span></td>
+<td style="text-align: left;">不稳定</td>
+<td style="text-align: left;">取 <span class="arithmatex">\(x(t)=u(t)\)</span>（阶跃，被 <span class="arithmatex">\(1\)</span> 夹住）。它在 <span class="arithmatex">\(t=0\)</span> 处一下子升 <span class="arithmatex">\(1\)</span>，求导得冲激 <span class="arithmatex">\(\delta(t)\)</span>，在 <span class="arithmatex">\(t=0\)</span> 变成<strong>无穷大</strong>，夹不住</td>
+</tr>
+<tr>
+<td style="text-align: left;">积分器<br />
+<span class="arithmatex">\(y(t)=\displaystyle\int_{-\infty}^{t}x(\tau)\,\mathrm{d}\tau\)</span></td>
+<td style="text-align: left;">不稳定</td>
+<td style="text-align: left;">取 <span class="arithmatex">\(x(t)\equiv1\)</span>（被 <span class="arithmatex">\(M=1\)</span> 夹住）。从 <span class="arithmatex">\(-\infty\)</span> 积到 <span class="arithmatex">\(t\)</span>，<span class="arithmatex">\(y(t)=+\infty\)</span>，夹不住</td>
+</tr>
+<tr>
+<td style="text-align: left;">累加器<br />
+<span class="arithmatex">\(y[n]=\displaystyle\sum_{k=-\infty}^{n}x[k]\)</span></td>
+<td style="text-align: left;">不稳定</td>
+<td style="text-align: left;">同样道理</td>
+</tr>
+</tbody>
+</table>
+
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/02-15.svg" /></p>
+<p class="fig-caption"><strong>图 15</strong> 左：微分器把一个有界的阶跃变成无穷大的冲激。右：积分器把一个有界的常数 <span class="arithmatex">\(1\)</span> 越积越大，没有上限。</p>
+<p><span class="pt-head">▸ <strong>思考题。</strong></span> 连续的微分器不稳定，但<strong>离散的微分器</strong>（差分 <span class="arithmatex">\(y[n]=x[n]-x[n-1]\)</span>）是<strong>稳定</strong>的，想一想为什么。</p>
+<details class="abstract">
+<summary>可跳过</summary>
+<p><strong>解答</strong>：设 <span class="arithmatex">\(|x[n]|\lt{}M\)</span>，则 <span class="arithmatex">\(|y[n]|\le|x[n]|+|x[n-1]|\lt{}2M\)</span>，被 <span class="arithmatex">\(2M\)</span> 夹住，所以稳定。连续微分器不稳定，是因为连续信号可以在一瞬间跳变（跳变处导数无穷大）；离散信号每个点都是有限的数，相邻两点相减，差不会无穷大。</p>
+</details>
+<h2 id="8-33-1-16">8 综合习题：教材第 33 页习题 1-16<a class="headerlink" href="#8-33-1-16" title="Permanent link">&para;</a></h2>
+<p>做教材第 33 页习题 1-16，把五个性质综合起来用：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">系统</th>
+<th style="text-align: center;">线性</th>
+<th style="text-align: center;">时不变</th>
+<th style="text-align: center;">无记忆</th>
+<th style="text-align: center;">因果</th>
+<th style="text-align: center;">稳定</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)=e^{x(t)}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\times\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\checkmark\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\checkmark\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\checkmark\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\checkmark\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y[n]=x[n]\,x[n-1]\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\times\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\checkmark\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\times\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\checkmark\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\checkmark\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(y(t)=\dfrac{\mathrm{d}x(t)}{\mathrm{d}t}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\checkmark\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\checkmark\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\times\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\checkmark\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\times\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>（<span class="arithmatex">\(\checkmark\)</span> 表示「是」，<span class="arithmatex">\(\times\)</span> 表示「否」。）</p>
+<h3 id="81-ytext">8.1 第一行 <span class="arithmatex">\(y(t)=e^{x(t)}\)</span><a class="headerlink" href="#81-ytext" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>线性<strong>否</strong>：看上去「每项有 <span class="arithmatex">\(x\)</span>、<span class="arithmatex">\(x\)</span> 一次」，但 <span class="arithmatex">\(e^{x}=1+x+\tfrac{x^2}{2!}+\cdots\)</span> 不是一次；</p>
+</li>
+<li>
+<p>时不变<strong>是</strong>：<span class="arithmatex">\(t\)</span> 只在 <span class="arithmatex">\(x\)</span> 括号里，括号里只是 <span class="arithmatex">\(t\)</span>；</p>
+</li>
+<li>
+<p>无记忆<strong>是</strong>：<span class="arithmatex">\(y(t)\)</span> 只依赖 <span class="arithmatex">\(x(t)\)</span>；</p>
+</li>
+<li>
+<p>因果<strong>是</strong>：无记忆系统一定因果；</p>
+</li>
+<li>
+<p>稳定<strong>是</strong>：前面例 1 证过。</p>
+</li>
+</ul>
+<h3 id="82-ynxnxn-1">8.2 第二行 <span class="arithmatex">\(y[n]=x[n]\,x[n-1]\)</span><a class="headerlink" href="#82-ynxnxn-1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>线性<strong>否</strong>：两个 <span class="arithmatex">\(x\)</span> 相乘，<span class="arithmatex">\(x\)</span> 不是一次；</p>
+</li>
+<li>
+<p>时不变<strong>是</strong>：<span class="arithmatex">\(n\)</span> 只在 <span class="arithmatex">\(x\)</span> 括号里，括号里是 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(n-1\)</span>（只平移）。</p>
+</li>
+<li>
+<p>无记忆<strong>否</strong>：<span class="arithmatex">\(y[n]\)</span> 还跟 <span class="arithmatex">\(x[n-1]\)</span> 有关；</p>
+</li>
+<li>
+<p>因果<strong>是</strong>：<span class="arithmatex">\(x\)</span> 括号里是 <span class="arithmatex">\(n\)</span> 和 <span class="arithmatex">\(n-1\)</span>，都不大于 <span class="arithmatex">\(y\)</span> 括号里的 <span class="arithmatex">\(n\)</span>；</p>
+</li>
+<li>
+<p>稳定<strong>是</strong>：<span class="arithmatex">\(|x[n]x[n-1]|\le M\cdot M\)</span>，被 <span class="arithmatex">\(M^2\)</span> 夹住。</p>
+</li>
+</ul>
+<h3 id="83-ytdfracmathrmdxtmathrmdt">8.3 第三行 微分器 <span class="arithmatex">\(y(t)=\dfrac{\mathrm{d}x(t)}{\mathrm{d}t}\)</span><a class="headerlink" href="#83-ytdfracmathrmdxtmathrmdt" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>线性<strong>是</strong>，时不变<strong>是</strong>：前面都证明过（时不变的证明见例 3）。</p>
+</li>
+<li>
+<p>无记忆<strong>否</strong>：要算 <span class="arithmatex">\(\dfrac{\mathrm{d}x}{\mathrm{d}t}\)</span>，必须知道 <span class="arithmatex">\(t\pm\Delta t\)</span> 那么<strong>一小点</strong>地方的值；</p>
+</li>
+<li>
+<p>稳定<strong>否</strong>：前面讲过，微分器不稳定；</p>
+</li>
+<li>
+<p>因果：争议最大的一格，见下。</p>
+</li>
+</ul>
+<p><span class="pt-head">▸ <strong>微分器是因果的吗？</strong></span> 这一格有争议：<strong>写因果或非因果都有依据，按导数的两种等价算法可判为因果</strong>。理由是导数是一个极限，可以有两种算法：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">算法</th>
+<th style="text-align: left;">式子</th>
+<th style="text-align: left;">按因果的定义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">取 <span class="arithmatex">\(t\)</span> <strong>右边</strong>一点点</td>
+<td style="text-align: left;"><span class="arithmatex">\(\displaystyle\lim_{\Delta t\to0^+}\dfrac{x(t+\Delta t)-x(t)}{\Delta t}\)</span></td>
+<td style="text-align: left;">用到了 <span class="arithmatex">\(t+\Delta t\gt{}t\)</span> 的值，<strong>非因果</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">取 <span class="arithmatex">\(t\)</span> <strong>左边</strong>一点点</td>
+<td style="text-align: left;"><span class="arithmatex">\(\displaystyle\lim_{\Delta t\to0^+}\dfrac{x(t)-x(t-\Delta t)}{\Delta t}\)</span></td>
+<td style="text-align: left;">用到的 <span class="arithmatex">\(t-\Delta t\lt{}t\)</span>，<strong>因果</strong></td>
+</tr>
+</tbody>
+</table>
+<p>推理：把 <span class="arithmatex">\(y(t)\)</span> 写成 <span class="arithmatex">\(\dfrac{\mathrm{d}x(t)}{\mathrm{d}t}\)</span> 本身就有一个<strong>假设</strong>：左极限和右极限<strong>相等</strong>（导数存在）。既然如此，虽然右边那个算法是非因果的，也能用底下这个因果的算法算出来，所以按这个角度它是因果的。</p>
+<details class="abstract">
+<summary>可跳过</summary>
+<p><strong>直观理解</strong>：导数是「变化有多快」。要知道 <span class="arithmatex">\(t\)</span> 这一刻变化多快，既可以「看一眼刚才到现在涨了多少」（只用过去，因果），也可以「偷看一眼马上要涨多少」（用了未来，非因果）。导数存在时两种看法算出的数相同，因此可判为因果。</p>
+</details>
+<h3 id="84">8.4 小测验<a class="headerlink" href="#84" title="Permanent link">&para;</a></h3>
+<p><strong>小测验</strong>：五分钟做五道题，逐格判断。</p>
+<p>练习方法：盖住 <span class="arithmatex">\(\checkmark/\times\)</span>，对每个系统逐格判断，用各节的判据：线性看「每项有 <span class="arithmatex">\(x\)</span>、一次」；时不变看「<span class="arithmatex">\(t\)</span> 只在括号里、只是 <span class="arithmatex">\(t\)</span>」；无记忆看「两个括号里的数一样」；因果看「<span class="arithmatex">\(x\)</span> 括号里的数恒不大于 <span class="arithmatex">\(y\)</span> 括号里的」；稳定看「能不能用 <span class="arithmatex">\(M\)</span> 夹住」。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "content.code.annotate", "content.tabs.link", "announce.dismiss", "content.action.edit", "content.action.view", "content.tooltips", "navigation.tabs", "navigation.path", "navigation.indexes", "header.autohide"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+  
+      <script src="../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="../../../../vendor/mathjax/tex-mml-chtml.js"></script>
+      
+    
+  <!-- 注册离线缓存（hooks/offline.py 生成 sw.js）：弱网、断网时也能打开看过和没看过的文章 -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register(new URL("../../../../sw.js", location.href));
+    }
+  </script>
+
+  </body>
+</html>

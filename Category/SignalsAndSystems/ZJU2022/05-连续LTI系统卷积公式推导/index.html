@@ -1,0 +1,3061 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../04-%E7%A6%BB%E6%95%A3LTI%E7%B3%BB%E7%BB%9F%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/">
+      
+      
+        <link rel="next" href="../06-%E5%86%B2%E6%BF%80%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>连续 LTI 系统的卷积公式推导 - 飞飞</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <!-- 手机「添加到主屏幕」后以全屏应用方式打开，不显示浏览器地址栏和工具栏 -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="飞飞">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lti" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../.." title="飞飞" class="md-header__button md-logo" aria-label="飞飞" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.92 13.32c-.25-.04-1.21-.32-1.46-.43l-2.07 6.48-3.09-1.13 2.2-5.77L10.45 9 13 7.54c.45 1.13 1.17 2.08 2.12 2.86s2.04 1.27 3.26 1.46l1.12-3.43-1.44-.47-.52 1.6c-.66-.28-1.24-.7-1.74-1.24-.5-.55-.86-1.19-1.08-1.91l-.33-1.08c-.12-.4-.35-.72-.68-.96-.33-.23-.71-.37-1.08-.4-.39-.03-.77.03-1.13.24L8 6.23c-.37.21-.64.51-.81.89-.19.38-.23.76-.19 1.17s.26.77.54 1.08l3.57 3.71-1.69 4.46-6.95-2.49L2 16.46l14.04 5.12q1.17.42 2.49.42c.62 0 1.23-.08 1.83-.23.59-.16 1.14-.38 1.64-.66L20.87 20c-.75.33-1.53.5-2.34.5q-.99 0-1.98-.33l-.75-.28zM19 3c0 1.11-.89 2-2 2s-2-.89-2-2 .9-2 2-2 2 .9 2 2"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            飞飞
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              连续 LTI 系统的卷积公式推导
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../.." class="md-tabs__link">
+          
+  
+  
+    
+  
+  Home
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../SystemOperation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  操作系统
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../AudioAndVideo/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  音视频
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  信号与系统
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../Graphics/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  计算机图形
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../../reference/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="飞飞" class="md-nav__button md-logo" aria-label="飞飞" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17.92 13.32c-.25-.04-1.21-.32-1.46-.43l-2.07 6.48-3.09-1.13 2.2-5.77L10.45 9 13 7.54c.45 1.13 1.17 2.08 2.12 2.86s2.04 1.27 3.26 1.46l1.12-3.43-1.44-.47-.52 1.6c-.66-.28-1.24-.7-1.74-1.24-.5-.55-.86-1.19-1.08-1.91l-.33-1.08c-.12-.4-.35-.72-.68-.96-.33-.23-.71-.37-1.08-.4-.39-.03-.77.03-1.13.24L8 6.23c-.37.21-.64.51-.81.89-.19.38-.23.76-.19 1.17s.26.77.54 1.08l3.57 3.71-1.69 4.46-6.95-2.49L2 16.46l14.04 5.12q1.17.42 2.49.42c.62 0 1.23-.08 1.83-.23.59-.16 1.14-.38 1.64-.66L20.87 20c-.75.33-1.53.5-2.34.5q-.99 0-1.98-.33l-.75-.28zM19 3c0 1.11-.89 2-2 2s-2-.89-2-2 .9-2 2-2 2 .9 2 2"/></svg>
+
+    </a>
+    飞飞
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Home
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../SystemOperation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    操作系统
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    操作系统
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NJU
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    NJU
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/4.Python%E5%BB%BA%E6%A8%A1%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4.Python建模操作系统
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/5.%20%E5%A4%9A%E5%A4%84%E7%90%86%E5%99%A8%E7%BC%96%E7%A8%8B%EF%BC%9A%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 多处理器编程：从入门到放弃
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/6.%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E5%9F%BA%E7%A1%80/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6.并发控制基础
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/7.%20%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%EF%BC%9A%E4%BA%92%E6%96%A5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 并发控制：互斥
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/9.%20%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%EF%BC%9A%E5%90%8C%E6%AD%A5%20%281%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 并发控制：同步 (1)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/10.%20%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%EF%BC%9A%E5%90%8C%E6%AD%A5%20%282%29/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 并发控制：同步 (2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/12.%20%E7%9C%9F%E5%AE%9E%E4%B8%96%E7%95%8C%E7%9A%84%E5%B9%B6%E5%8F%91%20Bug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 真实世界的并发 Bug
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/NJU/13.%20%E5%B9%B6%E5%8F%91%20Bug%20%E7%9A%84%E5%BA%94%E5%AF%B9/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 并发 Bug 的应对
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OS:ThreeEasyPieces
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OS:ThreeEasyPieces
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/OS-ThreeEasyPieces/25.Dialogue%20on%20Concurrency/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    25.Dialogue on Concurrency
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../SystemOperation/OS-ThreeEasyPieces/26.Concurrency%20An%20Introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26.Concurrency An Introduction
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../AudioAndVideo/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    音视频
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    音视频
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    H264
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    H264
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../AudioAndVideo/H264/H264%E7%BB%93%E6%9E%84%E8%AF%A6%E8%A7%A3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 码流的组织结构
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信号与系统
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    信号与系统
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    浙大 2022（胡浩基）
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    浙大 2022（胡浩基）
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../00-%E5%85%B8%E5%9E%8B%E7%9A%84%E4%BF%A1%E5%8F%B7/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    典型的信号
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-%E4%BF%A1%E5%8F%B7%E7%9A%84%E8%87%AA%E5%8F%98%E9%87%8F%E5%8F%98%E6%8D%A2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    信号的自变量变换
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-%E5%85%B8%E5%9E%8B%E7%9A%84%E7%B3%BB%E7%BB%9F/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    典型的系统：线性、时不变、因果、无记忆、可逆、稳定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-%E7%BA%BF%E6%80%A7%E6%97%B6%E4%B8%8D%E5%8F%98%28LTI%29%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AE%9A%E4%B9%89/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    线性时不变（LTI）系统的定义
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-%E7%A6%BB%E6%95%A3LTI%E7%B3%BB%E7%BB%9F%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    离散 LTI 系统的卷积公式推导
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    连续 LTI 系统的卷积公式推导
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    连续 LTI 系统的卷积公式推导
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 从一道画图题出发：已知一对，推另一对
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 从一道画图题出发：已知一对，推另一对">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 复习：连续时间的线性与时不变
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 已知条件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 加难度：台阶有重叠的输入
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 任意输入：用阶梯函数逼近
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 任意输入：用阶梯函数逼近">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-step-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 阶梯函数(step function)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 台阶越窄，近似越准
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 极限：无限窄的方波
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 冲激函数与冲激响应
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 冲激函数与冲激响应">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-deltat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 冲激函数 \(\delta(t)\) 的定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 冲激响应
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 推导连续卷积公式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 推导连续卷积公式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-xt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 第一步：把 \(x(t)\) 写成窄方波之和
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 第二步：逐条性质推出输出
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-deltato0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 第三步：令 \(\Delta\to0\)，求和变成积分
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 结论：卷积积分
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 离散卷积与连续卷积；「卷积」名字的由来
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 离散卷积与连续卷积；「卷积」名字的由来">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 两个公式对照
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 卷积的四步与名字
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-%E5%86%B2%E6%BF%80%E5%87%BD%E6%95%B0%E7%9A%84%E6%80%A7%E8%B4%A8/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    冲激函数 δ(t) 的性质
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-%E8%BF%9E%E7%BB%AD%E4%BF%A1%E5%8F%B7%E5%8D%B7%E7%A7%AF%E8%AE%A1%E7%AE%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    连续信号卷积的计算
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Graphics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    计算机图形
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    计算机图形
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Graphics/Metal/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Metal
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Metal
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_5_2_2" id="__nav_5_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MetalByTutorials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_5_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MetalByTutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Graphics/Metal/MetalByTutorials/Chapter3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Chapter3
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../Graphics/OpenGL/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    OpenGL
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    OpenGL
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    About
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    About
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome to MkDocs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1 从一道画图题出发：已知一对，推另一对
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1 从一道画图题出发：已知一对，推另一对">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 复习：连续时间的线性与时不变
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 已知条件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 加难度：台阶有重叠的输入
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2 任意输入：用阶梯函数逼近
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2 任意输入：用阶梯函数逼近">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-step-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 阶梯函数(step function)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 台阶越窄，近似越准
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 极限：无限窄的方波
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3 冲激函数与冲激响应
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3 冲激函数与冲激响应">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-deltat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 冲激函数 \(\delta(t)\) 的定义
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 冲激响应
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4 推导连续卷积公式
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4 推导连续卷积公式">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-xt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 第一步：把 \(x(t)\) 写成窄方波之和
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 第二步：逐条性质推出输出
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-deltato0" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 第三步：令 \(\Delta\to0\)，求和变成积分
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 结论：卷积积分
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5 离散卷积与连续卷积；「卷积」名字的由来
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5 离散卷积与连续卷积；「卷积」名字的由来">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 两个公式对照
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 卷积的四步与名字
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="导航栏" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    信号与系统
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    浙大 2022（胡浩基）
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="lti">连续 LTI 系统的卷积公式推导<a class="headerlink" href="#lti" title="Permanent link">&para;</a></h1>
+<p class="notes-subtitle">浙江大学 2022《信号与系统》（胡浩基）第二章（教材第 38 页）听课笔记</p>
+
+<p><a class="md-button" href="../pdf/05-%E8%BF%9E%E7%BB%ADLTI%E7%B3%BB%E7%BB%9F%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC.pdf"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg></span> 下载 PDF 版</a></p>
+<!-- 本页由 tools/signal_notes/sync.py 从 LaTeX 笔记自动生成，请勿手改；改动请改源 .tex 后重新同步。 -->
+
+<h2 id="1">1 从一道画图题出发：已知一对，推另一对<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>和离散时的思路一样：已知一个输入通过 LTI 系统的输出，求别的输入的输出。每一步只用一条性质；难度逐步增加，最后推广到任意输入（第 2、4 节）。</p>
+<h3 id="11">1.1 复习：连续时间的线性与时不变<a class="headerlink" href="#11" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<ol>
+<li>
+<p><strong>线性系统</strong>（对<strong>任意</strong>输入）：</p>
+<ul>
+<li>
+<p><strong>齐次性</strong>(homogeneity)：<span class="arithmatex">\(x(t)\to y(t)\)</span>，则 <span class="arithmatex">\(a\,x(t)\to a\,y(t)\)</span>，<span class="arithmatex">\(a\in\mathbb{R}\)</span> 任意；</p>
+</li>
+<li>
+<p><strong>叠加性</strong>(superposition)：<span class="arithmatex">\(x_1(t)\to y_1(t)\)</span>、<span class="arithmatex">\(x_2(t)\to y_2(t)\)</span>，则 <span class="arithmatex">\(x_1(t)+x_2(t)\to y_1(t)+y_2(t)\)</span>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>时不变系统</strong>：<span class="arithmatex">\(x(t)\to y(t)\)</span>，则 <span class="arithmatex">\(x(t-t_0)\to y(t-t_0)\)</span>，<span class="arithmatex">\(t_0\in\mathbb{R}\)</span> 任意。<br />
+    和离散的区别：离散的平移量 <span class="arithmatex">\(n_0\)</span> 只能是整数，连续的 <span class="arithmatex">\(t_0\)</span> 可以是任意实数。</p>
+</li>
+</ol>
+</div>
+<h3 id="12">1.2 已知条件<a class="headerlink" href="#12" title="Permanent link">&para;</a></h3>
+<p>题目改编自教材第 34 页 1-23（原题三角波高度为 <span class="arithmatex">\(2\)</span>，这里取 <span class="arithmatex">\(1\)</span>，做法不变，图更直观）：一个 LTI 系统，输入 <span class="arithmatex">\(0\)</span> 到 <span class="arithmatex">\(2\)</span> 之间高度为 <span class="arithmatex">\(1\)</span> 的方波，输出 <span class="arithmatex">\(0\)</span> 到 <span class="arithmatex">\(2\)</span> 之间、峰值为 <span class="arithmatex">\(1\)</span> 的三角波。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/05-01.svg" /></p>
+<p class="fig-caption"><strong>图 1</strong> 已知条件：<span class="arithmatex">\([0,2]\)</span> 上高度为 <span class="arithmatex">\(1\)</span> 的方波，输出是 <span class="arithmatex">\([0,2]\)</span> 上的三角波，在 <span class="arithmatex">\(t=1\)</span> 处达到峰值 <span class="arithmatex">\(1\)</span>。</p>
+<p>下面三道题，每题用一条性质，从已知推到未知。</p>
+<p class="ex-head"><span class="ex-badge">例 1</span> <strong>方波高度变成 2</strong> <span class="ex-tag">齐次性</span></p>
+<p><strong>题目</strong>：输入仍在 <span class="arithmatex">\([0,2]\)</span> 上，高度变成 <span class="arithmatex">\(2\)</span>，送进<strong>同一个</strong> LTI，输出是什么？</p>
+<p><strong>解</strong>：输出是 <span class="arithmatex">\([0,2]\)</span> 上峰值为 <span class="arithmatex">\(2\)</span> 的三角波。</p>
+<p><strong>依据</strong>：<strong>齐次性</strong>。输入是原来的 <span class="arithmatex">\(2\)</span> 倍（<span class="arithmatex">\(a=2\)</span>），输出也是原来的 <span class="arithmatex">\(2\)</span> 倍。</p>
+<p class="ex-head"><span class="ex-badge">例 2</span> <strong>方波右移到 [2,4]</strong> <span class="ex-tag">时不变性</span></p>
+<p><strong>题目</strong>：输入是 <span class="arithmatex">\([2,4]\)</span> 上高度为 <span class="arithmatex">\(1\)</span> 的方波（原方波右移 <span class="arithmatex">\(2\)</span>），送进同一个 LTI，输出是什么？</p>
+<p><strong>解</strong>：输出是 <span class="arithmatex">\([2,4]\)</span> 上的三角波，峰值 <span class="arithmatex">\(1\)</span> 在 <span class="arithmatex">\(t=3\)</span>。</p>
+<p><strong>依据</strong>：<strong>时不变性</strong>。输入右移 <span class="arithmatex">\(t_0=2\)</span>，输出也右移 <span class="arithmatex">\(2\)</span>。</p>
+<p class="ex-head"><span class="ex-badge">例 3</span> <strong>两段台阶相加</strong> <span class="ex-tag">叠加性</span></p>
+<p><strong>题目</strong>：输入在 <span class="arithmatex">\([0,2]\)</span> 上为 <span class="arithmatex">\(2\)</span>、在 <span class="arithmatex">\([2,4]\)</span> 上为 <span class="arithmatex">\(1\)</span>，送进同一个 LTI，输出是什么？</p>
+<p><strong>解</strong>：这个输入就是例 1 与例 2 的输入之和，所以输出是例 1 与例 2 的输出之和：<span class="arithmatex">\([0,2]\)</span> 上峰值为 <span class="arithmatex">\(2\)</span> 的三角波，加上 <span class="arithmatex">\([2,4]\)</span> 上峰值为 <span class="arithmatex">\(1\)</span> 的三角波。</p>
+<p><strong>依据</strong>：<strong>叠加性</strong>。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/05-02.svg" /></p>
+<p class="fig-caption"><strong>图 2</strong> 例 1–例 3 的输入（左）与输出（右）。例 3 的输入是例 1、例 2 输入之和，输出也是两者输出之和。</p>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>三道题用三条性质：</strong><br />
+<strong>例 1</strong>：输入乘 <span class="arithmatex">\(a\)</span>，输出也乘 <span class="arithmatex">\(a\)</span> <span class="arithmatex">\(\Rightarrow\)</span> 齐次性。<br />
+<strong>例 2</strong>：输入右移 <span class="arithmatex">\(t_0\)</span>，输出也右移 <span class="arithmatex">\(t_0\)</span> <span class="arithmatex">\(\Rightarrow\)</span> 时不变性。<br />
+<strong>例 3</strong>：输入相加，输出也相加 <span class="arithmatex">\(\Rightarrow\)</span> 叠加性。</p>
+</div>
+<h3 id="13">1.3 加难度：台阶有重叠的输入<a class="headerlink" href="#13" title="Permanent link">&para;</a></h3>
+<p class="ex-head"><span class="ex-badge">例 4</span> <strong>三段台阶：1、2、1</strong> <span class="ex-tag">拆成两个方波</span></p>
+<p><strong>题目</strong>：输入在 <span class="arithmatex">\([0,1]\)</span> 上为 <span class="arithmatex">\(1\)</span>、<span class="arithmatex">\([1,2]\)</span> 上为 <span class="arithmatex">\(2\)</span>、<span class="arithmatex">\([2,3]\)</span> 上为 <span class="arithmatex">\(1\)</span>，送进同一个 LTI，输出是什么？</p>
+<p><span class="pt-head">▸ <strong>做法：把输入拆成两个方波。</strong></span></p>
+<div class="arithmatex">\[
+x(t)=\underbrace{[0,2]\text{ 上高度为 1 的方波}}_{\text{已知条件本身}}\;+\;\underbrace{[1,3]\text{ 上高度为 1 的方波}}_{\text{右移 1}}.
+\]</div>
+<p>两个方波在 <span class="arithmatex">\([1,2]\)</span> 上重叠，叠起来高度正好是 <span class="arithmatex">\(2\)</span>。第一个方波的输出是已知的三角波 <span class="arithmatex">\([0,2]\)</span>；第二个方波由时不变性，输出是三角波右移 <span class="arithmatex">\(1\)</span>，即 <span class="arithmatex">\([1,3]\)</span> 上的三角波。由叠加性，<span class="arithmatex">\(y(t)\)</span> 是两个三角波之和。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/05-03.svg" /></p>
+<p class="fig-caption"><strong>图 3</strong> 拆成两个方波，各自过 LTI，再相加。最后一行虚线是两个三角波，实线是它们的和：一个梯形，在 <span class="arithmatex">\([1,2]\)</span> 上是平的。</p>
+<p><span class="pt-head">▸ <strong>逐段相加。</strong></span> 三角波 <span class="arithmatex">\([0,2]\)</span> 在 <span class="arithmatex">\([0,1]\)</span> 上是 <span class="arithmatex">\(t\)</span>，在 <span class="arithmatex">\([1,2]\)</span> 上是 <span class="arithmatex">\(2-t\)</span>；三角波 <span class="arithmatex">\([1,3]\)</span> 在 <span class="arithmatex">\([1,2]\)</span> 上是 <span class="arithmatex">\(t-1\)</span>，在 <span class="arithmatex">\([2,3]\)</span> 上是 <span class="arithmatex">\(3-t\)</span>。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">区间</th>
+<th style="text-align: center;"><span class="arithmatex">\([0,1]\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\([1,2]\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\([2,3]\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">三角波 <span class="arithmatex">\([0,2]\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(t\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(2-t\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;">三角波 <span class="arithmatex">\([1,3]\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(t-1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(3-t\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>相加 <span class="arithmatex">\(y(t)\)</span></strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(t\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\mathbf{1}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(3-t\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键在 <span class="arithmatex">\([1,2]\)</span> 段</strong>：一条下降线加一条上升线，两者斜率相反，每一点相加都等于 <span class="arithmatex">\(1\)</span>，所以这一段正好是平的。答案是梯形：<span class="arithmatex">\(0\to1\)</span> 上升，<span class="arithmatex">\(1\to2\)</span> 保持 <span class="arithmatex">\(1\)</span>，<span class="arithmatex">\(2\to3\)</span> 下降。</p>
+<div class="admonition note">
+<p class="admonition-title">说明</p>
+<p><strong>易错点</strong>：输入在 <span class="arithmatex">\([1,2]\)</span> 上高度为 <span class="arithmatex">\(2\)</span>，容易误以为输出在那里出现一个峰值为 <span class="arithmatex">\(2\)</span> 的尖。实际上要先拆成两个<strong>完整的</strong>方波（<span class="arithmatex">\([0,2]\)</span> 和 <span class="arithmatex">\([1,3]\)</span>），再把它们的输出相加。不能拆成 <span class="arithmatex">\([0,1]\)</span>、<span class="arithmatex">\([1,2]\)</span>、<span class="arithmatex">\([2,3]\)</span> 三段单独的窄方波，因为宽度为 <span class="arithmatex">\(1\)</span> 的方波的输出不知道（见第 2 节例 1）。</p>
+</div>
+<h2 id="2">2 任意输入：用阶梯函数逼近<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="21-step-function">2.1 阶梯函数(step function)<a class="headerlink" href="#21-step-function" title="Permanent link">&para;</a></h3>
+<p>已知「<span class="arithmatex">\([0,2]\)</span> 方波 <span class="arithmatex">\(\to\)</span> <span class="arithmatex">\([0,2]\)</span> 三角波」，任意一个波形 <span class="arithmatex">\(x(t)\)</span> 的输出，用现有的知识<strong>求不出精确解</strong>。但可以求<strong>近似解</strong>：</p>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p>用宽度为 <span class="arithmatex">\(2\)</span> 的台阶拼出一条<strong>阶梯函数</strong>(step function)来近似 <span class="arithmatex">\(x(t)\)</span>。每个台阶都是已知方波经过「乘高度、平移」得到的，它的输出就是一个同样高度、同样位置的三角波。把这些三角波加起来，就得到近似的 <span class="arithmatex">\(y(t)\)</span>。</p>
+</div>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/05-04.svg" /></p>
+<p class="fig-caption"><strong>图 4</strong> 左：灰色曲线是 <span class="arithmatex">\(x(t)\)</span>，红色阶梯每 <span class="arithmatex">\(2\)</span> 个单位跳一次，台阶高度取该段左端点处 <span class="arithmatex">\(x(t)\)</span> 的值。右：每个台阶输出一个三角波，台阶矮，三角波就矮；台阶高，三角波就高。</p>
+<h3 id="22">2.2 台阶越窄，近似越准<a class="headerlink" href="#22" title="Permanent link">&para;</a></h3>
+<p>每隔 <span class="arithmatex">\(2\)</span> 个单位才跳一次的阶梯函数太粗糙。要让近似更准，只能<strong>改变已知条件</strong>：如果知道的是 <span class="arithmatex">\([0,1]\)</span> 方波的输出，就能用每隔 <span class="arithmatex">\(1\)</span> 跳一次的阶梯函数去近似；如果知道 <span class="arithmatex">\([0,0.5]\)</span> 方波的输出，就能每隔 <span class="arithmatex">\(0.5\)</span> 跳一次，更精确。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/05-05.svg" /></p>
+<p class="fig-caption"><strong>图 5</strong> 同一条 <span class="arithmatex">\(x(t)\)</span>，台阶宽度从 <span class="arithmatex">\(1\)</span> 缩到 <span class="arithmatex">\(0.5\)</span>，阶梯函数和曲线之间的缝隙明显变小。前提是知道对应宽度方波的输出。</p>
+<p class="ex-head"><span class="ex-badge">例 1</span> <strong>方波宽度减半，输出会不会也减半？</strong> <span class="ex-tag">不会</span></p>
+<p><strong>题目</strong>：已知 <span class="arithmatex">\([0,2]\)</span> 方波 <span class="arithmatex">\(\to\)</span> <span class="arithmatex">\([0,2]\)</span> 三角波。那么 <span class="arithmatex">\([0,1]\)</span> 方波（高度仍为 <span class="arithmatex">\(1\)</span>）通过同一个 LTI，输出是不是 <span class="arithmatex">\([0,1]\)</span> 上峰值为 <span class="arithmatex">\(1\)</span> 的三角波？</p>
+<p><strong>解</strong>：<strong>不是</strong>。用反证法：假设 <span class="arithmatex">\([0,1]\)</span> 方波 <span class="arithmatex">\(\to\)</span> <span class="arithmatex">\([0,1]\)</span> 三角波。</p>
+<ol>
+<li>
+<p>由时不变性，<span class="arithmatex">\([1,2]\)</span> 方波 <span class="arithmatex">\(\to\)</span> <span class="arithmatex">\([1,2]\)</span> 三角波；</p>
+</li>
+<li>
+<p><span class="arithmatex">\([0,2]\)</span> 方波 <span class="arithmatex">\(=\)</span> <span class="arithmatex">\([0,1]\)</span> 方波 <span class="arithmatex">\(+\)</span> <span class="arithmatex">\([1,2]\)</span> 方波，由叠加性，它的输出是 <span class="arithmatex">\([0,1]\)</span>、<span class="arithmatex">\([1,2]\)</span> 两个小三角波之和；</p>
+</li>
+<li>
+<p>但已知 <span class="arithmatex">\([0,2]\)</span> 方波的输出是<strong>一个</strong>大三角波，两者矛盾。</p>
+</li>
+</ol>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/05-06.svg" /></p>
+<p class="fig-caption"><strong>图 6</strong> 上：错误的猜测。下：照这个猜测，<span class="arithmatex">\([0,2]\)</span> 方波的输出应是两个小三角波（红虚线），与已知的一个大三角波（灰实线）不符，所以猜测错误。</p>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p>方波宽度压缩一半，输出<strong>不是</strong>把三角波也压缩一半。LTI 的几条性质（齐次性、叠加性、时不变性）都不能把「宽度为 <span class="arithmatex">\(2\)</span> 的方波的输出」变成「宽度为 <span class="arithmatex">\(1\)</span> 的方波的输出」。<span class="arithmatex">\([0,1]\)</span> 方波的输出到底是什么，要学完第三章才能求。</p>
+</div>
+<h3 id="23">2.3 极限：无限窄的方波<a class="headerlink" href="#23" title="Permanent link">&para;</a></h3>
+<p>台阶宽度 <span class="arithmatex">\(2\to1\to0.5\to\cdots\)</span>，近似越来越精确。最理想的是知道<strong>一个无限窄的方波</strong>（宽度趋于 <span class="arithmatex">\(0\)</span>）通过系统的输出：知道了它，就能求出<strong>所有</strong> <span class="arithmatex">\(x(t)\)</span> 对应的输出。</p>
+<p>这个无限窄的方波就是<strong>冲激函数</strong> <span class="arithmatex">\(\delta(t)\)</span>（第一章）。要得到连续 LTI 系统的输入输出关系，必须用到它，所以第二章要先把它讲清楚。</p>
+<h2 id="3">3 冲激函数与冲激响应<a class="headerlink" href="#3" title="Permanent link">&para;</a></h2>
+<h3 id="31-deltat">3.1 冲激函数 <span class="arithmatex">\(\delta(t)\)</span> 的定义<a class="headerlink" href="#31-deltat" title="Permanent link">&para;</a></h3>
+<p>冲激函数可以想成一个<strong>无限窄的方波</strong>。为了精确定义它，先定义一个辅助函数 <span class="arithmatex">\(\delta_\Delta(t)\)</span>（教材第 12 页图 1-25）：</p>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<ul>
+<li>
+<p><span class="arithmatex">\(\delta_\Delta(t)\)</span>：从 <span class="arithmatex">\(0\)</span> 到 <span class="arithmatex">\(\Delta\)</span> 的方波，<strong>宽度为 <span class="arithmatex">\(\Delta\)</span>，高度为 <span class="arithmatex">\(\dfrac1\Delta\)</span></strong>，面积恒为 <span class="arithmatex">\(1\)</span>。</p>
+</li>
+<li>
+<p>冲激函数(impulse function)：</p>
+<div class="arithmatex">\[
+\delta(t)=\lim_{\Delta\to0}\delta_\Delta(t).
+\]</div>
+<p>宽度趋于 <span class="arithmatex">\(0\)</span> 时，高度 <span class="arithmatex">\(\dfrac1\Delta\)</span> 趋于无穷大。</p>
+</li>
+<li>
+<p>画法（人为规定，教材第 12 页图 1-26）：在 <span class="arithmatex">\(t=0\)</span> 处画一个向上的箭头，旁边写 <span class="arithmatex">\((1)\)</span>，表示「<span class="arithmatex">\(1\)</span> 倍的 <span class="arithmatex">\(\delta(t)\)</span>」，即面积为 <span class="arithmatex">\(1\)</span>，不是高度为 <span class="arithmatex">\(1\)</span>。</p>
+</li>
+</ul>
+</div>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/05-07.svg" /></p>
+<p class="fig-caption"><strong>图 7</strong> <span class="arithmatex">\(\delta_\Delta(t)\)</span> 随 <span class="arithmatex">\(\Delta\)</span> 变小：越来越窄、越来越高，面积始终为 <span class="arithmatex">\(1\)</span>（<span class="arithmatex">\(1\times1\)</span>、<span class="arithmatex">\(0.5\times2\)</span>、<span class="arithmatex">\(0.25\times4\)</span>）。极限就是冲激函数 <span class="arithmatex">\(\delta(t)\)</span>，画成 <span class="arithmatex">\(t=0\)</span> 处的箭头，标 <span class="arithmatex">\((1)\)</span>。</p>
+<h3 id="32">3.2 冲激响应<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>设 <span class="arithmatex">\(\delta_\Delta(t)\)</span> 通过 LTI 系统的输出为 <span class="arithmatex">\(h_\Delta(t)\)</span>（某个函数）。</p>
+</li>
+<li>
+<p><span class="arithmatex">\(\delta(t)=\lim\limits_{\Delta\to0}\delta_\Delta(t)\)</span> 通过同一个 LTI 系统的输出记作 <span class="arithmatex">\(h(t)\)</span>：</p>
+<div class="arithmatex">\[
+h(t)=\lim_{\Delta\to0}h_\Delta(t)\qquad(\text{假设这个极限存在}).
+\]</div>
+</li>
+</ul>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/05-08.svg" /></p>
+<p class="fig-caption"><strong>图 8</strong> 上：窄方波 <span class="arithmatex">\(\delta_\Delta(t)\)</span> 的输出 <span class="arithmatex">\(h_\Delta(t)\)</span>。下：<span class="arithmatex">\(\Delta\to0\)</span> 时输入变成 <span class="arithmatex">\(\delta(t)\)</span>，输出变成 <span class="arithmatex">\(h(t)\)</span>。右边的曲线只是示意形状，具体由系统决定。</p>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>冲激响应</strong>(impulse response) <span class="arithmatex">\(h(t)\)</span>：冲激函数 <span class="arithmatex">\(\delta(t)\)</span> 输入 LTI 系统得到的输出。它对应离散时的单位脉冲响应 <span class="arithmatex">\(h[n]\)</span>。</p>
+</div>
+<h2 id="4">4 推导连续卷积公式<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
+<p>思路和离散完全一样：<strong>拆成窄方波 <span class="arithmatex">\(\to\)</span> 每个窄方波单独过系统 <span class="arithmatex">\(\to\)</span> 加起来</strong>；唯一多出的一步是最后令 <span class="arithmatex">\(\Delta\to0\)</span>。</p>
+<h3 id="41-xt">4.1 第一步：把 <span class="arithmatex">\(x(t)\)</span> 写成窄方波之和<a class="headerlink" href="#41-xt" title="Permanent link">&para;</a></h3>
+<p>用宽度为 <span class="arithmatex">\(\Delta\)</span> 的阶梯函数近似 <span class="arithmatex">\(x(t)\)</span>：在 <span class="arithmatex">\([k\Delta,(k+1)\Delta)\)</span> 上取高度 <span class="arithmatex">\(x(k\Delta)\)</span>（左端点处 <span class="arithmatex">\(x(t)\)</span> 的值）。把这条红色阶梯函数记作 <span class="arithmatex">\(x_\Delta(t)\)</span>：</p>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<div class="arithmatex">\[
+x_\Delta(t)=\sum_{k=-\infty}^{+\infty}x(k\Delta)\,\delta_\Delta(t-k\Delta)\cdot\Delta .
+\]</div>
+<p>这是整个推导中<strong>最难理解的一步</strong>，下面逐块解释。</p>
+</div>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/05-09.svg" /></p>
+<p class="fig-caption"><strong>图 9</strong> 阶梯函数 <span class="arithmatex">\(x_\Delta(t)\)</span> （红色）由一块块宽为 <span class="arithmatex">\(\Delta\)</span> 的矩形拼成，灰色曲线是 <span class="arithmatex">\(x(t)\)</span>。蓝、紫、绿三块分别对应 <span class="arithmatex">\(k=0,1,2\)</span>，高度是左端点处的 <span class="arithmatex">\(x(0)\)</span>、<span class="arithmatex">\(x(\Delta)\)</span>、<span class="arithmatex">\(x(2\Delta)\)</span>。</p>
+<p><span class="pt-head">▸ <strong>蓝色块（<span class="arithmatex">\(k=0\)</span>）。</strong></span> 它从 <span class="arithmatex">\(0\)</span> 到 <span class="arithmatex">\(\Delta\)</span>，高度 <span class="arithmatex">\(x(0)\)</span>，等于</p>
+<div class="arithmatex">\[
+x(0)\,\delta_\Delta(t)\cdot\Delta .
+\]</div>
+<p>原因：<span class="arithmatex">\(\delta_\Delta(t)\)</span> 是 <span class="arithmatex">\(0\)</span> 到 <span class="arithmatex">\(\Delta\)</span> 的方波，高度 <span class="arithmatex">\(\frac1\Delta\)</span>；乘 <span class="arithmatex">\(\Delta\)</span> 后高度变成 <span class="arithmatex">\(1\)</span>；再乘 <span class="arithmatex">\(x(0)\)</span>，高度变成 <span class="arithmatex">\(x(0)\)</span>。</p>
+<p><span class="pt-head">▸ <strong>紫色块（<span class="arithmatex">\(k=1\)</span>）。</strong></span> 它从 <span class="arithmatex">\(\Delta\)</span> 到 <span class="arithmatex">\(2\Delta\)</span>，高度 <span class="arithmatex">\(x(\Delta)\)</span>，等于</p>
+<div class="arithmatex">\[
+x(\Delta)\,\delta_\Delta(t-\Delta)\cdot\Delta .
+\]</div>
+<p><span class="arithmatex">\(\delta_\Delta(t-\Delta)\)</span> 是把 <span class="arithmatex">\(0\)</span> 到 <span class="arithmatex">\(\Delta\)</span> 的方波右移 <span class="arithmatex">\(\Delta\)</span>，变成 <span class="arithmatex">\(\Delta\)</span> 到 <span class="arithmatex">\(2\Delta\)</span> 的方波；乘 <span class="arithmatex">\(\Delta\)</span> 的作用和蓝色块一样，把高度 <span class="arithmatex">\(\frac1\Delta\)</span> 变成 <span class="arithmatex">\(1\)</span>，再由 <span class="arithmatex">\(x(\Delta)\)</span> 定高度。</p>
+<p><span class="pt-head">▸ <strong>绿色块（<span class="arithmatex">\(k=2\)</span>）。</strong></span> 从 <span class="arithmatex">\(2\Delta\)</span> 到 <span class="arithmatex">\(3\Delta\)</span>，高度 <span class="arithmatex">\(x(2\Delta)\)</span>，等于 <span class="arithmatex">\(x(2\Delta)\,\delta_\Delta(t-2\Delta)\cdot\Delta\)</span>：方波右移 <span class="arithmatex">\(2\Delta\)</span>。</p>
+<p>以此类推，第 <span class="arithmatex">\(k\)</span> 块是 <span class="arithmatex">\(x(k\Delta)\,\delta_\Delta(t-k\Delta)\cdot\Delta\)</span>，把所有块加起来就是上面的公式。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/05-10.svg" /></p>
+<p class="fig-caption"><strong>图 10</strong> 一块矩形是怎么来的：<span class="arithmatex">\(\delta_\Delta(t)\)</span> 高 <span class="arithmatex">\(\frac1\Delta\)</span>，乘 <span class="arithmatex">\(\Delta\)</span> 后高 <span class="arithmatex">\(1\)</span>，再乘 <span class="arithmatex">\(x(0)\)</span> 后高 <span class="arithmatex">\(x(0)\)</span>（蓝色块）。把方波右移 <span class="arithmatex">\(\Delta\)</span>、乘 <span class="arithmatex">\(x(\Delta)\)</span>，得到紫色块。</p>
+<div class="admonition note">
+<p class="admonition-title">说明</p>
+<p>从这里到「取极限」之前的内容，依据见 Oppenheim《Signals and Systems》（第 2 版）第 92–93 页式 (2.24)–(2.27)、图 2.12–2.13，以及第 128 页 2.5.1 节。唯一例外是「三角形积木得到折线」，见下文的存疑标记。</p>
+</div>
+<p><span class="pt-head">▸ <strong>和式算出的是高度，不是面积。</strong></span> <span class="arithmatex">\(x(k\Delta)\cdot\Delta\)</span> 看上去像「高度乘宽度」，容易误以为在求面积。把乘法换一种方式组合：</p>
+<div class="arithmatex">\[
+x(k\Delta)\cdot\underbrace{\big[\delta_\Delta(t-k\Delta)\cdot\Delta\big]}_{\text{高 }1\text{、宽 }\Delta\text{ 的门}} .
+\]</div>
+<p>中括号里乘的 <span class="arithmatex">\(\Delta\)</span> 只起一个作用：把 <span class="arithmatex">\(\delta_\Delta\)</span> 的高度 <span class="arithmatex">\(\frac1\Delta\)</span> 抵消成 <span class="arithmatex">\(1\)</span>。再乘 <span class="arithmatex">\(x(k\Delta)\)</span>，得到高度为 <span class="arithmatex">\(x(k\Delta)\)</span> 的台阶。</p>
+<p>另一种组合 <span class="arithmatex">\(\big[x(k\Delta)\cdot\Delta\big]\cdot\delta_\Delta(t-k\Delta)\)</span> 也成立：<span class="arithmatex">\(x(k\Delta)\cdot\Delta\)</span> 是这块矩形的面积，<span class="arithmatex">\(\delta_\Delta\)</span> 再把这块面积摊在宽 <span class="arithmatex">\(\Delta\)</span> 的格子上，高度 <span class="arithmatex">\(=\)</span> 面积 <span class="arithmatex">\(\div\)</span> 宽 <span class="arithmatex">\(=x(k\Delta)\)</span>。两种读法结果相同，在任一个 <span class="arithmatex">\(t\)</span> 上读到的都是高度。</p>
+<p>不直接写成「高度 <span class="arithmatex">\(\times\)</span> 门」，是为了第三步取极限：<span class="arithmatex">\(\Delta\to0\)</span> 时 <span class="arithmatex">\(\delta_\Delta\to\delta\)</span>、<span class="arithmatex">\(\Delta\to\mathrm{d}\tau\)</span>，和式才能变成积分；而「高 <span class="arithmatex">\(1\)</span> 的门」在 <span class="arithmatex">\(\Delta\to0\)</span> 时会变成一条宽度为零的线，取不出有用的极限。</p>
+<p><span class="pt-head">▸ <strong>每个 <span class="arithmatex">\(t\)</span> 上只有一项不为零。</strong></span> 和式有无穷多项，但对一个固定的 <span class="arithmatex">\(t\)</span>，只有一项不为零，所以 <span class="arithmatex">\(x_\Delta(t)\)</span> 等于那一格的高度。这一点要把 <span class="arithmatex">\(\delta_\Delta\)</span> 的定义代进去才能算出来：<span class="arithmatex">\(\delta_\Delta\)</span> 是一个分段函数，</p>
+<div class="arithmatex">\[
+\delta_\Delta(t)=
+\begin{cases}
+\dfrac1\Delta, &amp; 0\le t\lt{}\Delta,\\[4pt]
+0, &amp; \text{其他}.
+\end{cases}
+\]</div>
+<ol>
+<li>
+<p><strong>代入</strong>：把 <span class="arithmatex">\(t\)</span> 换成 <span class="arithmatex">\(t-k\Delta\)</span>，</p>
+<div class="arithmatex">\[
+\delta_\Delta(t-k\Delta)=
+\begin{cases}
+\dfrac1\Delta, &amp; 0\le t-k\Delta\lt{}\Delta,\\[4pt]
+0, &amp; \text{其他}.
+\end{cases}
+\]</div>
+</li>
+<li>
+<p><strong>解不等式</strong>：<span class="arithmatex">\(t\)</span> 是要求的那个时刻，固定不动；未知的是 <span class="arithmatex">\(k\)</span>。把 <span class="arithmatex">\(0\le t-k\Delta\lt{}\Delta\)</span> 拆成两半：</p>
+<div class="arithmatex">\[
+\begin{align*}
+0\le t-k\Delta &amp;\;\Longrightarrow\; k\Delta\le t \;\Longrightarrow\; k\le \frac t\Delta,\\
+t-k\Delta\lt{}\Delta &amp;\;\Longrightarrow\; t-\Delta\lt{}k\Delta \;\Longrightarrow\; k\gt{}\frac t\Delta-1.
+\end{align*}
+\]</div>
+<p>合起来：</p>
+<div class="arithmatex">\[
+\frac t\Delta-1\lt{}k\le\frac t\Delta .
+\]</div>
+</li>
+<li>
+<p><strong>数整数</strong>：这个区间长度正好为 <span class="arithmatex">\(1\)</span>，左端开、右端闭。<span class="arithmatex">\(k\)</span> 只能取整数，而长度为 <span class="arithmatex">\(1\)</span> 的左开右闭区间里<strong>恰好有一个整数</strong>：长度为 <span class="arithmatex">\(1\)</span>，所以至少有一个；左端是开的，所以不会两端都是整数，最多只有一个。这个整数就是 <span class="arithmatex">\(\frac t\Delta\)</span> 向下取整(floor)，记作 <span class="arithmatex">\(\big\lfloor \frac t\Delta\big\rfloor\)</span>（去掉小数部分，例如 <span class="arithmatex">\(\lfloor 2.4\rfloor=2\)</span>）。</p>
+</li>
+<li>
+<p><strong>结论</strong>：除 <span class="arithmatex">\(k=\lfloor t/\Delta\rfloor\)</span> 外，其余各项的 <span class="arithmatex">\(\delta_\Delta(t-k\Delta)=0\)</span>，整项为 <span class="arithmatex">\(0\)</span>。</p>
+</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><span class="arithmatex">\(\delta_\Delta\)</span> 在宽 <span class="arithmatex">\(\Delta\)</span> 的一小段以外都等于 <span class="arithmatex">\(0\)</span>，所以对固定的 <span class="arithmatex">\(t\)</span>，和式中只有 <span class="arithmatex">\(k=\lfloor t/\Delta\rfloor\)</span> 这一项不为零：</p>
+<div class="arithmatex">\[
+x_\Delta(t)=x\big(\lfloor t/\Delta\rfloor\,\Delta\big),
+\]</div>
+<p>即 <span class="arithmatex">\(t\)</span> 所在那一格左端点处 <span class="arithmatex">\(x\)</span> 的值。</p>
+</div>
+<p class="ex-head"><span class="ex-badge">例 1</span> <strong>代数字验算</strong> <span class="ex-tag">只剩 <span class="arithmatex">\(k=2\)</span></span></p>
+<p><strong>题目</strong>：<span class="arithmatex">\(\Delta=0.5\)</span>，求 <span class="arithmatex">\(x_\Delta(1.2)\)</span>；再求格子边界上的 <span class="arithmatex">\(x_\Delta(1.0)\)</span>。</p>
+<p><strong>解</strong>：<span class="arithmatex">\(t=1.2\)</span> 时 <span class="arithmatex">\(\frac t\Delta=2.4\)</span>，范围 <span class="arithmatex">\(1.4\lt{}k\le2.4\)</span>，其中的整数只有 <span class="arithmatex">\(k=2\)</span>。逐项检查 <span class="arithmatex">\(t-k\Delta\)</span> 是否落在 <span class="arithmatex">\([0,0.5)\)</span>：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><span class="arithmatex">\(k\)</span></th>
+<th style="text-align: center;"><span class="arithmatex">\(t-k\Delta\)</span></th>
+<th style="text-align: center;">在 <span class="arithmatex">\([0,0.5)\)</span> 里吗</th>
+<th style="text-align: center;">这一项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(1.2\)</span></td>
+<td style="text-align: center;">太大</td>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(1\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(0.7\)</span></td>
+<td style="text-align: center;">太大</td>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(\mathbf{2}\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(\mathbf{0.2}\)</span></td>
+<td style="text-align: center;"><strong>在</strong></td>
+<td style="text-align: center;"><span class="arithmatex">\(x(1.0)\cdot\frac1{0.5}\cdot0.5=\boldsymbol{x(1.0)}\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(3\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(-0.3\)</span></td>
+<td style="text-align: center;">负数</td>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><span class="arithmatex">\(4\)</span></td>
+<td style="text-align: center;"><span class="arithmatex">\(-0.8\)</span></td>
+<td style="text-align: center;">负数</td>
+<td style="text-align: center;"><span class="arithmatex">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><span class="arithmatex">\(k\)</span> 太小时 <span class="arithmatex">\(t-k\Delta\)</span> 偏大，<span class="arithmatex">\(k\)</span> 太大时 <span class="arithmatex">\(t-k\Delta\)</span> 为负，只有中间一个 <span class="arithmatex">\(k\)</span> 合适。所以 <span class="arithmatex">\(x_\Delta(1.2)=0+\cdots+0+x(1.0)+0+\cdots=x(1.0)\)</span>。</p>
+<p><span class="arithmatex">\(t=1.0\)</span> 时 <span class="arithmatex">\(\frac t\Delta=2\)</span>，范围 <span class="arithmatex">\(1\lt{}k\le2\)</span>：<span class="arithmatex">\(k=1\)</span> 不满足（左端不含），只有 <span class="arithmatex">\(k=2\)</span>。格子写成左闭右开 <span class="arithmatex">\([k\Delta,(k+1)\Delta)\)</span>，边界点 <span class="arithmatex">\(1.0\)</span> 只归第 <span class="arithmatex">\(2\)</span> 格，仍然只有一项，<span class="arithmatex">\(x_\Delta(1.0)=x(1.0)\)</span>。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/05-11.svg" /></p>
+<p class="fig-caption"><strong>图 11</strong> <span class="arithmatex">\(\Delta=0.5\)</span> 时各项 <span class="arithmatex">\(\delta_\Delta(t-k\Delta)\cdot\Delta\)</span> 都是高 <span class="arithmatex">\(1\)</span>、宽 <span class="arithmatex">\(0.5\)</span> 的门，依次占据 <span class="arithmatex">\([0,0.5)\)</span>、<span class="arithmatex">\([0.5,1)\)</span>、<span class="arithmatex">\([1,1.5)\)</span>、<span class="arithmatex">\([1.5,2)\)</span>，不重叠、无空隙。竖虚线 <span class="arithmatex">\(t=1.2\)</span> 只穿过 <span class="arithmatex">\(k=2\)</span> 的门（红色），其余门在这里都是 <span class="arithmatex">\(0\)</span>。</p>
+<p><span class="pt-head">▸ <strong><span class="arithmatex">\(\delta_\Delta\)</span> 的分段定义是人为规定的。</strong></span> <span class="arithmatex">\(\delta_\Delta\)</span> 不是推出来的，而是为了拼台阶专门设计的积木。按用途，它要满足三条：</p>
+<ol>
+<li>
+<p><strong>只占宽 <span class="arithmatex">\(\Delta\)</span> 的一格，格外为 <span class="arithmatex">\(0\)</span></strong>：每块积木只管自己那一格，相邻积木互不干扰；</p>
+</li>
+<li>
+<p><strong>面积为 <span class="arithmatex">\(1\)</span></strong>：<span class="arithmatex">\(\Delta\to0\)</span> 时它成为冲激函数 <span class="arithmatex">\(\delta(t)\)</span>，后面才能得到卷积积分；</p>
+</li>
+<li>
+<p><strong>宽度 <span class="arithmatex">\(\Delta\)</span> 可以任意缩小</strong>：<span class="arithmatex">\(\Delta\)</span> 越小，台阶越细，近似越准。</p>
+</li>
+</ol>
+<p>满足这三条最简单的形状是矩形：宽 <span class="arithmatex">\(\Delta\)</span>、高 <span class="arithmatex">\(\frac1\Delta\)</span>。矩形在格内一个值、格外另一个值，写出来就是分段函数。</p>
+<p><strong>可以换的规定</strong>：</p>
+<ul>
+<li>
+<p><strong>开闭</strong>：写成 <span class="arithmatex">\([0,\Delta)\)</span> 还是 <span class="arithmatex">\((0,\Delta]\)</span>，只影响格子边界上那一点归哪一格，每个 <span class="arithmatex">\(t\)</span> 仍然只落在一格里。取左闭右开是习惯。</p>
+</li>
+<li>
+<p><strong>形状</strong>：换成底宽 <span class="arithmatex">\(2\Delta\)</span>、面积为 <span class="arithmatex">\(1\)</span> 的三角形，相邻三角形会重叠，一个 <span class="arithmatex">\(t\)</span> 上同时有两项不为零，叠加出来的是把各采样点用直线连起来的折线，不再是台阶（下图）。所以「每个 <span class="arithmatex">\(t\)</span> 只有一项不为零」是<strong>选了矩形</strong>才有的性质。<strong>【存疑】</strong>Oppenheim 第 2.2、2.5 节只讲三角形脉冲取极限仍是 <span class="arithmatex">\(\delta(t)\)</span>，没讲用它拼 <span class="arithmatex">\(x(t)\)</span> 得到折线；这里的依据是一阶保持(first-order hold)的标准结论。</p>
+</li>
+</ul>
+<p><strong>不受影响的结论</strong>：只要积木面积为 <span class="arithmatex">\(1\)</span>、宽度能缩到 <span class="arithmatex">\(0\)</span>，<span class="arithmatex">\(\Delta\to0\)</span> 的极限都是同一个 <span class="arithmatex">\(\delta(t)\)</span>，最后得到的卷积积分与中间选矩形还是三角形无关（<span class="arithmatex">\(\delta(t)\)</span> 的多种极限形式见「冲激函数的性质」笔记「冲激函数的多样性」一节）。</p>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/05-12.svg" /></p>
+<p class="fig-caption"><strong>图 12</strong> 同一条 <span class="arithmatex">\(x(t)\)</span>（灰色）。左：矩形积木互不重叠，每个 <span class="arithmatex">\(t\)</span> 只有一块起作用，拼出台阶。右：底宽 <span class="arithmatex">\(2\Delta\)</span> 的三角形积木（虚线）相邻两块重叠，每个 <span class="arithmatex">\(t\)</span> 上有两块起作用，相加得到经过各采样点 <span class="arithmatex">\(\big(k\Delta,x(k\Delta)\big)\)</span> 的折线（红实线）。两端的斜边是最外两块三角形的一半，没有邻居与它相加。右图的结论存疑，见上文。</p>
+<p><span class="pt-head">▸ <strong>取极限。</strong></span> <span class="arithmatex">\(\Delta\)</span> 取得特别小时，阶梯函数与 <span class="arithmatex">\(x(t)\)</span> 保持一致：</p>
+<div class="arithmatex">\[
+\lim_{\Delta\to0}x_\Delta(t)=x(t).
+\]</div>
+<h3 id="42">4.2 第二步：逐条性质推出输出<a class="headerlink" href="#42" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">输入</th>
+<th style="text-align: left;">输出</th>
+<th style="text-align: left;">依据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(\delta_\Delta(t)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(h_\Delta(t)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(h_\Delta(t)\)</span> 的定义</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(\delta_\Delta(t-k\Delta)\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(h_\Delta(t-k\Delta)\)</span></td>
+<td style="text-align: left;"><strong>时不变性</strong>：输入右移 <span class="arithmatex">\(k\Delta\)</span>，输出也右移 <span class="arithmatex">\(k\Delta\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(x(k\Delta)\,\delta_\Delta(t-k\Delta)\cdot\Delta\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(x(k\Delta)\,h_\Delta(t-k\Delta)\cdot\Delta\)</span></td>
+<td style="text-align: left;"><strong>齐次性</strong>：系数 <span class="arithmatex">\(a=x(k\Delta)\cdot\Delta\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(\sum_{k=-\infty}^{+\infty}x(k\Delta)\,\delta_\Delta(t-k\Delta)\cdot\Delta\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\sum_{k=-\infty}^{+\infty}x(k\Delta)\,h_\Delta(t-k\Delta)\cdot\Delta\)</span></td>
+<td style="text-align: left;"><strong>叠加性</strong>：输入全部加起来，输出也全部加起来</td>
+</tr>
+</tbody>
+</table>
+<p>最后一行左边就是 <span class="arithmatex">\(x_\Delta(t)\)</span>（第一步）。所以阶梯函数 <span class="arithmatex">\(x_\Delta(t)\)</span> 的输出是 <span class="arithmatex">\(\sum_k x(k\Delta)\,h_\Delta(t-k\Delta)\cdot\Delta\)</span>。</p>
+<h3 id="43-deltato0">4.3 第三步：令 <span class="arithmatex">\(\Delta\to0\)</span>，求和变成积分<a class="headerlink" href="#43-deltato0" title="Permanent link">&para;</a></h3>
+<p>两边同时令 <span class="arithmatex">\(\Delta\to0\)</span>。左边 <span class="arithmatex">\(\lim x_\Delta(t)=x(t)\)</span>，所以 <span class="arithmatex">\(x(t)\)</span> 通过 LTI 的输出 <span class="arithmatex">\(y(t)\)</span> 为</p>
+<div class="arithmatex">\[
+\begin{align*}
+y(t)&amp;=\lim_{\Delta\to0}\sum_{k=-\infty}^{+\infty}x(k\Delta)\,h_\Delta(t-k\Delta)\cdot\Delta\\[2pt]
+&amp;=\lim_{\Delta\to0}\sum_{k=-\infty}^{+\infty}x(k\Delta)\,h(t-k\Delta)\cdot\Delta
+&amp;&amp;\text{（$\Delta\to0$ 时 $h_\Delta\to h$）}\\[2pt]
+&amp;=\int_{-\infty}^{+\infty}x(\tau)\,h(t-\tau)\,\mathrm{d}\tau
+&amp;&amp;\text{（黎曼积分的定义）}
+\end{align*}
+\]</div>
+<p><span class="pt-head">▸ <strong>第二个等号。</strong></span> <span class="arithmatex">\(h_\Delta\)</span> 换成 <span class="arithmatex">\(h\)</span>，因为 <span class="arithmatex">\(\Delta\to0\)</span> 时 <span class="arithmatex">\(h_\Delta(t)\)</span> 趋于 <span class="arithmatex">\(h(t)\)</span>（冲激响应的定义）。</p>
+<p><span class="pt-head">▸ <strong>第三个等号。</strong></span> 这就是积分的定义（黎曼和取极限）：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">求和里的</th>
+<th style="text-align: left;">积分里的</th>
+<th style="text-align: left;">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(k\Delta\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\tau\)</span></td>
+<td style="text-align: left;">第 <span class="arithmatex">\(k\)</span> 块所在的位置</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(\Delta\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\mathrm{d}\tau\)</span></td>
+<td style="text-align: left;">每块的宽度</td>
+</tr>
+<tr>
+<td style="text-align: left;"><span class="arithmatex">\(\displaystyle\lim_{\Delta\to0}\sum_{k=-\infty}^{+\infty}\)</span></td>
+<td style="text-align: left;"><span class="arithmatex">\(\displaystyle\int_{-\infty}^{+\infty}\)</span></td>
+<td style="text-align: left;">把所有块加起来</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">说明</p>
+<p>推导中有两处默认成立：一是 <span class="arithmatex">\(h(t)=\lim_{\Delta\to0}h_\Delta(t)\)</span> 这个极限存在；二是输入取极限（<span class="arithmatex">\(x_\Delta\to x\)</span>）时，输出也取对应的极限。对后面遇到的系统，这两点都成立。</p>
+</div>
+<h3 id="44">4.4 结论：卷积积分<a class="headerlink" href="#44" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p>若 <span class="arithmatex">\(\delta(t)\xrightarrow{\ \text{LTI}\ }h(t)\)</span>，则任意 <span class="arithmatex">\(x(t)\)</span> 通过同一个 LTI，输出为</p>
+<div class="arithmatex">\[
+y(t)=x(t)\ast h(t)=\int_{-\infty}^{+\infty}x(\tau)\,h(t-\tau)\,\mathrm{d}\tau\qquad(\text{教材第 38 页式 2-11、2-12}).
+\]</div>
+<ul>
+<li>
+<p><span class="arithmatex">\(\delta(t)\)</span>：冲激函数；<span class="arithmatex">\(h(t)\)</span>：冲激响应。</p>
+</li>
+<li>
+<p>这个公式定义为 <span class="arithmatex">\(x(t)\)</span> 与 <span class="arithmatex">\(h(t)\)</span> 的<strong>卷积</strong>(convolution)，记作 <span class="arithmatex">\(x(t)\ast h(t)\)</span>。</p>
+</li>
+<li>
+<p>和离散一样：<strong>只要知道 <span class="arithmatex">\(h(t)\)</span>，就能求出任意输入的输出</strong>。</p>
+</li>
+</ul>
+</div>
+<h2 id="5">5 离散卷积与连续卷积；「卷积」名字的由来<a class="headerlink" href="#5" title="Permanent link">&para;</a></h2>
+<h3 id="51">5.1 两个公式对照<a class="headerlink" href="#51" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<div class="arithmatex">\[
+\begin{align*}
+\text{离散卷积：}\quad x[n]\ast h[n]&amp;=\sum_{k=-\infty}^{+\infty}x[k]\,h[n-k],\\
+\text{连续卷积：}\quad x(t)\ast h(t)&amp;=\int_{-\infty}^{+\infty}x(\tau)\,h(t-\tau)\,\mathrm{d}\tau .
+\end{align*}
+\]</div>
+<p>这两个公式要能倒背如流。</p>
+</div>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;">离散</th>
+<th style="text-align: left;">连续</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">基本输入</td>
+<td style="text-align: left;">单位脉冲 <span class="arithmatex">\(\delta[n]\)</span></td>
+<td style="text-align: left;">冲激函数 <span class="arithmatex">\(\delta(t)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">它的输出</td>
+<td style="text-align: left;">单位脉冲响应 <span class="arithmatex">\(h[n]\)</span></td>
+<td style="text-align: left;">冲激响应 <span class="arithmatex">\(h(t)\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">求和变量</td>
+<td style="text-align: left;"><span class="arithmatex">\(k\)</span>（整数）</td>
+<td style="text-align: left;"><span class="arithmatex">\(\tau\)</span>（实数）</td>
+</tr>
+<tr>
+<td style="text-align: left;">合成方式</td>
+<td style="text-align: left;">求和 <span class="arithmatex">\(\sum\)</span></td>
+<td style="text-align: left;">积分 <span class="arithmatex">\(\int\cdots\mathrm{d}\tau\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">推导方式</td>
+<td style="text-align: left;">拆成脉冲，直接相加，结果精确</td>
+<td style="text-align: left;">拆成窄方波，相加后再令 <span class="arithmatex">\(\Delta\to0\)</span></td>
+</tr>
+</tbody>
+</table>
+<h3 id="52">5.2 卷积的四步与名字<a class="headerlink" href="#52" title="Permanent link">&para;</a></h3>
+<p>把 <span class="arithmatex">\(h(t-\tau)\)</span> 写成 <span class="arithmatex">\(h[-(\tau-t)]\)</span>：</p>
+<div class="arithmatex">\[
+x(t)\ast h(t)=\int_{-\infty}^{+\infty}x(\tau)\,h\big[-(\tau-t)\big]\,\mathrm{d}\tau .
+\]</div>
+<p>从里往外读，正好是卷积的四步：</p>
+<ol>
+<li>
+<p><strong>翻转</strong>：<span class="arithmatex">\(h(\tau)\to h(-\tau)\)</span>，沿纵轴翻过来；</p>
+</li>
+<li>
+<p><strong>平移</strong>：<span class="arithmatex">\(h(-\tau)\to h[-(\tau-t)]\)</span>，平移 <span class="arithmatex">\(t\)</span>；</p>
+</li>
+<li>
+<p><strong>相乘</strong>：与 <span class="arithmatex">\(x(\tau)\)</span> 相乘；</p>
+</li>
+<li>
+<p><strong>积分</strong>（离散时是<strong>求和</strong>）：对 <span class="arithmatex">\(\tau\)</span> 积分，得到 <span class="arithmatex">\(y(t)\)</span> 在这一个 <span class="arithmatex">\(t\)</span> 上的值。</p>
+</li>
+</ol>
+<p><img alt="" class="notes-fig" loading="lazy" src="../images/05-13.svg" /></p>
+<p class="fig-caption"><strong>图 13</strong> 以 <span class="arithmatex">\(h(\tau)\)</span> 为 <span class="arithmatex">\([0,2]\)</span> 上从 <span class="arithmatex">\(1\)</span> 降到 <span class="arithmatex">\(0\)</span> 的斜线、<span class="arithmatex">\(x(\tau)\)</span> 为 <span class="arithmatex">\([0,2]\)</span> 上高度 <span class="arithmatex">\(1\)</span> 的方波（图 (4) 中蓝虚线）为例求 <span class="arithmatex">\(y(1)\)</span>。翻转、平移后 <span class="arithmatex">\(h(1-\tau)\)</span> 在 <span class="arithmatex">\([-1,1]\)</span> 上，与 <span class="arithmatex">\(x(\tau)\)</span> 重叠在 <span class="arithmatex">\([0,1]\)</span>，乘积从 <span class="arithmatex">\(0.5\)</span> 升到 <span class="arithmatex">\(1\)</span>，橙色面积 <span class="arithmatex">\(=\frac{0.5+1}{2}\times1=0.75\)</span>，即 <span class="arithmatex">\(y(1)=0.75\)</span>。</p>
+<div class="admonition tip">
+<p class="admonition-title">重点</p>
+<p><strong>卷积</strong>(convolution)的名字取自四步中的两步：<strong>「卷」指翻转，「积」指相乘</strong>。</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["content.code.copy", "content.code.annotate", "content.tabs.link", "announce.dismiss", "content.action.edit", "content.action.view", "content.tooltips", "navigation.tabs", "navigation.path", "navigation.indexes", "header.autohide"], "search": "../../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+  
+      <script src="../../../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+        <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="../../../../vendor/mathjax/tex-mml-chtml.js"></script>
+      
+    
+  <!-- 注册离线缓存（hooks/offline.py 生成 sw.js）：弱网、断网时也能打开看过和没看过的文章 -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register(new URL("../../../../sw.js", location.href));
+    }
+  </script>
+
+  </body>
+</html>

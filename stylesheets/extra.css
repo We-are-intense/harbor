@@ -1,0 +1,69 @@
+/* 只在桌面宽度（出现左右侧栏的断点 76.25em）放大字号；
+   手机、平板沿用 Material 默认字号，否则字太大、一行放不下几个字 */
+@media screen and (min-width: 76.25em) {
+    html {
+        font-size: 150%;
+    }
+}
+
+/* 折行后仍超宽的行内公式（由 docs/javascripts/mathjax.js 标记）：限制在栏宽内，可横向滑动 */
+.md-typeset mjx-container.mjx-scroll {
+    display: inline-block;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    vertical-align: middle;
+}
+
+/* ---------------- 信号与系统笔记（tools/signal_notes/sync.py 生成的页面） ---------------- */
+.notes-subtitle {
+    color: var(--md-default-fg-color--light);
+    margin-top: -0.6em;
+}
+
+/* 图：居中，窄屏缩到屏宽；白底与 PDF 一致 */
+.md-typeset img.notes-fig {
+    display: block;
+    margin: 1.2em auto 0.4em;
+    max-width: 100%;
+    height: auto;
+    background: #fff;
+}
+.md-typeset .fig-caption {
+    font-size: 0.85em;
+    color: var(--md-default-fg-color--light);
+    margin-top: 0;
+    padding: 0 1em;
+}
+
+/* 例题标题：左边橙色「例 n」徽章，右边结论标签 */
+.md-typeset .ex-head {
+    margin-top: 1.6em;
+    color: rgb(190, 90, 10);
+}
+.md-typeset .ex-badge {
+    background: rgb(190, 90, 10);
+    color: #fff;
+    font-weight: 700;
+    padding: 0.05em 0.45em;
+    border-radius: 0.2em;
+    margin-right: 0.2em;
+}
+.md-typeset .ex-head small {
+    color: var(--md-default-fg-color--light);
+}
+.md-typeset .ex-tag {
+    float: right;
+    font-size: 0.85em;
+    background: rgba(190, 90, 10, 0.12);
+    padding: 0.05em 0.5em;
+    border-radius: 0.2em;
+}
+
+/* 小标题：青色三角 + 粗体，接着同一段往下写 */
+.md-typeset .pt-head {
+    color: rgb(0, 110, 110);
+}
+
+
+  
