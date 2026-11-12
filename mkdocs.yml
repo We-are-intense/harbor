@@ -1,33 +1,35 @@
 site_name: 飞飞
 nav:
-  - Home: 
+  - Home:
     - index.md
-    - 操作系统:
-      - NJU: 
-        - Category/SystemOperation/NJU/4.Python建模操作系统.md
-        - Category/SystemOperation/NJU/5. 多处理器编程：从入门到放弃.md
-        - Category/SystemOperation/NJU/6.并发控制基础.md
-        - Category/SystemOperation/NJU/7. 并发控制：互斥.md
-        - Category/SystemOperation/NJU/9. 并发控制：同步 (1).md
-        - Category/SystemOperation/NJU/10. 并发控制：同步 (2).md
-        - Category/SystemOperation/NJU/12. 真实世界的并发 Bug.md
-        - Category/SystemOperation/NJU/13. 并发 Bug 的应对.md
-      - OS:ThreeEasyPieces:
-        - Category/SystemOperation/OS-ThreeEasyPieces/25.Dialogue on Concurrency.md
-        - Category/SystemOperation/OS-ThreeEasyPieces/26.Concurrency An Introduction.md
-    - 音视频:
-      - Category/AudioAndVideo/index.md
-    - 图形:
-      - Category/Graphics/index.md
-      - Metal: 
-        - Category/Graphics/Metal/index.md
-        - MetalByTutorials:
-          - Category/Graphics/Metal/MetalByTutorials/Chapter3.md
-      - OpenGL:
-        - Category/Graphics/OpenGL/index.md
-    - Reference: reference.md
-    - Resources: Category/resource/index.md
-  - About: about.md
+  - 操作系统:
+    - Category/SystemOperation/index.md
+    - NJU: 
+      - Category/SystemOperation/NJU/4.Python建模操作系统.md
+      - Category/SystemOperation/NJU/5. 多处理器编程：从入门到放弃.md
+      - Category/SystemOperation/NJU/6.并发控制基础.md
+      - Category/SystemOperation/NJU/7. 并发控制：互斥.md
+      - Category/SystemOperation/NJU/9. 并发控制：同步 (1).md
+      - Category/SystemOperation/NJU/10. 并发控制：同步 (2).md
+      - Category/SystemOperation/NJU/12. 真实世界的并发 Bug.md
+      - Category/SystemOperation/NJU/13. 并发 Bug 的应对.md
+    - OS:ThreeEasyPieces:
+      - Category/SystemOperation/OS-ThreeEasyPieces/25.Dialogue on Concurrency.md
+      - Category/SystemOperation/OS-ThreeEasyPieces/26.Concurrency An Introduction.md
+  - 音视频:
+    - Category/AudioAndVideo/index.md
+    - H264:
+      - Category/AudioAndVideo/H264/H264结构详解.md
+  - 计算机图形:
+    - Category/Graphics/index.md
+    - Metal: 
+      - Category/Graphics/Metal/index.md
+      - MetalByTutorials:
+        - Category/Graphics/Metal/MetalByTutorials/Chapter3.md
+    - OpenGL:
+      - Category/Graphics/OpenGL/index.md
+  - About:
+    - reference.md
 
 theme:
   name: material
@@ -73,8 +75,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.tilde
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       linenums_style: pymdownx-inline
       anchor_linenums: true
