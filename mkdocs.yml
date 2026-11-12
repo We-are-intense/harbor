@@ -45,6 +45,7 @@ nav:
 
 theme:
   name: material
+  custom_dir: overrides
   icon:
     logo: material/ski
   palette:
@@ -67,6 +68,8 @@ theme:
     # - navigation.expand
     - navigation.path
     - navigation.indexes
+    # 往下滚动时收起顶部栏，往上滚动时再出现，手机上阅读区域更大
+    - header.autohide
 
 markdown_extensions:
   - markdown.extensions.admonition
