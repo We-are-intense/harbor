@@ -22,6 +22,16 @@ nav:
       - Category/AudioAndVideo/H264/H264结构详解.md
   - 信号与系统:
     - Category/SignalsAndSystems/index.md
+    - 浙大 2022（胡浩基）:
+      - Category/SignalsAndSystems/ZJU2022/index.md
+      - Category/SignalsAndSystems/ZJU2022/00-典型的信号.md
+      - Category/SignalsAndSystems/ZJU2022/01-信号的自变量变换.md
+      - Category/SignalsAndSystems/ZJU2022/02-典型的系统.md
+      - Category/SignalsAndSystems/ZJU2022/03-线性时不变(LTI)系统的定义.md
+      - Category/SignalsAndSystems/ZJU2022/04-离散LTI系统卷积公式推导.md
+      - Category/SignalsAndSystems/ZJU2022/05-连续LTI系统卷积公式推导.md
+      - Category/SignalsAndSystems/ZJU2022/06-冲激函数的性质.md
+      - Category/SignalsAndSystems/ZJU2022/07-连续信号卷积计算.md
   - 计算机图形:
     - Category/Graphics/index.md
     - Metal: 
@@ -67,7 +77,8 @@ markdown_extensions:
   - abbr
   - markdown.extensions.toc:
       permalink: true
-  - pymdownx.arithmatex
+  - pymdownx.arithmatex:
+      generic: true
   - pymdownx.betterem:
       smart_enable: all
   - pymdownx.caret
@@ -102,3 +113,7 @@ markdown_extensions:
 
 extra_css:
   - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js
