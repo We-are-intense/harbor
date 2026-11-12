@@ -20,6 +20,8 @@ nav:
     - Category/AudioAndVideo/index.md
     - H264:
       - Category/AudioAndVideo/H264/H264结构详解.md
+  - 信号与系统:
+    - Category/SignalsAndSystems/index.md
   - 计算机图形:
     - Category/Graphics/index.md
     - Metal: 
