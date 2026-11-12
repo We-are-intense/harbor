@@ -1,5 +1,18 @@
-html {
-    font-size: 150%;
+/* 只在桌面宽度（出现左右侧栏的断点 76.25em）放大字号；
+   手机、平板沿用 Material 默认字号，否则字太大、一行放不下几个字 */
+@media screen and (min-width: 76.25em) {
+    html {
+        font-size: 150%;
+    }
+}
+
+/* 折行后仍超宽的行内公式（由 docs/javascripts/mathjax.js 标记）：限制在栏宽内，可横向滑动 */
+.md-typeset mjx-container.mjx-scroll {
+    display: inline-block;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    vertical-align: middle;
 }
 
 /* ---------------- 信号与系统笔记（tools/signal_notes/sync.py 生成的页面） ---------------- */
